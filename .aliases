@@ -1,0 +1,20 @@
+alias zshconfig="vim ~/.zshrc"
+
+# Git
+alias gs="git status"
+alias gl="gi log"
+alias gcom="git checkout master"
+alias gaa="git add ."
+alias gc="git commit -m "
+alias gp="git push"
+alias nah="git reset --hard && git clean -df"
+
+# Dir & listing
+alias l="ls -la"				    # List in long format, include dotfiles
+alias ld="ls -ld */"				    # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"

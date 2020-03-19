@@ -1,0 +1,10 @@
+alias zshconfig="vim ~/.zshrc"
+alias gs="git status"
+alias gl="gi log"
+alias gcom="git checkout master"
+alias gaa="git add ."
+alias gc="git commit -m "
+alias gp="git push"
+alias nah="git reset --hard && git clean -df"
+alias cdgp="cd ~/GitProjects/"
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
