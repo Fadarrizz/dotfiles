@@ -46,4 +46,4 @@ cask 'font-jetbrains-mono'
 
 # Mac App Store
 mas 'Magnet', id: 441258766
-max 'Xcode', id: 497799835
+mas 'Xcode', id: 497799835
