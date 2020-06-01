@@ -3,7 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-eid'
 tap 'homebrew/bundle'
 
-# Binaries
+# Packages
 brew 'coreutils'	    # Those that come with macOS are outdated
 brew 'ffmpeg'
 brew 'gh'
@@ -11,7 +11,10 @@ brew 'git'
 brew 'grep'
 brew 'mackup'
 brew 'mas'
+brew 'neovim'
 brew 'pkg-config'
+brew 'ripgrep'
+brew 'zsh'
 
 # Development
 brew 'php'
