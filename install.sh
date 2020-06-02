@@ -31,6 +31,10 @@ ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 # Symlink the Mackup config file to the home directory
 ln -s $HOME/.dotfiles/Backup/Mackup/.mackup.cfg $HOME/.mackup.cfg
 
+# Symlink Neovim config
+ln -s $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -s $HOME/.dotfiles/.config/nvim/plugins.vim $HOME/.config/nvim/plugins.vim
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos
