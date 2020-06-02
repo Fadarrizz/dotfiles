@@ -9,12 +9,10 @@ fi
 export DOTFILES=$HOME./dotfiles
 
 # If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
-#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/usr/local/sbin:$PATH"
+#export PATH="/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ageerts/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -64,7 +62,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$DOTFILES
@@ -100,7 +98,11 @@ plugins=(
 # User configuration
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
+source $DOTFILES/.aliases
+
+# You may need to manually set your language environment
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 #export NVM_DIR="$HOME/.nvm"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
