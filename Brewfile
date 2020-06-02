@@ -25,15 +25,14 @@ brew 'node'
 
 # Apps
 cask 'alfred'
-cask 'amphetamine'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
+cask 'iterm2'
 cask 'java'
 cask 'jetbrains-toolbox'
 cask 'karabiner-elements'
-cask 'magnet'
 cask 'phpstorm'
 cask 'private-internet-access'
 cask 'spotify'
@@ -45,5 +44,6 @@ cask 'whatsapp'
 cask 'font-jetbrains-mono'
 
 # Mac App Store
+mas 'Amphetamine', id: 937984704
 mas 'Magnet', id: 441258766
 mas 'Xcode', id: 497799835
