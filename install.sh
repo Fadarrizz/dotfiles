@@ -35,7 +35,7 @@ ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/Backup/Mackup/.mackup.cfg $HOME/.mackup.cfg
 
 # Symlink Neovim config
-mkdir $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
 ln -s $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 ln -s $HOME/.dotfiles/.config/nvim/plugins.vim $HOME/.config/nvim/plugins.vim
 
