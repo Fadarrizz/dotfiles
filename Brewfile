@@ -2,6 +2,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-eid'
 tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
 
 # Packages
 brew 'coreutils'	    # Those that come with macOS are outdated
@@ -37,6 +38,7 @@ cask 'phpstorm'
 cask 'private-internet-access'
 cask 'spotify'
 cask 'tunnelblick'
+cask 'toggl'
 cask 'vlc'
 cask 'whatsapp'
 
