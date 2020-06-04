@@ -32,12 +32,11 @@ rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
 # Symlink the Mackup config file to the home directory
-ln -s $HOME/.dotfiles/Backup/Mackup/.mackup.cfg $HOME/.mackup.cfg
+ln -s $HOME/Dropbox/Backup/Mackup/.mackup.cfg $HOME/.mackup.cfg
 
-# Symlink Neovim config
-mkdir -p $HOME/.config/nvim
-ln -s $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
-ln -s $HOME/.dotfiles/.config/nvim/plugins.vim $HOME/.config/nvim/plugins.vim
+# Install Plug for Neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
