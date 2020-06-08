@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-eid'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
+tap 'teamookla/speedtest'
 
 # Packages
 brew 'coreutils'	    # Those that come with macOS are outdated
@@ -16,6 +17,7 @@ brew 'mas'
 brew 'neovim'
 brew 'pkg-config'
 brew 'ripgrep'
+brew 'speedtest'
 brew 'zsh'
 
 # Development
