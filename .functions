@@ -2,3 +2,9 @@
 function mk() {
     mkdir -p "$@" && cd "$@"
 }
+
+function gitNewBranchOnMaster() {
+    git checkout master &&
+    git fetch && git pull &&
+    git checkout -b "$1";
+}

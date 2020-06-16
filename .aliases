@@ -1,4 +1,4 @@
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 
 # Git
 alias gs="git status"
@@ -9,6 +9,8 @@ alias gc="git commit -m "
 alias gp="git push"
 alias nah="git reset --hard && git clean -df"
 alias gcm="git checkout master"
+alias gnbm="gitNewBranchOnMaster "
+alias gcmp="git checkout master && git fetch && git pull"
 
 # Dir & listing
 alias l="ls -la"				    # List in long format, include dotfiles
@@ -16,6 +18,7 @@ alias ld="ls -ld */"				    # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias mkcd="mk "
 
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
