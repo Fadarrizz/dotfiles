@@ -18,9 +18,10 @@ Plug 'junegunn/fzf', { 'do': './install --bin' } 	"Get latest binary.
 Plug 'junegunn/fzf.vim'
 
 " Text manipulation
+Plug 'tpope/vim-abolish'
 
 " Snippets
-Plug 'SirVer/ultisnips' | Plug 'phux/vim-snippets'
+"Plug 'SirVer/ultisnips' | Plug 'phux/vim-snippets'
 
 " Autocompletion
 "Plug 'ncm2/ncm2'
@@ -36,7 +37,7 @@ Plug 'dense-analysis/ale'
 
 " HTML, CSS, JS, PHP, JSON, etc.
 Plug 'StanAngeloff/php.vim'
-"Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 "Plug 'stephpy/vim-php-cs-fixer'
 "Plug 'phpactor/phpactor'
 "Plug 'ncm2/ncm2-tern'

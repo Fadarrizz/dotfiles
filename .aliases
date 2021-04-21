@@ -11,6 +11,7 @@ alias nah="git reset --hard && git clean -df"
 alias gcm="git checkout master"
 alias gnbm="gitNewBranchOnMaster "
 alias gcmp="git checkout master && git fetch && git pull"
+alias gdlb="git branch --merged | egrep -v '(^\*|master|main)' | xargs git branch -d"
 
 # Dir & listing
 alias l="ls -la"				    # List in long format, include dotfiles
