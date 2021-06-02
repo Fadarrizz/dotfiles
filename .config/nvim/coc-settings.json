@@ -1,0 +1,25 @@
+{
+    "languageserver": {
+        "phpactor": {
+            "trace.server": "verbose",
+            "command": "~/.config/nvim/plugged/phpactor/bin/phpactor",
+            "args": ["language-server"],
+            "filetypes": ["php","cucumber"],
+            "initializationOptions": {
+            },
+            "settings": {
+            }
+        }
+    },
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "gosnippets/UltiSnips"
+    ],
+    "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
+    "suggest.snippetIndicator": " ►",
+    "diagnostic.enable": false,
+    "coc.preferences.formatOnSaveFiletypes": ["go", "clojure", "php"],
+    "coc.preferences.hoverTarget": "float",
+
+    "html.format.enable": true
+}
