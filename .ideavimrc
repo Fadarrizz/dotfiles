@@ -1,0 +1,50 @@
+"source ~/Dropbox/Backup/Mackup/.config/nvim/init.vim
+
+set surround
+set matchpairs
+set number relativenumber
+set ignorecase smartcase
+set exchange
+set nostartofline
+set clipboard+=unnamedplus
+set hls
+set incsearch
+set nohlsearch
+set highlightedyank
+set scrolloff=8
+set ruler
+
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
+
+xnoremap p "_dP
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+if (&tildeop)
+  nmap gcw guw~l
+  nmap gcW guW~l
+  nmap gciw guiw~l
+  nmap gciW guiW~l
+  nmap gcis guis~l
+  nmap gc$ gu$~l
+  nmap gcgc guu~l
+  nmap gcc guu~l
+  vmap gc gu~l
+else
+  nmap gcw guw~h
+  nmap gcW guW~h
+  nmap gciw guiw~h
+  nmap gciW guiW~h
+  nmap gcis guis~h
+  nmap gc$ gu$~h
+  nmap gcgc guu~h
+  nmap gcc guu~h
+  vmap gc gu~h
+endif

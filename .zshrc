@@ -81,6 +81,7 @@ plugins=(
   git
   iterm2
   vi-mode
+  zsh-autosuggestions
 )
 
 # User configuration
@@ -93,10 +94,19 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 #export NVM_DIR="$HOME/.nvm"
-source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $DOTFILES/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/node@10/bin:$PATH"
 
-# Android SDK environment
-export ANDROID_SDK=$ANDROID_SDK
+###-tns-completion-start-###
+if [ -f /Users/fadarrizz/.tnsrc ]; then 
+    source /Users/fadarrizz/.tnsrc 
+fi
+###-tns-completion-end-###
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

@@ -1,0 +1,26 @@
+[user]
+	name = Fadarrizz
+	email = auk.geerts@gmail.com
+	signingKey = ""
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[core]
+	editor = nvim
+	excludesfile = /Users/fadarrizz/.dotfiles/.gitignore_global
+[alias]
+	ctags = !.git/hooks/ctags
+[init]
+	templatedir = ~/.git_template
+[pull]
+	rebase = false
+[remote "origin"]
+	prune = true
