@@ -23,16 +23,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 # Install global Composer packages
 /usr/local/bin/composer global require laravel/installer
 
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-mkdir $HOME/Sites
-
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
-
-# Symlink the Mackup config file to the home directory
-ln -s $HOME/Dropbox/Backup/Mackup/.mackup.cfg $HOME/.mackup.cfg
 
 # Install Plug for Neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
