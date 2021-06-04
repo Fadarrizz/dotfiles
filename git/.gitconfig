@@ -15,11 +15,11 @@
 	forceSignAnnotated = false
 [core]
 	editor = nvim
-	excludesfile = /Users/fadarrizz/.dotfiles/.gitignore_global
+	excludesfile = ~/.dotfiles/git/.gitignore_global
 [alias]
 	ctags = !.git/hooks/ctags
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.dotfiles/git/.git_template
 [pull]
 	rebase = false
 [remote "origin"]
