@@ -152,3 +152,4 @@ output.null = "#808080"
 [alias_dsn]
 # example_dsn = mysql://[user[:password]@][host][:port][/dbname]
 gemeentetool = mysql://admin:root@127.0.0.1:3398/docker_db
+ticketshop2 = mysql://admin:root@127.0.0.1:3407/docker_db
