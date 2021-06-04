@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/.dotfiles/zsh
 
 # If you come from bash you might have to change your $PATH.
 #export PATH="/usr/local/sbin:$PATH"
