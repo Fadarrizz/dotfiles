@@ -12,7 +12,12 @@
     ~/.git_template: git/.git_template
     ~/.gitignore_global: git/.gitignore_global
     ~/.zshrc: zsh/.zshrc
-    ~/.config/nvim: vim/nvim
+    ~/.config/nvim/init.vim: vim/nvim/init.vim
+    ~/.config/nvim/autoload: vim/nvim/autoload
+    ~/.config/nvim/after: vim/nvim/after
+    ~/.config/nvim/plugins: vim/nvim/plugins
+    ~/.config/nvim/lua: vim/nvim/lua
+    ~/.config/nvim/coc-settings.json: vim/nvim/coc-settings.json
     ~/.ideavimrc: vim/.ideavimrc
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.myclirc: mycli/.myclirc    
@@ -56,3 +61,5 @@
       command: "sh composer/global_update"
     - description: Sourcing macos defaults
       command: "source ~/.dotfiles/macos/.defaults"
+    - description: Generating new SSH key for GitHub
+      command: "~/.dotfiles/ssh/ssh.sh"
