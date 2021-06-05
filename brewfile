@@ -17,7 +17,7 @@ brew 'grep'
 brew 'lastpass-cli'
 brew 'mas'
 brew 'mycli'
-brew 'neovim'
+brew 'neovim', args: ['HEAD']
 brew 'pkg-config'
 brew 'ripgrep'
 brew 'speedtest'
