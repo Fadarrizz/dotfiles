@@ -7,12 +7,50 @@
 - clean: ['~']
 
 - link:
-    '~/.gitconfig': git/.gitconfig
-    '~/.git_template': git/.git_template
-    '~/.gitignore_global': git/.gitignore_global
-    '~/.zshrc': zsh/.zshrc
-    '~/.config/nvim': vim/.config/nvim
-    '~/.ideavimrc': vim/.ideavimrc
-    '~/.tmux.conf': tmux/.tmux.conf
-    '~/.myclirc': mycli/.myclirc    
-    '~/.config/karabiner': karabiner
+    ~/.dotfiles: ""
+    ~/.gitconfig: git/.gitconfig
+    ~/.git_template: git/.git_template
+    ~/.gitignore_global: git/.gitignore_global
+    ~/.zshrc: zsh/.zshrc
+    ~/.config/nvim: vim/.config/nvim
+    ~/.ideavimrc: vim/.ideavimrc
+    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.myclirc: mycli/.myclirc    
+    ~/.config/karabiner: karabiner
+    
+- create:
+    - ~/.config/nvim/undo
+
+- shell:
+    - description: Hushing login
+      command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+    - description: Telling gatekeeper to allow unidentified developers
+      command: "sudo spctl --master-disable"
+    - description: Installing brew
+      command: "[ -x \"$(which brew)\" ] || /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+    - description: Updating brew
+      command: "brew update"
+    - description: Installing brew bundler
+      commmand: "brew tap homebrew/bundle"
+    - description: Installling brewfile bundle
+      command: "brew bundle"
+      stdout: true
+      stderr: true
+    - description: Linking mysql 5.7
+      command: "brew link --force mysql@5.7"
+    - description: Starting mysql service whenever mac boots
+      command: "brew services start mysql@5.7"
+    - description: Removing old brew files
+      command: "brew cleanup"
+    - description: Adding zsh to list of acceptable shells
+      command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
+    - description: Making zsh the default shell
+      command: "sudo chsh -s $(which zsh)"
+    - description: Installing vim-plug
+      command: "[ -f \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim ] || \
+      sh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim \
+      --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"
+    - description: Installing vim plugins
+      command: "nvim +PlugInstall +qa"
+    - description: Installing/updating global composer dependencies
+      command: "sh composer/global_update"
