@@ -54,3 +54,5 @@
       command: "nvim +PlugInstall +qa"
     - description: Installing/updating global composer dependencies
       command: "sh composer/global_update"
+    - description: Sourcing macos defaults
+      command: "source ~/.dotfiles/macos/.defaults"
