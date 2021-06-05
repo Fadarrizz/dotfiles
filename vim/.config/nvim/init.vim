@@ -19,7 +19,7 @@ endfunction
 "---------- PLUGINS ----------"
 
 " Source plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
     execute 'source' . DotVimPath('after/plugins.vim')
 call plug#end()
 
@@ -230,7 +230,7 @@ set hidden
 set noswapfile
 set nobackup
 set undofile
-set undodir=~/.vim/undodir
+set undodir=$XDG_CONFIG_HOME/undo
 
 set undolevels=10000
 set undoreload=10000
