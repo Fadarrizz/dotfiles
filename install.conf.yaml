@@ -24,6 +24,7 @@
     ~/.config/karabiner: karabiner
     ~/Library/Preferences/com.googlecode.iterm2.plist: iterm/com.googlecode.iterm2.plist
     ~/Documents/3CXPhone/Profiles: 3cx/Profiles 
+    ~/Library/Preferences/com.jetbrains.toolbox.plist: jetbrains-toolbox/com.jetbrains.toolbox.plist
     
 - create:
     - ~/.config/nvim/undo
