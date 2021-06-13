@@ -22,6 +22,7 @@
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.myclirc: mycli/.myclirc    
     ~/.config/karabiner: karabiner
+    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm/com.googlecode.iterm2.plist
     
 - create:
     - ~/.config/nvim/undo
