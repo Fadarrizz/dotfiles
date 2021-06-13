@@ -2,10 +2,6 @@
 	path = zsh/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
 	ignore = dirty
-[submodule "git/submodules/dotbot"]
-	path = git/submodules/dotbot
-	url = https://github.com/anishathalye/dotbot
-	ignore = dirty
 [submodule "zsh/custom/plugins/zsh-autosuggestions"]
 	path = zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
