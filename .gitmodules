@@ -1,7 +1,7 @@
 [submodule "zsh/themes/powerlevel10k"]
-    path = zsh/themes/powerlevel10k
-    url = https://github.com/romkatv/powerlevel10k
-    ignore = dirty
+	path = zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
+	ignore = dirty
 [submodule "git/submodules/dotbot"]
     path = git/submodules/dotbot
     url = https://github.com/anishathalye/dotbot
