@@ -1002,7 +1002,7 @@
 		<key>172.16.24.137</key>
 		<dict>
 			<key>how</key>
-			<integer>1</integer>
+			<integer>3</integer>
 			<key>inOffice</key>
 			<true/>
 			<key>name</key>
