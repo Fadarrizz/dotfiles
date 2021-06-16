@@ -6,3 +6,9 @@
 	path = zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 	ignore = dirty
+[submodule "git/dotbot"]
+	path = git/dotbot
+	url = git@github.com:anishathalye/dotbot
+[submodule "tmux/plugins"]
+	path = tmux/plugins
+	url = git@github.com:tmux-plugins/tpm
