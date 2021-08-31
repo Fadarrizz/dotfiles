@@ -11,9 +11,8 @@ alias nah="git reset --hard && git clean -df"
 alias gundo="git reset HEAD~1 --mixed"
 alias gco="git checkout"
 alias gcob="git checkout -b"
-# alias gcop='function -(){ git checkout $1 && git pull; }; _'
 alias gdlb="git branch --merged | egrep -v '(^\*|master|main)' | xargs git branch -d"
-alias ghrc='function _(){ gh repo clone IT4WEBBV/$1 ~/GitProjects/$1/$1; }; _'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 # Dir & listing
 alias l="ls -la"				    # List in long format, include dotfiles
