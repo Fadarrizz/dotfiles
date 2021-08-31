@@ -14,6 +14,12 @@ export DOTFILES=$HOME/.dotfiles/zsh
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Source config
+for f in `find -L $DOTFILES/config`; do
+    source $f
+done
+# [ -f $DOTFILES/functions.zsh ] && source $DOTFILES/functions.zsh
+
 # Enable completions
 autoload -Uz compinit && compinit
 
@@ -110,3 +116,10 @@ fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+export PATH=$PATH:~/Documents/nand2tetris/tools
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export ANDROID_HOME=$HOME/.android
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools

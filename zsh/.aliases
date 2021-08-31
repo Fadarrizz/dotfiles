@@ -8,10 +8,12 @@ alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
 alias nah="git reset --hard && git clean -df"
-alias gcm="git checkout master"
-alias gnbm="gitNewBranchOnMaster "
-alias gcmp="git checkout master && git fetch && git pull"
+alias gundo="git reset HEAD~1 --mixed"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+# alias gcop='function -(){ git checkout $1 && git pull; }; _'
 alias gdlb="git branch --merged | egrep -v '(^\*|master|main)' | xargs git branch -d"
+alias ghrc='function _(){ gh repo clone IT4WEBBV/$1 ~/GitProjects/$1/$1; }; _'
 
 # Dir & listing
 alias l="ls -la"				    # List in long format, include dotfiles
