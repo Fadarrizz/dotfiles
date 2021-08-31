@@ -97,6 +97,17 @@
 	<string>Auke Geerts (IT4WEB)</string>
 	<key>account.networks</key>
 	<dict>
+		<key>10.0.12.65</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Piersma-IT4WEB-Office</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.1.158.41</key>
 		<dict>
 			<key>how</key>
@@ -163,6 +174,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.10.210.220</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.10.220.71</key>
 		<dict>
 			<key>how</key>
@@ -196,6 +218,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.11.218.247</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.11.243.189</key>
 		<dict>
 			<key>how</key>
@@ -218,6 +251,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.12.186.245</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.12.216.133</key>
 		<dict>
 			<key>how</key>
@@ -230,6 +274,17 @@
 			<integer>1</integer>
 		</dict>
 		<key>10.13.163.169</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.13.179.6</key>
 		<dict>
 			<key>how</key>
 			<integer>1</integer>
@@ -317,10 +372,32 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.19.194.193</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.19.235.3</key>
 		<dict>
 			<key>how</key>
 			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.2.147.139</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
 			<key>inOffice</key>
 			<true/>
 			<key>name</key>
@@ -428,6 +505,17 @@
 			<integer>1</integer>
 		</dict>
 		<key>10.22.214.15</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.24.250.189</key>
 		<dict>
 			<key>how</key>
 			<integer>1</integer>
@@ -966,6 +1054,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.9.225.111</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.9.243.143</key>
 		<dict>
 			<key>how</key>
@@ -999,10 +1098,21 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>172.16.24.133</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>172.16.24.137</key>
 		<dict>
 			<key>how</key>
-			<integer>3</integer>
+			<integer>1</integer>
 			<key>inOffice</key>
 			<true/>
 			<key>name</key>
@@ -1018,6 +1128,28 @@
 			<true/>
 			<key>name</key>
 			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>192.168.0.128</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>HuizeHarly-boven</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>192.168.0.141</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>HuizeHarly-boven</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
@@ -1148,7 +1280,7 @@
 				</dict>
 				<dict>
 					<key>expanded</key>
-					<false/>
+					<true/>
 					<key>id</key>
 					<integer>6</integer>
 					<key>name</key>
