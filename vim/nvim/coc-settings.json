@@ -1,25 +1,16 @@
 {
-    "languageserver": {
-        "phpactor": {
-            "trace.server": "verbose",
-            "command": "~/.config/nvim/plugged/phpactor/bin/phpactor",
-            "args": ["language-server"],
-            "filetypes": ["php","cucumber"],
-            "initializationOptions": {
-            },
-            "settings": {
-            }
-        }
-    },
-    "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "gosnippets/UltiSnips"
-    ],
-    "snippets.userSnippetsDirectory": "$VIMCONFIG/ultisnips",
-    "suggest.snippetIndicator": " ►",
-    "diagnostic.enable": false,
-    "coc.preferences.formatOnSaveFiletypes": ["go", "clojure", "php"],
-    "coc.preferences.hoverTarget": "float",
-
-    "html.format.enable": true
+    "coc.preferences.formatOnSaveFiletypes": ["php"],
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnType": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "!",
+    "diagnostic.infoSign": "•",
+    "diagnostic.hintSign": "•",
+    "git.enableGutters": true,
+    "phpls.path": "/usr/local/bin/intelephense",
+    "intelephense.environment.phpVersion": "8",
+    "tailwindCSS.headwind.runOnSave": false,
+    "tailwindCSS.emmetCompletions": true}
 }
