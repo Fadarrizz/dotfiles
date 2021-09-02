@@ -59,7 +59,7 @@ export LANG=en_US.UTF-8
 source $DOTFILES/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $DOTFILES/custom/.p10k.zsh ]] || source $DOTFILES/custom/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
