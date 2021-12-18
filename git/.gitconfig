@@ -24,3 +24,5 @@
 	rebase = false
 [remote "origin"]
 	prune = true
+[push]
+	default = simple

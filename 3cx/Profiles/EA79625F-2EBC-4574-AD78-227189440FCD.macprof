@@ -26,19 +26,11 @@
 	<array>
 		<dict>
 			<key>id</key>
-			<string>GSM/8000/1</string>
+			<string>PCMA/8000/1</string>
 			<key>name</key>
-			<string>GSM</string>
+			<string>PCMA</string>
 			<key>xml</key>
-			<string>GSM</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>G729/8000/1</string>
-			<key>name</key>
-			<string>G.729</string>
-			<key>xml</key>
-			<string>G729</string>
+			<string>PCMA</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -50,19 +42,27 @@
 		</dict>
 		<dict>
 			<key>id</key>
-			<string>PCMA/8000/1</string>
-			<key>name</key>
-			<string>PCMA</string>
-			<key>xml</key>
-			<string>PCMA</string>
-		</dict>
-		<dict>
-			<key>id</key>
 			<string>G722/16000/1</string>
 			<key>name</key>
 			<string>G.722</string>
 			<key>xml</key>
 			<string>G722</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>G729/8000/1</string>
+			<key>name</key>
+			<string>G.729</string>
+			<key>xml</key>
+			<string>G729</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>GSM/8000/1</string>
+			<key>name</key>
+			<string>GSM</string>
+			<key>xml</key>
+			<string>GSM</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -97,6 +97,17 @@
 	<string>Auke Geerts (IT4WEB)</string>
 	<key>account.networks</key>
 	<dict>
+		<key>10.0.12.64</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Piersma-IT4WEB-Office</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.0.12.65</key>
 		<dict>
 			<key>how</key>
@@ -105,6 +116,17 @@
 			<true/>
 			<key>name</key>
 			<string>Piersma-IT4WEB-Office</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.1.150.219</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
@@ -142,6 +164,17 @@
 			<integer>1</integer>
 		</dict>
 		<key>10.1.174.250</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.10.138.247</key>
 		<dict>
 			<key>how</key>
 			<integer>3</integer>
@@ -200,6 +233,17 @@
 		<dict>
 			<key>how</key>
 			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.11.132.120</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
 			<key>inOffice</key>
 			<true/>
 			<key>name</key>
@@ -526,6 +570,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.24.252.73</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.26.162.163</key>
 		<dict>
 			<key>how</key>
@@ -607,6 +662,17 @@
 		<dict>
 			<key>how</key>
 			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>10.3.236.154</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
 			<key>inOffice</key>
 			<true/>
 			<key>name</key>
@@ -955,6 +1021,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>10.7.136.39</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>10.7.146.165</key>
 		<dict>
 			<key>how</key>
@@ -1109,6 +1186,28 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>172.16.24.135</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>172.16.24.136</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>172.16.24.137</key>
 		<dict>
 			<key>how</key>
@@ -1153,6 +1252,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>192.168.0.162</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>HuizeHarly-boven</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>192.168.0.168</key>
 		<dict>
 			<key>how</key>
@@ -1172,6 +1282,17 @@
 			<true/>
 			<key>name</key>
 			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>192.168.135.100</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Auke's Hotspot</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
@@ -1208,6 +1329,17 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>2001:1c00:260e:5e00:a08e:cb04:6bda:ee6d</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Huize Fatsoen &amp; Degelijkheid</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>2001:1c00:31e:8200:3028:26f0:ffd2:f30d</key>
 		<dict>
 			<key>how</key>
@@ -1219,6 +1351,28 @@
 			<key>type</key>
 			<integer>1</integer>
 		</dict>
+		<key>2001:1c00:31e:8200:3d1b:b97c:6147:c3cc</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>HuizeHarly-beneden</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>2001:1c00:31e:8200:7c51:f8e7:2cd9:cf4c</key>
+		<dict>
+			<key>how</key>
+			<integer>3</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>HuizeHarly-beneden</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
 		<key>2001:1c00:31e:8200:f925:28da:61a:32fd</key>
 		<dict>
 			<key>how</key>
@@ -1227,6 +1381,17 @@
 			<true/>
 			<key>name</key>
 			<string>ziggo-ap-0885193</string>
+			<key>type</key>
+			<integer>1</integer>
+		</dict>
+		<key>2001:41f0:842e:c:a473:bccd:1e76:b2d3</key>
+		<dict>
+			<key>how</key>
+			<integer>1</integer>
+			<key>inOffice</key>
+			<true/>
+			<key>name</key>
+			<string>Piersma-IT4WEB-Office</string>
 			<key>type</key>
 			<integer>1</integer>
 		</dict>

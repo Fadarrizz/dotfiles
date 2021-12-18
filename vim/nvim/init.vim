@@ -68,6 +68,7 @@ set softtabstop=4
 let mapleader = "\<space>"
 
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
+nmap <Leader>r :so $MYVIMRC<CR>
 
 " Indent without killing the selection in vmode
 vmap < <gv
@@ -131,6 +132,12 @@ augroup END
 
 " Toggle between absolute/relative line numbers
 nnoremap <C-n> :let [&nu, &rnu] = [&nu+&rnu==1]<CR>
+
+" Highlight yanked text
+augroup LuaHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+augroup END
 
 "---------- AUTO-COMMANDS ----------"
 augroup mygroup

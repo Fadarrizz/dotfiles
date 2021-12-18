@@ -60,23 +60,7 @@ source $DOTFILES/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $DOTFILES/custom/.p10k.zsh ]] || source $DOTFILES/custom/.p10k.zsh
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-
-###-tns-completion-start-###
-if [ -f /Users/fadarrizz/.tnsrc ]; then 
-    source /Users/fadarrizz/.tnsrc 
-fi
-###-tns-completion-end-###
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-export PATH=$PATH:~/Documents/nand2tetris/tools
-
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export ANDROID_HOME=$HOME/.android
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk

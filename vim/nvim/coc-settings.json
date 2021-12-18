@@ -12,5 +12,5 @@
     "phpls.path": "/usr/local/bin/intelephense",
     "intelephense.environment.phpVersion": "8",
     "tailwindCSS.headwind.runOnSave": false,
-    "tailwindCSS.emmetCompletions": true}
+    "tailwindCSS.emmetCompletions": true
 }

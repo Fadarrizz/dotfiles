@@ -9,6 +9,7 @@ Plug 'tpope/vim-commentary' " Comment stuff ou
 Plug 'tpope/vim-repeat'
 Plug 'mbbill/undotree' " Switch between undo branches
 Plug 'terryma/vim-smooth-scroll'
+Plug 'tpope/vim-projectionist'
 
 " Navigation
 Plug 'preservim/nerdtree'

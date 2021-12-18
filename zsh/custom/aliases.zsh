@@ -1,4 +1,5 @@
 alias zshconfig="nvim ~/.zshrc"
+alias zshalias="nvim ~/.dotfiles/zsh/custom/aliases.zsh"
 
 # Git
 alias gs="git status"
@@ -20,10 +21,12 @@ alias ld="ls -ld */"				    # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias mkcd="mk "
+#alias mkcd='() { mkdir -p "$@" && cd "$@"; }'
 
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Tools
 alias lzd="lazydocker"
+alias cat="bat"
+#alias db='() { open mysql://127.0.0.1/$1; }'
