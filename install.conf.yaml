@@ -59,7 +59,5 @@
       command: "sh composer/global_update"
     - description: Sourcing macos defaults
       command: "source ~/.dotfiles/macos/.defaults"
-    - description: Generating new SSH key for GitHub
-      command: "~/.dotfiles/ssh/ssh.sh"
     - description: Url for downloading DisplayLink
       command: "echo \"Download DisplayLink here https://www.displaylink.com/downloads/macos\""
