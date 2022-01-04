@@ -27,6 +27,7 @@
     ~/Library/Preferences/com.jetbrains.toolbox.plist: jetbrains-toolbox/com.jetbrains.toolbox.plist
     
 - create:
+    - ~/projects
     - ~/.config/nvim/undo
 
 - shell:
