@@ -6,5 +6,5 @@
    ```zsh
    curl https://raw.githubusercontent.com/Fadarrizz/dotfiles/HEAD/ssh/ssh.sh | sh -s "<your-email-address>"
    ```
-- `git clone https://github.com/Fadarrizz/dotfiles ~/.dotfiles`
+- `git clone --recurse-submodules https://github.com/Fadarrizz/dotfiles ~/.dotfiles`
 - `~/.dotfiles/install`
