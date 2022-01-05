@@ -34,11 +34,9 @@
     - description: Hushing login
       command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
     - description: Telling gatekeeper to allow unidentified developers
-      command: "sudo spctl --master-disable"                    
-    - description: Install Rosetta 2
-      command: "softwareupdate --install-rosetta --agree-to-license || true"
+      command: "sudo spctl --master-disable"
     - description: Installing brew
-      command: "[ -x \"$(which brew)\" ] || /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""          
+      command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
     - description: Updating brew
       command: "brew update"
     - description: Installing brew bundler
@@ -48,7 +46,7 @@
       stdout: true
       stderr: true
     - description: Removing old brew files
-      command: "brew cleanup"          
+      command: "brew cleanup"
     - description: Installing oh-my-zsh
       command: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
     - description: Installing vim-plug
