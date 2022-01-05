@@ -13,6 +13,7 @@ set nohlsearch
 set highlightedyank
 set scrolloff=8
 set ruler
+set noerrorbells
 
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
