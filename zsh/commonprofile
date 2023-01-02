@@ -1,0 +1,13 @@
+export PATH=$PATH:/bin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/git/bin
+export PATH=$PATH:~/.composer/vendor/bin
+export PATH=$PATH:vendor/bin
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH=$PATH:$DOTFILES/bin
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock

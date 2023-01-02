@@ -33,6 +33,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'neovim/nvim-lspconfig'
+
 " PHP
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug '2072/php-indenting-for-vim', {'for': 'php'}

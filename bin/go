@@ -1,0 +1,10 @@
+#/usr/bin/env bash
+
+DIR="$HOME/projects/"
+if [ -z "$1" ]; then
+    cd "$DIR"
+elif [ "$1" = "ls" ]; then
+    ls "$DIR"
+else 
+    cd "$DIR$1"
+fi 

@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles/zsh
+export DOTFILES=$HOME/.dotfiles
 
 # If you come from bash you might have to change your $PATH.
 #export PATH="/usr/local/sbin:$PATH"
@@ -14,12 +14,12 @@ export DOTFILES=$HOME/.dotfiles/zsh
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Source config
-source $DOTFILES/custom/aliases.zsh
-source $DOTFILES/custom/functions.zsh
-
 # Enable completions
 autoload -Uz compinit && compinit
+
+# Source config
+source $DOTFILES/zsh/custom/aliases.zsh
+source $DOTFILES/zsh/custom/functions.zsh
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -33,7 +33,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES/custom
+ZSH_CUSTOM=$DOTFILES/zsh/custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -44,7 +44,6 @@ plugins=(
   brew
   docker
   git
-  iterm2
   vi-mode
   zsh-autosuggestions
 )
@@ -56,11 +55,20 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 #export NVM_DIR="$HOME/.nvm"
-source $DOTFILES/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $DOTFILES/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f $DOTFILES/custom/.p10k.zsh ]] || source $DOTFILES/custom/.p10k.zsh
+[[ ! -f $DOTFILES/zsh/custom/.p10k.zsh ]] || source $DOTFILES/zsh/custom/.p10k.zsh
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+#export PATH=$PATH:~/Documents/nand2tetris/tools
+#export PATH=$PATH:~/Documents/nand2tetris/Digital
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source $DOTFILES/bin/go-completion

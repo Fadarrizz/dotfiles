@@ -13,6 +13,10 @@ set nohlsearch
 set highlightedyank
 set scrolloff=8
 set ruler
+" set noerrorbells visualbell t_vb=
+" autocmd GUIEnter * set visualbell t_vb=
+" set belloff=all
+set visualbell
 set noerrorbells
 
 map <C-J> <C-W>j<C-W>_

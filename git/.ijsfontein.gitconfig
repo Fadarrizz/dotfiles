@@ -1,7 +1,7 @@
 [user]
 	name = Fadarrizz
-	email = auk.geerts@gmail.com
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFf3zI+Sl5gKP8QGB4LMshxJOwcmKH4RGe1dF3kDnEq5
+	email = auke@ijsfontein.nl
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsHe8rxZhNPrkOnXrZ8ZlMBniDZlkQjUt2Za8zYgLnW
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -12,7 +12,7 @@
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
-	gpgSign = true
+	gpgSign = false
 [tag]
 	forceSignAnnotated = false
 [core]
@@ -29,6 +29,3 @@
 	prune = true
 [push]
 	default = simple
-
-[includeIf "gitdir:~/projects/"]
-    path = ~/.dotfiles/git/.ijsfontein.gitconfig

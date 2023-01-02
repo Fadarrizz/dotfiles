@@ -58,4 +58,4 @@ cask 'font-jetbrains-mono'
 # Mac App Store
 mas 'Amphetamine', id: 937984704
 mas 'Magnet', id: 441258766
-mas 'Xcode', id: 497799835
+#mas 'Xcode', id: 497799835
