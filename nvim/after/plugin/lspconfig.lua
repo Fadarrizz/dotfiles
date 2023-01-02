@@ -1,4 +1,3 @@
-local vim = vim
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
@@ -11,6 +10,8 @@ lsp.ensure_installed({
     'tailwindcss',
 })
 
+lsp.nvim_workspace()
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -22,6 +23,16 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
+})
+
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
 })
 
 -- Configure LSP through rust-tools.nvim plugin.

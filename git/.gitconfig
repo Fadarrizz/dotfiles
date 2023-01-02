@@ -1,18 +1,18 @@
 [user]
 	name = Fadarrizz
 	email = auk.geerts@gmail.com
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFf3zI+Sl5gKP8QGB4LMshxJOwcmKH4RGe1dF3kDnEq5
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAoFt2omPyqupWH4m8uFurvqjpY21NF+4jKEmvvyfZ9P
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [gpg]
-	program = ssh
+	format = ssh
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
-	gpgSign = true
+	gpgsign = true
 [tag]
 	forceSignAnnotated = false
 [core]
