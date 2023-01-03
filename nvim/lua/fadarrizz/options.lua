@@ -1,15 +1,15 @@
 local opt = vim.opt
 
 -- [[ Context ]]
-opt.colorcolumn = '120'                             -- str:  Show col for max line length
-opt.number = true                                   -- bool: Show line numbers
-opt.relativenumber = true                           -- bool: Show relative line numbers
-opt.scrolloff = 8                                   -- int:  Min num lines of context
-opt.sidescrolloff = 8		                        -- int:  Min num lines of side context
-opt.signcolumn = "yes"                              -- str:  Show the sign column
+opt.colorcolumn = '120'                              -- str:  Show col for max line length
+opt.number = true                                    -- bool: Show line numbers
+opt.relativenumber = true                            -- bool: Show relative line numbers
+opt.scrolloff = 8                                    -- int:  Min num lines of context
+opt.sidescrolloff = 8		                         -- int:  Min num lines of side context
+opt.signcolumn = "yes"                               -- str:  Show the sign column
 
 -- [[ Filetypes ]]
-opt.encoding = 'utf8'                               -- str:  String encoding to use
+opt.encoding = 'utf8'                                -- str:  String encoding to use
 opt.fileencoding = 'utf8'                            -- str:  File encoding to use
 
 -- [[ Theme ]]
@@ -45,13 +45,13 @@ opt.foldmethod = "expr"                             -- str: Use expression as fo
 opt.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter for folding
 opt.foldtext =                                      -- func: Show fold as indented comment
     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
-opt.fillchars = "fold: "                            -- str: Fill with empty spaces
+opt.fillchars = "fold: ,eob: "                      -- str: Fill with empty spaces for fold and eob
 opt.foldnestmax = 3                                 -- num: Fold up to 3 nestings
 opt.foldminlines = 1                                -- num: Fold minimum of 1 line
 
-opt.clipboard = 'unnamedplus'                         -- str: Use system clipboard
+opt.clipboard = 'unnamedplus'                       -- str: Use system clipboard
 
-opt.updatetime = 50                                   -- num: Make updating fast
+opt.updatetime = 50                                 -- num: Make updating fast
 
 -- Highlight yank
 vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]

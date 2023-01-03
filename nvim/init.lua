@@ -15,7 +15,7 @@ local disabled_built_ins = {
 }
 
 for i  = 1,1 do
-    g['loaded_' .. disabled_built_ins[i]] = 1
+    vim.g['loaded_' .. disabled_built_ins[i]] = 1
 end
 
 -- IMPORTS
