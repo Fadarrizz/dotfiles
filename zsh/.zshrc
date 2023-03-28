@@ -72,3 +72,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source $DOTFILES/bin/go-completion
+
+# Completion for 1password
+eval "$(op completion zsh)"; compdef _op op
