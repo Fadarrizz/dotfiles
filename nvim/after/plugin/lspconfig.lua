@@ -1,3 +1,8 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+    library = { plugins = { "neotest" }, types = true },
+})
+
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
@@ -5,9 +10,9 @@ lsp.preset('recommended')
 lsp.ensure_installed({
     'html',
     'eslint',
-    'sumneko_lua',
     'rust_analyzer',
     'tailwindcss',
+    'intelephense',
 })
 
 lsp.nvim_workspace()
@@ -25,14 +30,8 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
-lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/intelephense.lua
+lsp.configure('intelephense', {
 })
 
 -- Configure LSP through rust-tools.nvim plugin.
@@ -78,8 +77,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 lsp.on_attach(function (client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -106,6 +103,8 @@ end)
 
 lsp.setup()
 
--- vim.diagnostic.config({
---     virtual_text = true,
--- })
+vim.diagnostic.config({
+    virtual_text = true,
+    float = true,
+    update_in_insert = true,
+})

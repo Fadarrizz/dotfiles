@@ -11,7 +11,26 @@ map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Paste without registering deleted stuff
-map('x', '<leader>p', '"_dP')
+map('x', '<leader>pp', '"_dP')
 
 -- Rename word under cursor in current buffer
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- Select all text in current buffer
+map('n', '<Leader>a', ':keepjumps normal! ggVG<CR>')
+
+-- Go to first character in line
+map('', '<Leader>h', '^')
+
+-- Go to last character in line
+map('', '<Leader>l', 'g_')
+
+-- Write file
+map('n', '<Leader>w', ':write<CR>')
+
+-- Safe quit
+map('n', '<Leader>qq', ':quitall<CR>')
+
+-- Navigate between buffers
+map('n', '[b', ':bprevious<CR>')
+map('n', ']b', ':bnext<CR>')
