@@ -47,3 +47,8 @@ tags
 # Tests #
 ######################
 phptest
+
+
+# Vim stuff #
+######################
+Session.vim

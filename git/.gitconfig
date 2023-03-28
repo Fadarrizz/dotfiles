@@ -28,7 +28,7 @@
 [remote "origin"]
 	prune = true
 [push]
-	default = simple
+	default = current
 
-[includeIf "gitdir:~/projects/"]
+[includeIf "gitdir:~/work/"]
     path = ~/.dotfiles/git/.ijsfontein.gitconfig
