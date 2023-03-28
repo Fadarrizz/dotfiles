@@ -1,4 +1,4 @@
-let test#strategy = "floaterm"
+let test#strategy = "neovim"
 let test#filename_modifier = ':.'
 let test#php#phpunit#executable = './phptest'
 
