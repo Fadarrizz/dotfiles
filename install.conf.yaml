@@ -24,6 +24,7 @@
     ~/.config/karabiner: karabiner
     ~/Library/Preferences/com.googlecode.iterm2.plist: iterm/com.googlecode.iterm2.plist
     ~/Library/Preferences/com.jetbrains.toolbox.plist: jetbrains-toolbox/com.jetbrains.toolbox.plist
+    ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     
 - create:
     - ~/projects

@@ -13,6 +13,7 @@ brew 'ffmpeg'
 brew 'gh'
 brew 'git'
 brew 'grep'
+brew 'lazygit'
 brew 'mas'
 brew 'mycli'
 brew 'neovim', args: ['HEAD']
