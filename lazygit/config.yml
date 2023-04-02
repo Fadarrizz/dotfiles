@@ -1,0 +1,2 @@
+gui:
+  promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
