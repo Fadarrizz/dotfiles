@@ -4,7 +4,7 @@ vim.opt.number = true                                    -- bool: Show line numb
 vim.opt.relativenumber = true                            -- bool: Show relative line numbers
 vim.opt.scrolloff = 8                                    -- int:  Min num lines of context
 vim.opt.sidescrolloff = 8		                         -- int:  Min num lines of side context
-vim.opt.signcolumn = "yes"                               -- str:  Show the sign column
+vim.opt.signcolumn = "yes:2"                             -- str:  Show the sign column
 vim.opt.cmdheight = 0                                    -- num:  Hide cmd bar when not used
 
 -- [[ Filetypes ]]
@@ -65,8 +65,4 @@ vim.opt.foldminlines = 1                                -- num: Fold minimum of 
 ---ENDWORKAROUND
 
 vim.opt.clipboard = 'unnamedplus'                       -- str: Use system clipboard
-
 vim.opt.updatetime = 50                                 -- num: Make updating fast
-
--- Highlight yank
-vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]

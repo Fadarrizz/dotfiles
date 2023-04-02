@@ -19,9 +19,8 @@ vim.keymap.set('n', '<leader>fs', builtin.reloader, { desc = "Find recent search
 
 require('telescope').setup {
     defaults = {
-        file_ignore_patterns = {
-             ".git",
-        },
+        path_display = { truncate = 1 },
+        file_ignore_patterns = { '.git/' },
     },
     pickers = {
         find_files = {
@@ -33,6 +32,9 @@ require('telescope').setup {
                 width = 80,
             },
             sort_lastused = true,
+        },
+        lsp_references = {
+            previewer = false,
         },
     },
 }

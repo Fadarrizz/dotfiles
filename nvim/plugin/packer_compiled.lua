@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   jester = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/jester",
@@ -263,15 +268,15 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
-  ["splitjoin.vim"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
-    url = "https://github.com/AndrewRadev/splitjoin.vim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  treesj = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/treesj",
+    url = "https://github.com/Wansmer/treesj"
   },
   undotree = {
     loaded = true,
@@ -282,6 +287,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-blade"] = {
     loaded = true,
@@ -323,6 +333,16 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-test",
     url = "https://github.com/vim-test/vim-test"
   },
+  ["vim-textobj-user"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
+    url = "https://github.com/kana/vim-textobj-user"
+  },
+  ["vim-textobj-xmlattr"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-textobj-xmlattr",
+    url = "https://github.com/whatyouhide/vim-textobj-xmlattr"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/which-key.nvim",
@@ -331,14 +351,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: rose-pine
+time([[Config for rose-pine]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
+time([[Config for rose-pine]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

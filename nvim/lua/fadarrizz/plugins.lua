@@ -15,12 +15,19 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
     use({ 'Wansmer/treesj', requires = { 'nvim-treesitter' } }) -- splitjoin
+    use 'ThePrimeagen/vim-be-good'
 
     -- Autopairs
     use {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup { } end,
+        config = function() require("nvim-autopairs").setup {} end,
     }
+
+    -- Git gutter signs
+    use({
+        'lewis6991/gitsigns.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+    })
 
     -- Testing
     use 'vim-test/vim-test'
@@ -45,12 +52,18 @@ return require('packer').startup(function(use)
 
     -- Php / Laravel
     use 'jwalton512/vim-blade'
-    use({
+    use {
         'phpactor/phpactor',
         branch = 'master',
         ft = 'php',
         run = 'composer install --no-dev -o',
-    })
+    }
+
+    -- HTML/XMl
+    use {
+      'whatyouhide/vim-textobj-xmlattr',
+      requires = { 'kana/vim-textobj-user' },
+    }
 
     -- JS
     use 'David-Kunz/jester' -- Jest debugging
@@ -65,6 +78,7 @@ return require('packer').startup(function(use)
 
     -- Markdown
     use { 'toppair/peek.nvim', run = 'deno task --quiet build:fast' }
+
     -- Filetree
     use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' }
 
