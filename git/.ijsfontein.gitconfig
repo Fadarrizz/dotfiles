@@ -29,3 +29,9 @@
 	prune = true
 [push]
 	default = current
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[merge]
+    tool = nvim
+[mergetool]
+    prompt = false

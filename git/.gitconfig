@@ -29,6 +29,11 @@
 	prune = true
 [push]
 	default = current
-
 [includeIf "gitdir:~/work/"]
     path = ~/.dotfiles/git/.ijsfontein.gitconfig
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[merge]
+    tool = nvim
+[mergetool]
+    prompt = false
