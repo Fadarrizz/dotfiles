@@ -20,7 +20,7 @@ map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 map('n', '<Leader>a', ':keepjumps normal! ggVG<CR>')
 
 -- Go to first character in line
-map('', '<Leader>h', '^')
+map('', '<Leader>g', '^')
 
 -- Go to last character in line
 map('', '<Leader>l', 'g_')

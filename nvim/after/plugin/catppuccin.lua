@@ -1,0 +1,17 @@
+require("catppuccin").setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.15,
+    },
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+    },
+})
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"

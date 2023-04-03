@@ -11,11 +11,14 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive' -- git wrapper
     use 'tpope/vim-abolish' -- working with word variants
+    use 'tpope/vim-projectionist' -- per project configuration
     use 'neomake/neomake' -- asynch stuff
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
     use({ 'Wansmer/treesj', requires = { 'nvim-treesitter' } }) -- splitjoin
     use 'ThePrimeagen/vim-be-good'
+    use 'dbeniamine/cheat.sh-vim'
+    use 'jose-elias-alvarez/null-ls.nvim' -- LSP injector (for non-LSP sources)
 
     -- Autopairs
     use {
@@ -94,8 +97,7 @@ return require('packer').startup(function(use)
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-tree/nvim-web-devicons' },
         { 'BurntSushi/ripgrep' }
-    }
-    }
+    } }
 
     -- Statusline
     use { 'nvim-lualine/lualine.nvim', requires = 'nvim-tree/nvim-web-devicons' }
@@ -124,11 +126,13 @@ return require('packer').startup(function(use)
         }
     }
 
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    -- use({
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --         vim.cmd('colorscheme rose-pine')
+    --     end
+    -- })
+
+    use { "catppuccin/nvim", as = "catppuccin" }
 end)
