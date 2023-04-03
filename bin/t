@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    SELECTED=$1
+else
+    items=`find ~/projects -mindepth 1 -maxdepth 2 -type d`
+    items+=`find ~/work -mindepth 1 -maxdepth 2 -type d`
+    items+=("$DOTFILES")
+
+    if [ -z "$TMUX" ]; then
+        SELECTED=`echo "$items" | fzf`
+    else
+        SELECTED=`echo "$items" | fzf-tmux -p`
+    fi
+fi
+
+if [[ -z $SELECTED ]]; then
+    exit 0
+fi
+
+SELECTED_NAME=$(basename "$SELECTED" | tr . _)
+
+# check if a session with the same name already exists
+SESSION=$(tmux list-sessions -F '#S' | grep "^$SELECTED_NAME$")
+
+if [[ -z $TMUX ]]; then
+    # not in tmux session
+    if [[ -z $SESSION ]]; then
+        # session does not exist
+        tmux new-session -s $SELECTED_NAME -c $SELECTED
+    else
+        # session exists... attach to it
+        tmux attach -t $SELECTED_NAME
+    fi
+else
+    # inside tmux session
+    if [[ -z $SESSION ]]; then
+        # session does not exist... create it
+        tmux new-session -d -s $SELECTED_NAME -c $SELECTED
+    fi
+        # switch to the session
+        tmux switch-client -t $SELECTED_NAME
+fi
