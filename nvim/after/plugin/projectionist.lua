@@ -26,10 +26,11 @@ vim.g.projectionist_heuristics = {
         },
         ['app/Http/Livewire/*.php'] = {
             type = 'source',
-            alternate = {
-                'tests/Livewire/{}Test.php',
-                'tests/Feature/Livewire/{}Test.php',
-            },
+            alternate = 'resources/views/livewire/{snakecase|hyphenate}.blade.php',
+        },
+        ['resources/views/livewire/*.blade.php'] = {
+            type = 'view',
+            alternate = 'app/Http/Livewire/{camelcase|capitalize}.php',
         },
         ['tests/*Test.php'] = {
             type = 'test',
