@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find help tag" })
 vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Resume previous picker" })
 vim.keymap.set('n', '<leader>fc', builtin.command_history, { desc = "Find recent command" })
 vim.keymap.set('n', '<leader>fs', builtin.reloader, { desc = "Find recent search" })
+vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = "Find quickfix" })
 
 require('telescope').setup {
     defaults = {
