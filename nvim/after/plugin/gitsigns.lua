@@ -28,6 +28,7 @@ require('gitsigns').setup {
         map('n', '<leader>hS', gs.stage_buffer, { desc = 'Stage buffer' })
         map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'Undo stage hunk' })
         map('n', '<leader>hR', gs.reset_buffer, { desc = 'Reset buffer' })
+        map('n', '<leader>hp', gs.preview_hunk, { desc = 'Preview hunk' })
         map('n', '<leader>hb', function() gs.blame_line{full=true} end, { desc = 'Blame line' })
         map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'Toggle line blame' })
         map('n', '<leader>hd', gs.diffthis, { desc = 'Diff this' })
