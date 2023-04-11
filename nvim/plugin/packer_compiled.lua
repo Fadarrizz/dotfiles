@@ -327,11 +327,6 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-projectionist"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-projectionist",
-    url = "https://github.com/tpope/vim-projectionist"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-repeat",

@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive' -- git wrapper
     use 'tpope/vim-abolish' -- working with word variants
-    use 'tpope/vim-projectionist' -- per project configuration
+    -- use 'tpope/vim-projectionist' -- per project configuration
     use 'neomake/neomake' -- asynch stuff
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
