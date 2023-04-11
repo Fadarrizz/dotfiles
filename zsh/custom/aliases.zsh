@@ -24,8 +24,7 @@ alias ts='tmux new-session -A -D -s'
 # Work
 alias start="./start.sh"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias s="sail"
 
 # Docs
 alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
-
-alias go=". go"
