@@ -1,26 +1,38 @@
 #!/bin/sh
 
+MSG="running"
+CMD=""
+
+if [ -f vendor/bin/sail ]; then
+    echo 'sail detected'
+    CMD="sail" 
+fi
+
 if [ -f vite.config.js ]; then
-    echo 'npm run dev'
-    npm run dev
+    CMD="${CMD} npm run dev"
+    echo "$CMD"
+    $CMD
     exit 0
 fi
 
 if [ -f package-lock.json ]; then
-    echo 'npm run watch'
-    npm run watch
+    CMD="${CMD} npm run watch"
+    echo "$CMD"
+    $CMD
     exit 0
 fi
 
 if [ -f yarn.lock ]; then
-    echo 'yarn dev'
-    yarn dev
+    CMD="${CMD} yarn dev"
+    echo "$CMD"
+    $CMD
     exit 0
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-    echo 'pnpm run dev'
-    pnpm run dev
+    CMD="${CMD} pnpm run watch"
+    echo "$CMD"
+    $CMD
     exit 0
 fi
 
