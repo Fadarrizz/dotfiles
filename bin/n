@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ -f vite.config.js ]; then
+    echo 'npm run dev'
+    npm run dev
+    exit 0
+fi
+
+if [ -f package-lock.json ]; then
+    echo 'npm run watch'
+    npm run watch
+    exit 0
+fi
+
+if [ -f yarn.lock ]; then
+    echo 'yarn dev'
+    yarn dev
+    exit 0
+fi
+
+if [ -f pnpm-lock.yaml ]; then
+    echo 'pnpm run dev'
+    pnpm run dev
+    exit 0
+fi
+
+echo ' Node package not detected'
