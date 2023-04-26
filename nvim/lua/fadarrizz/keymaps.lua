@@ -11,7 +11,7 @@ map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Paste without registering deleted stuff
-map('x', '<leader>pp', '"_dP')
+map('x', '<leader>dp', '"_dP')
 
 -- Rename word under cursor in current buffer
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
@@ -34,3 +34,6 @@ map('n', '<Leader>qq', ':quitall<CR>')
 -- Navigate between buffers
 map('n', '[b', ':bprevious<CR>')
 map('n', ']b', ':bnext<CR>')
+
+-- Make file executable
+map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
