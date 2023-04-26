@@ -15,15 +15,15 @@ if [ -f vite.config.js ]; then
     exit 0
 fi
 
-if [ -f package-lock.json ]; then
-    CMD="${CMD} npm run watch"
+if [ -f yarn.lock ]; then
+    CMD="${CMD} yarn start"
     echo "$CMD"
     $CMD
     exit 0
 fi
 
-if [ -f yarn.lock ]; then
-    CMD="${CMD} yarn dev"
+if [ -f package-lock.json ]; then
+    CMD="${CMD} npm run watch"
     echo "$CMD"
     $CMD
     exit 0
