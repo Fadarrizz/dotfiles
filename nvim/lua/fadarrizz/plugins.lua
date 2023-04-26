@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/vim-be-good'
     use 'dbeniamine/cheat.sh-vim'
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP injector (for non-LSP sources)
+    use 'nmac427/guess-indent.nvim'
 
     -- Autopairs
     use {
