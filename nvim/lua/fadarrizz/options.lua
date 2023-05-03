@@ -8,8 +8,8 @@ vim.opt.signcolumn = "yes:2"                             -- str:  Show the sign 
 vim.opt.cmdheight = 0                                    -- num:  Hide cmd bar when not used
 
 -- [[ Filetypes ]]
-vim.opt.encoding = 'utf8'                                -- str:  String encoding to use
-vim.opt.fileencoding = 'utf8'                            -- str:  File encoding to use
+vim.opt.encoding = 'UTF8'                                -- str:  String encoding to use
+vim.opt.fileencoding = 'UTF8'                            -- str:  File encoding to use
 
 -- [[ Theme ]]
 vim.opt.syntax = "ON"                                    -- str:  Allow syntax highlighting
@@ -47,22 +47,9 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter f
 vim.opt.foldtext =                                      -- func: Show fold as indented comment
     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
 vim.opt.fillchars = "fold: ,eob: "                      -- str: Fill with empty spaces for fold and eob
-vim.opt.foldnestmax = 3                                 -- num: Fold up to 3 nestings
-vim.opt.foldminlines = 1                                -- num: Fold minimum of 1 line
----WORKAROUND
--- vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
---     group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
---     callback = function()
---         vim.opt.foldmethod = 'expr'
---         vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
---         vim.opt.foldtext =
---             [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
---         vim.opt.fillchars = "fold: ,eob: "
---         vim.opt.foldnestmax = 3
---         vim.opt.foldminlines = 1
---     end
--- })
----ENDWORKAROUND
+vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
+vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
+vim.opt.foldlevelstart = 1                              -- num: Start folding level at n
 
 vim.opt.clipboard = 'unnamedplus'                       -- str: Use system clipboard
 vim.opt.updatetime = 50                                 -- num: Make updating fast
