@@ -1,6 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -9,17 +9,18 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
-    use 'tpope/vim-fugitive' -- git wrapper
     use 'tpope/vim-abolish' -- working with word variants
+    -- use 'tpope/vim-sleuth'
     -- use 'tpope/vim-projectionist' -- per project configuration
-    use 'neomake/neomake' -- asynch stuff
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
-    use({ 'Wansmer/treesj', requires = { 'nvim-treesitter' } }) -- splitjoin
-    use 'ThePrimeagen/vim-be-good'
-    use 'dbeniamine/cheat.sh-vim'
+    use { 'Wansmer/treesj', requires = { 'nvim-treesitter' } } -- splitjoin
+    -- use 'ThePrimeagen/vim-be-good'
+    -- use 'dbeniamine/cheat.sh-vim'
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP injector (for non-LSP sources)
     use 'nmac427/guess-indent.nvim'
+    use 'monaqa/dial.nvim' -- increment/decrement numbers, dates, true/false, &&/|| 
+    -- use 'ahmedkhalf/project.nvim' -- auto cd to project dir
 
     -- Autopairs
     use {
@@ -28,23 +29,13 @@ return require('packer').startup(function(use)
     }
 
     -- Git gutter signs
-    use({
+    use {
         'lewis6991/gitsigns.nvim',
         requires = 'nvim-lua/plenary.nvim',
-    })
+    }
 
     -- Testing
     use 'vim-test/vim-test'
-    use {
-        "nvim-neotest/neotest",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            "olimorris/neotest-phpunit",
-            "haydenmeade/neotest-jest",
-        }
-    }
 
     -- Debugging
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
@@ -68,9 +59,6 @@ return require('packer').startup(function(use)
       'whatyouhide/vim-textobj-xmlattr',
       requires = { 'kana/vim-textobj-user' },
     }
-
-    -- JS
-    use 'David-Kunz/jester' -- Jest debugging
 
     -- Rust
     use 'neovim/nvim-lspconfig'
@@ -100,9 +88,6 @@ return require('packer').startup(function(use)
         { 'BurntSushi/ripgrep' }
     } }
 
-    -- Statusline
-    use { 'nvim-lualine/lualine.nvim', requires = 'nvim-tree/nvim-web-devicons' }
-
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -126,14 +111,6 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
-
-    -- use({
-    --     'rose-pine/neovim',
-    --     as = 'rose-pine',
-    --     config = function()
-    --         vim.cmd('colorscheme rose-pine')
-    --     end
-    -- })
 
     use { "catppuccin/nvim", as = "catppuccin" }
 end)
