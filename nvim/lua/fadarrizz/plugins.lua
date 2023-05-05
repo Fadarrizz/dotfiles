@@ -10,8 +10,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'tpope/vim-abolish' -- working with word variants
-    -- use 'tpope/vim-sleuth'
-    -- use 'tpope/vim-projectionist' -- per project configuration
+    use 'tpope/vim-projectionist' -- per project configuration
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
     use { 'Wansmer/treesj', requires = { 'nvim-treesitter' } } -- splitjoin
@@ -20,12 +19,41 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP injector (for non-LSP sources)
     use 'nmac427/guess-indent.nvim'
     use 'monaqa/dial.nvim' -- increment/decrement numbers, dates, true/false, &&/|| 
-    -- use 'ahmedkhalf/project.nvim' -- auto cd to project dir
 
     -- Autopairs
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end,
+    }
+
+    -- Autotags (html)
+    use {
+        'windwp/nvim-ts-autotag',
+        requires = 'nvim-treesitter/nvim-treesitter',
+        config = function ()
+            require('nvim-ts-autotag').setup({
+              filetypes = {
+                  'html',
+                  'javascript',
+                  'typescript',
+                  'javascriptreact',
+                  'typescriptreact',
+                  'svelte',
+                  'vue',
+                  'tsx',
+                  'jsx',
+                  'rescript',
+                  'xml',
+                  'blade',
+                  'php',
+                  'markdown',
+                  'astro',
+                  'glimmer',
+                  'handlebars',
+                  'hbs',
+              },
+            })
+        end,
     }
 
     -- Git gutter signs
@@ -95,7 +123,12 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
+            {
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
             { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
@@ -109,6 +142,8 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
+
+            { 'simrat39/inlay-hints.nvim' },
         }
     }
 

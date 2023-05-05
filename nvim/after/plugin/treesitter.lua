@@ -1,6 +1,6 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "help", "php", "javascript", "lua", "rust" },
+  ensure_installed = { "help", "php", "javascript", "lua", "rust", "tsx", "css", "typescript" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -23,6 +23,9 @@ require'nvim-treesitter.configs'.setup {
   },
 
   indent = {
-      enable = true,
-  }
+    enable = true,
+  },
 }
+
+-- Register blade filetype to use php parser
+-- vim.treesitter.language.register('php', 'blade')

@@ -6,7 +6,7 @@ require("nvim-tree").setup({
     respect_buf_cwd = true,
     update_focused_file = {
         enable = true,
-        update_root = true
+        update_root = false
     },
 })
 
@@ -18,8 +18,8 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 local map = vim.api.nvim_set_keymap
-local silent = { silent = true, noremap = true }
 
-map('n', '<leader>tt', ':NvimTreeToggle<CR>', silent)
-map('n', '<leader>tf', ':NvimTreeFindFile<CR>', silent)
-map('n', '<leader>tc', ':NvimTreeCollapse<CR>', silent)
+map('n', '<leader>nt', ':NvimTreeToggle<CR>', { silent = true, noremap = true, desc = 'Toggle Nvim Tree' })
+map('n', '<leader>ns', ':NvimTreeFindFile<CR>', { silent = true, noremap = true, desc = 'Search Nvim Tree' })
+map('n', '<leader>nc', ':NvimTreeCollapse<CR>', { silent = true, noremap = true, desc = 'Collapse Nvim Tree' })
+map('n', '<leader>nf', ':NvimTreeFocus<CR>', { silent = true, noremap = true, desc = 'Focus Nvim Tree' })

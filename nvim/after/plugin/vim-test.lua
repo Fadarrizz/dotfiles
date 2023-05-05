@@ -1,8 +1,8 @@
-vim.keymap.set('n', '<leader>tn',vim.cmd.TestNearest)
-vim.keymap.set('n', '<leader>tf',vim.cmd.TestFile)
-vim.keymap.set('n', '<leader>ta',vim.cmd.TestSuite)
-vim.keymap.set('n', '<leader>tl',vim.cmd.TestLast)
-vim.keymap.set('n', '<leader>tg',vim.cmd.TestVisit)
+vim.keymap.set('n', '<leader>tn',vim.cmd.TestNearest, { desc = 'Test Nearest' })
+vim.keymap.set('n', '<leader>tf',vim.cmd.TestFile, { desc = 'Test File' })
+vim.keymap.set('n', '<leader>ta',vim.cmd.TestSuite, { desc = 'Test Suite' })
+vim.keymap.set('n', '<leader>tl',vim.cmd.TestLast, { desc = 'Test Last' })
+vim.keymap.set('n', '<leader>tg',vim.cmd.TestVisit, { desc = 'Test Visit' })
 
 vim.g['test#strategy'] = "neovim"
 vim.g['test#neovim#start_normal'] = 1

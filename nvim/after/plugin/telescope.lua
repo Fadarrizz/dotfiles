@@ -20,7 +20,7 @@ vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = "Find quickfix" })
 
 require('telescope').setup {
     defaults = {
-        -- path_display = { truncate = 1 },
+        path_display = { truncate = 1 },
         file_ignore_patterns = { '.git/' },
     },
     pickers = {

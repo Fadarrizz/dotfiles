@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -88,11 +83,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
-  },
-  ["cheat.sh-vim"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/cheat.sh-vim",
-    url = "https://github.com/dbeniamine/cheat.sh-vim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -119,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dial.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/dial.nvim",
+    url = "https://github.com/monaqa/dial.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -134,20 +129,15 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/guess-indent.nvim",
     url = "https://github.com/nmac427/guess-indent.nvim"
   },
-  jester = {
+  ["inlay-hints.nvim"] = {
     loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/jester",
-    url = "https://github.com/David-Kunz/jester"
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/inlay-hints.nvim",
+    url = "https://github.com/simrat39/inlay-hints.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -168,26 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
-  },
-  neomake = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/neomake",
-    url = "https://github.com/neomake/neomake"
-  },
-  neotest = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/neotest",
-    url = "https://github.com/nvim-neotest/neotest"
-  },
-  ["neotest-jest"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/neotest-jest",
-    url = "https://github.com/haydenmeade/neotest-jest"
-  },
-  ["neotest-phpunit"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/neotest-phpunit",
-    url = "https://github.com/olimorris/neotest-phpunit"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -234,6 +204,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-ts-autotag"] = {
+    config = { "\27LJ\2\nå\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\14filetypes\1\0\0\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\nblade\bphp\rmarkdown\nastro\fglimmer\15handlebars\bhbs\nsetup\20nvim-ts-autotag\frequire\0" },
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
@@ -302,11 +278,6 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
   },
-  ["vim-be-good"] = {
-    loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-be-good",
-    url = "https://github.com/ThePrimeagen/vim-be-good"
-  },
   ["vim-blade"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-blade",
@@ -327,10 +298,10 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
     url = "https://github.com/kristijanhusak/vim-dadbod-ui"
   },
-  ["vim-fugitive"] = {
+  ["vim-projectionist"] = {
     loaded = true,
-    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-projectionist",
+    url = "https://github.com/tpope/vim-projectionist"
   },
   ["vim-repeat"] = {
     loaded = true,
@@ -369,6 +340,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\nå\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\14filetypes\1\0\0\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\nblade\bphp\rmarkdown\nastro\fglimmer\15handlebars\bhbs\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
