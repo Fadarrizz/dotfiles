@@ -20,6 +20,7 @@
 	excludesfile = ~/.dotfiles/git/.gitignore_global
 [alias]
 	ctags = !.git/hooks/ctags
+	wtf = !$DOTFILES/bin/git-wtf
 [init]
 	templatedir = ~/.dotfiles/git/.git_template
 	defaultBranch = main
