@@ -9,16 +9,19 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
-    use 'tpope/vim-abolish' -- working with word variants
+    use 'tpope/vim-abolish'       -- working with word variants
     use 'tpope/vim-projectionist' -- per project configuration
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
     use { 'Wansmer/treesj', requires = { 'nvim-treesitter' } } -- splitjoin
-    -- use 'ThePrimeagen/vim-be-good'
-    -- use 'dbeniamine/cheat.sh-vim'
+    use 'ThePrimeagen/vim-be-good'
+    use 'dbeniamine/cheat.sh-vim'
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP injector (for non-LSP sources)
     use 'nmac427/guess-indent.nvim'
-    use 'monaqa/dial.nvim' -- increment/decrement numbers, dates, true/false, &&/|| 
+    use 'monaqa/dial.nvim'                -- increment/decrement numbers, dates, true/false, &&/||
+    use 'stevearc/dressing.nvim'          -- ui improvements
+    use 'anuvyklack/pretty-fold.nvim'
+    use { "akinsho/toggleterm.nvim", tag = '*' }
 
     -- Autopairs
     use {
@@ -30,44 +33,48 @@ return require('packer').startup(function(use)
     use {
         'windwp/nvim-ts-autotag',
         requires = 'nvim-treesitter/nvim-treesitter',
-        config = function ()
+        config = function()
             require('nvim-ts-autotag').setup({
-              filetypes = {
-                  'html',
-                  'javascript',
-                  'typescript',
-                  'javascriptreact',
-                  'typescriptreact',
-                  'svelte',
-                  'vue',
-                  'tsx',
-                  'jsx',
-                  'rescript',
-                  'xml',
-                  'blade',
-                  'php',
-                  'markdown',
-                  'astro',
-                  'glimmer',
-                  'handlebars',
-                  'hbs',
-              },
+                filetypes = {
+                    'html',
+                    'javascript',
+                    'typescript',
+                    'javascriptreact',
+                    'typescriptreact',
+                    'svelte',
+                    'vue',
+                    'tsx',
+                    'jsx',
+                    'rescript',
+                    'xml',
+                    'blade',
+                    'php',
+                    'markdown',
+                    'astro',
+                    'glimmer',
+                    'handlebars',
+                    'hbs',
+                },
             })
         end,
     }
 
-    -- Git gutter signs
+    -- Git
     use {
         'lewis6991/gitsigns.nvim',
         requires = 'nvim-lua/plenary.nvim',
     }
+    use "sindrets/diffview.nvim"
 
     -- Testing
     use 'vim-test/vim-test'
 
     -- Debugging
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use { 'jayp0521/mason-nvim-dap.nvim' }
+    use {
+        'jayp0521/mason-nvim-dap.nvim',
+        requires = { 'williamboman/mason.nvim', run = ':MasonUpdate' },
+    }
 
     -- Lua / Nvim
     use "nvim-lua/plenary.nvim"
@@ -84,8 +91,8 @@ return require('packer').startup(function(use)
 
     -- HTML/XMl
     use {
-      'whatyouhide/vim-textobj-xmlattr',
-      requires = { 'kana/vim-textobj-user' },
+        'whatyouhide/vim-textobj-xmlattr',
+        requires = { 'kana/vim-textobj-user' },
     }
 
     -- Rust
@@ -125,9 +132,7 @@ return require('packer').startup(function(use)
             { 'neovim/nvim-lspconfig' },
             {
                 'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
+                run = ':MasonUpdate',
             },
             { 'williamboman/mason-lspconfig.nvim' },
 

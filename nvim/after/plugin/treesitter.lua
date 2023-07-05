@@ -28,4 +28,4 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Register blade filetype to use php parser
--- vim.treesitter.language.register('php', 'blade')
+vim.treesitter.language.register('php', 'blade')

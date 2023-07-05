@@ -19,9 +19,9 @@ vim.g.loaded_ruby_provider = 0
 --     vim.g['loaded_' .. disabled_built_ins[i]] = 1
 -- end
 
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
+-- function R(name)
+--     require("plenary.reload").reload_module(name)
+-- end
 
 -- IMPORTS
 require('fadarrizz.autocmd')

@@ -7,9 +7,17 @@ local function search_all_files()
     }
 end
 
+local function live_grep_cwd()
+    builtin.live_grep {
+        prompt_title = "Live Grep CWD",
+        cwd = require('telescope.utils').buffer_dir(),
+    }
+end
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
 vim.keymap.set('n', '<leader>fa', search_all_files, { desc = "Find all files" })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find in live grep" })
+vim.keymap.set('n', '<leader>fG', live_grep_cwd, { desc = "Find in all live grep" })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find buffer" })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Find old files" })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find help tag" })

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["cheat.sh-vim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/cheat.sh-vim",
+    url = "https://github.com/dbeniamine/cheat.sh-vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -113,6 +118,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/dial.nvim",
     url = "https://github.com/monaqa/dial.nvim"
+  },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -248,6 +263,11 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["pretty-fold.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/pretty-fold.nvim",
+    url = "https://github.com/anuvyklack/pretty-fold.nvim"
+  },
   ripgrep = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/ripgrep",
@@ -263,6 +283,11 @@ _G.packer_plugins = {
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   treesj = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/treesj",
@@ -277,6 +302,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/auke/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-blade"] = {
     loaded = true,

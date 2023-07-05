@@ -44,9 +44,9 @@ vim.opt.undofile = true                                  -- bool: Allow use of u
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
 vim.opt.foldmethod = "expr"                             -- str: Use expression as folding method
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter for folding
-vim.opt.foldtext =                                      -- func: Show fold as indented comment
-    [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
-vim.opt.fillchars = "fold: ,eob: "                      -- str: Fill with empty spaces for fold and eob
+-- vim.opt.foldtext =                                      -- func: Show fold as indented comment
+--     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+-- vim.opt.fillchars = "fold: ,eob: "                      -- str: Fill with empty spaces for fold and eob
 vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
 vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
 vim.opt.foldlevelstart = 1                              -- num: Start folding level at n
