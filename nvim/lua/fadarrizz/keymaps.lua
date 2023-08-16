@@ -37,3 +37,6 @@ map('n', ']b', ':bnext<CR>')
 
 -- Make file executable
 map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+
+-- Remap terminal normal mode
+map('t', '<C-o>', '<C-\\><C-n>')

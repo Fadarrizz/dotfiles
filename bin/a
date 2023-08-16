@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+CMD=""
+
+if [ -f vendor/bin/sail ]; then
+    echo 'sail detected'
+    CMD="sail"
+
+else
+    CMD="php"
+fi
+
+CMD="${CMD} artisan"
+echo "Running $CMD"
+$CMD
+exit 0

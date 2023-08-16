@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>tg',vim.cmd.TestVisit, { desc = 'Test Visit' })
 
 vim.g['test#strategy'] = "neovim"
 vim.g['test#neovim#start_normal'] = 1
+vim.g[':test#echo_command'] = 0
 
 -- JS
 vim.g['test#javascript#runner'] = 'jest'
