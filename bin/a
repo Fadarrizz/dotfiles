@@ -1,16 +1,13 @@
 #!/usr/bin/env bash
-
+#
+# Quick shortcut to Laravel Artisan
+#
 CMD=""
 
 if [ -f vendor/bin/sail ]; then
-    echo 'sail detected'
     CMD="sail"
-
 else
     CMD="php"
 fi
 
-CMD="${CMD} artisan"
-echo "Running $CMD"
-$CMD
-exit 0
+"$CMD" artisan "$@"

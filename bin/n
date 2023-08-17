@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+#
+# Detect JS package manager and run watcher
+#
 MSG="Running"
 CMD=""
 
