@@ -1,6 +1,6 @@
 [user]
 	name = Fadarrizz
-	email = auk.geerts@gmail.com
+	email = aukegeerts@duck.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAoFt2omPyqupWH4m8uFurvqjpY21NF+4jKEmvvyfZ9P
 [filter "lfs"]
 	process = git-lfs filter-process
