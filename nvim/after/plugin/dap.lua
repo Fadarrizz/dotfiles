@@ -1,4 +1,5 @@
 local dap, dapui = require("dap"), require("dapui")
+require("nvim-dap-virtual-text").setup()
 
 dapui.setup()
 
@@ -30,14 +31,29 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
-vim.keymap.set("n", "<leader>dl", require("dap.ui.widgets").hover, { desc = 'Dap list' })
-vim.keymap.set("n", "<leader>dc", dap.continue, { desc = 'Dap continue' })
-vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = 'Dap toggle breakpoint' })
-vim.keymap.set("n", "<leader>dn", dap.step_over, { desc = 'Dap step over' })
-vim.keymap.set("n", "<leader>di", dap.step_into, { desc = 'Dap step into' })
-vim.keymap.set("n", "<leader>do", dap.step_out, { desc = 'Dap step out' })
-vim.keymap.set("n", "<leader>dvo", dapui.open, { desc = 'Dap UI open' })
-vim.keymap.set("n", "<leader>dvc", dapui.close, { desc = 'Dap UI close' })
+local map = function(lhs, rhs, desc)
+  if desc then
+    desc = "[DAP] " .. desc
+  end
+
+  vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
+end
+
+map("<leader>dl", require("dap.ui.widgets").hover, 'list')
+map("<leader>dvo", dapui.open, 'UI open')
+map("<leader>dvc", dapui.close, 'UI close')
+
+map("<F1>", dap.step_back, "step_back")
+map("<F2>", dap.step_into, "step_into")
+map("<F3>", dap.step_over, "step_over")
+map("<F4>", dap.step_out, "step_out")
+map("<F5>", dap.continue, "continue")
+
+map("<leader>db", dap.toggle_breakpoint, "toggle_breakpoint")
+map("<leader>dB", function()
+  require("dap").set_breakpoint(vim.fn.input "[DAP] Condition > ")
+end)
+map("<leader>dr", dap.repl.open, "open repl")
 
 -- dap.adapters = {
 --     node2 = {

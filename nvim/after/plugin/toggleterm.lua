@@ -2,33 +2,16 @@ local status, toggleterm = pcall(require, 'toggleterm')
 if (not status) then return end
 
 require("toggleterm").setup({
+    start_in_insert = true,
     insert_mappings = true,
     terminal_mappings = true,
     direction = 'vertical',
-    -- size = 100,
-    -- float_opts = {
-    --     border = 'curved',
-    --     winblend = 0,
-    -- },
-    -- persist_size = false,
-    -- winbar = {
-    --     enable = true
-    -- },
-    -- auto_scroll = false
 })
 
 local Terminal = require('toggleterm.terminal').Terminal
 
 -- Lazygit
-local lazygit  = Terminal:new({
-    cmd = "lazygit",
-    hidden = true,
-    direction = "float",
-})
-
-function _lazygit_toggle()
-    lazygit:toggle()
-end
+local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 vim.keymap.set({ "n", "t" }, "<leader>lg", function() lazygit:toggle() end, {
     noremap = true,
@@ -38,9 +21,16 @@ vim.keymap.set({ "n", "t" }, "<leader>lg", function() lazygit:toggle() end, {
 
 -- Default
 local floating = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
+local floating2 = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
 
 vim.keymap.set({ "n", "t" }, "<leader>tt", function() floating:toggle() end, {
     noremap = true,
     silent = true,
-    desc = "Toggle term",
+    desc = "Toggle main term",
+})
+
+vim.keymap.set({ "n", "t" }, "<leader>t2", function() floating2:toggle() end, {
+    noremap = true,
+    silent = true,
+    desc = "Toggle 2nd term",
 })

@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-abolish'       -- working with word variants
     use 'tpope/vim-projectionist' -- per project configuration
+    use 'tpope/vim-unimpaired' -- mappings for next/previous, option toggling, en-/decoding, 
     use 'mbbill/undotree'
     use 'folke/which-key.nvim'
     use { 'Wansmer/treesj', requires = { 'nvim-treesitter' } } -- splitjoin
@@ -75,6 +76,7 @@ return require('packer').startup(function(use)
         'jayp0521/mason-nvim-dap.nvim',
         requires = { 'williamboman/mason.nvim', run = ':MasonUpdate' },
     }
+    use 'theHamsta/nvim-dap-virtual-text'
 
     -- Lua / Nvim
     use "nvim-lua/plenary.nvim"
