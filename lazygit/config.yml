@@ -1,2 +1,4 @@
 gui:
   promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
+git:
+  autoFetch: false # stop making new ssh connections
