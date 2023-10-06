@@ -48,26 +48,9 @@ require('lspconfig').lua_ls.setup({
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/intelephense.lua
 lsp.configure('intelephense', {})
 
--- lsp.skip_server_setup({ 'rust_analyzer' })
-
 lsp.configure('html', {
   filetypes = { 'html', 'blade', 'handlebars' }
 })
-
--- lsp.on_attach(function (client, bufnr)
---   local opts = { noremap=true, silent=true, buffer=bufnr }
-
---   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
---   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
---   vim.keymap.set('n', '<space>wl', function()
---     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---   end, opts)
---   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
---   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
---   -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
---   vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', opts)
---   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
--- end)
 
 lsp.setup()
 

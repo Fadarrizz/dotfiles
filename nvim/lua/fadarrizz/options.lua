@@ -42,14 +42,21 @@ vim.opt.undofile = true                                  -- bool: Allow use of u
 
 -- [[ Folding ]]
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
-vim.opt.foldmethod = "expr"                             -- str: Use expression as folding method
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter for folding
--- vim.opt.foldtext =                                      -- func: Show fold as indented comment
---     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
--- vim.opt.fillchars = "fold: ,eob: "                      -- str: Fill with empty spaces for fold and eob
-vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
-vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
-vim.opt.foldlevelstart = 1                              -- num: Start folding level at n
+vim.wo.foldmethod = "expr"                             -- str: Use expression as folding method
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter for folding
+-- vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
+-- vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
+-- vim.opt.foldlevelstart = 1                              -- num: Start folding level at n
 
 vim.opt.clipboard = 'unnamedplus'                       -- str: Use system clipboard
 vim.opt.updatetime = 50                                 -- num: Make updating fast
+
+-- [[ Completion ]]
+-- :help completeopt
+-- menuone: popup even when there's only one match
+-- noinsert: Do not insert text until a selection is made
+-- noselect: Do not select, force to select one from the menu
+-- shortmess: avoid showing extra messages when using completion
+-- updatetime: set updatetime for CursorHold
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.shortmess = vim.opt.shortmess + { c = true }

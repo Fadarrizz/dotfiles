@@ -21,6 +21,24 @@ dap.adapters.php = {
     args = { vim.fn.stdpath("data") .. '/mason/packages/php-debug-adapter/extension/out/phpDebug.js' }
 }
 
+dap.configurations.rust = {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+}
+
+dap.adapters.lldb = {
+  type = 'executable',
+  command = 'lldb-vscode', -- adjust as needed, must be absolute path
+  name = 'lldb'
+}
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
