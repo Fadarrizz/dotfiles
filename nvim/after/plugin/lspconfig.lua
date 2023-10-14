@@ -48,6 +48,16 @@ require('lspconfig').lua_ls.setup({
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/intelephense.lua
 lsp.configure('intelephense', {})
 
+local rust_tools = require('rust-tools')
+
+rust_tools.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, {buffer = bufnr})
+    end
+  }
+})
+
 lsp.configure('html', {
   filetypes = { 'html', 'blade', 'handlebars' }
 })

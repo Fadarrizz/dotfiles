@@ -22,20 +22,23 @@ dap.adapters.php = {
 }
 
 dap.configurations.rust = {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
+    {
+        name = 'Launch',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+        runInTerminal = false
+    }
 }
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = 'lldb-vscode', -- adjust as needed, must be absolute path
+  command = "codelldb", -- adjust as needed, must be absolute path
   name = 'lldb'
 }
 
