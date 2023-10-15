@@ -1,3 +1,13 @@
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.blade = {
+  install_info = {
+    url = "https://github.com/EmranMR/tree-sitter-blade",
+    files = {"src/parser.c"},
+    branch = "main",
+  },
+  filetype = "blade"
+}
+
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
   ensure_installed = { "help", "php", "javascript", "lua", "rust", "tsx", "css", "typescript" },
@@ -23,9 +33,9 @@ require('nvim-treesitter.configs').setup {
   },
 
   indent = {
-    enable = true,
+    enable = false,
   },
 }
 
 -- Register blade filetype to use php parser
-vim.treesitter.language.register('php', 'blade')
+-- vim.treesitter.language.register('php', 'blade')

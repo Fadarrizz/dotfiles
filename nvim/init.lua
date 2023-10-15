@@ -25,6 +25,7 @@ vim.g.loaded_ruby_provider = 0
 
 -- IMPORTS
 require('fadarrizz.autocmd')
+require('fadarrizz.filetypes')
 require('fadarrizz.plugins')
 require('fadarrizz.vars')
 require('fadarrizz.options')

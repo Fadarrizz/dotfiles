@@ -42,8 +42,9 @@ vim.opt.undofile = true                                  -- bool: Allow use of u
 
 -- [[ Folding ]]
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
-vim.wo.foldmethod = "expr"                             -- str: Use expression as folding method
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"         -- str: Use Treesitter for folding
+vim.wo.foldmethod = "expr"                              -- str: Use expression as folding method
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"          -- str: Use Treesitter for folding
+vim.wo.foldenable = false                               -- bool: Disable folding at startup
 vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
 vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
 vim.opt.foldlevelstart = 1                              -- num: Start folding level at n

@@ -12,18 +12,16 @@
     ~/.gitignore_global: git/.gitignore_global
     ~/.zshrc: zsh/.zshrc
     ~/.zprofile: zsh/.zprofile
-    ~/.config/nvim/init.vim: vim/nvim/init.vim
-    ~/.config/nvim/autoload: vim/nvim/autoload
-    ~/.config/nvim/after: vim/nvim/after
-    ~/.config/nvim/plugins: vim/nvim/plugins
-    ~/.config/nvim/lua: vim/nvim/lua
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/autoload: nvim/autoload
+    ~/.config/nvim/after: nvim/after
+    ~/.config/nvim/plugins: nvim/plugins
+    ~/.config/nvim/lua: nvim/lua
     ~/.config/nvim/coc-settings.json: vim/nvim/coc-settings.json
     ~/.ideavimrc: vim/.ideavimrc
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.myclirc: mycli/.myclirc    
     ~/.config/karabiner: karabiner
-    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm/com.googlecode.iterm2.plist
-    ~/Library/Preferences/com.jetbrains.toolbox.plist: jetbrains-toolbox/com.jetbrains.toolbox.plist
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     
 - create:

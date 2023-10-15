@@ -37,14 +37,10 @@ cask 'alfred'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
-cask 'google-chrome'
-cask 'iterm2'
-cask 'jetbrains-toolbox'
 cask 'karabiner-elements'
 cask 'microsoft-teams'
 cask 'openvpn-connect'
-cask 'phpstorm'
-cask 'private-internet-access'
+cask 'protonvpn'
 cask 'spotify'
 cask 'toggl'
 cask 'vlc'
@@ -52,9 +48,6 @@ cask 'whatsapp'
 cask '1password'
 cask 'slack'
 cask 'skype'
-
-# Fonts
-cask 'font-jetbrains-mono'
 
 # Mac App Store
 mas 'Amphetamine', id: 937984704
