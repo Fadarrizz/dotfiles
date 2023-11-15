@@ -10,15 +10,6 @@ require("toggleterm").setup({
 
 local Terminal = require('toggleterm.terminal').Terminal
 
--- Lazygit
-local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-
-vim.keymap.set({ "n", "t" }, "<leader>lg", function() lazygit:toggle() end, {
-    noremap = true,
-    silent = true,
-    desc = "Toggle Lazygit",
-})
-
 -- Default
 local floating = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
 local floating2 = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
