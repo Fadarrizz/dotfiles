@@ -1,42 +1,45 @@
 local map = vim.keymap.set
 
 -- Easier split navigation
-map('n', '<C-J>', '<C-W><C-J>')
-map('n', '<C-K>', '<C-W><C-K>')
-map('n', '<C-L>', '<C-W><C-L>')
-map('n', '<C-H>', '<C-W><C-H>')
+map('n', '<C-J>', '<C-W><C-J>', { desc = 'split down' })
+map('n', '<C-K>', '<C-W><C-K>', { desc = 'split up' })
+map('n', '<C-L>', '<C-W><C-L>', { desc = 'split left' })
+map('n', '<C-H>', '<C-W><C-H>', { desc = 'split right' })
 
 -- Move highlighted block up and down
-map('v', 'J', ":m '>+1<CR>gv=gv")
-map('v', 'K', ":m '<-2<CR>gv=gv")
+map('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move hl block down' })
+map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move hl block up' })
 
 -- Paste without registering deleted stuff
-map('x', '<leader>dp', '"_dP')
+map('x', '<leader>dp', '"_dP', { desc = 'paste without registering' })
 
 -- Rename word under cursor in current buffer
-map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = 'rename under cursor' })
 
 -- Select all text in current buffer
-map('n', '<Leader>a', ':keepjumps normal! ggVG<CR>')
+map('n', '<Leader>a', ':keepjumps normal! ggVG<CR>', { desc = 'hl all' })
 
 -- Go to first character in line
-map('', '<Leader>g', '^')
+map('', '<Leader>g', '^', { desc = 'goto first in line' })
 
 -- Go to last character in line
-map('', '<Leader>l', 'g_')
+map('', '<Leader>l', 'g_', { desc = 'goto last in line' })
 
 -- Write file
-map('n', '<Leader>w', ':write<CR>')
+map('n', '<Leader>w', ':write<CR>', { desc = 'write' })
 
--- Safe quit
-map('n', '<Leader>qq', ':quitall<CR>')
+-- Quick quit
+map('n', '<Leader>qq', ':quit<CR>', { desc = 'quick quit' })
+
+-- Quit all
+map('n', '<Leader>qa', ':quitall<CR>', { desc = 'quit all' })
 
 -- Navigate between buffers
-map('n', '[b', ':bprevious<CR>')
-map('n', ']b', ':bnext<CR>')
+map('n', '[b', ':bprevious<CR>', { desc = 'prev buffer' })
+map('n', ']b', ':bnext<CR>', { desc = 'next buffer' })
 
 -- Make file executable
-map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'make file executable' })
 
 -- Remap terminal normal mode
 map('t', '<C-o>', '<C-\\><C-n>')
