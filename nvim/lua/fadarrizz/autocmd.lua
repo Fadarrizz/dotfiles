@@ -20,14 +20,6 @@ autocmd('BufWritePost', {
     command = 'source <afile> | PackerCompile'
 })
 
-local function open_nvim_tree()
-    require("nvim-tree.api").tree.open()
-end
-
-autocmd({ "VimEnter" }, {
-    callback = open_nvim_tree,
-})
-
 autocmd("RecordingEnter", {
   callback = function(ctx)
     vim.opt.cmdheight = 1
