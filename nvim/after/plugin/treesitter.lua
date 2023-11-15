@@ -10,7 +10,7 @@ parser_config.blade = {
 
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "help", "php", "javascript", "lua", "rust", "tsx", "css", "typescript" },
+  ensure_installed = { "php", "javascript", "lua", "rust", "tsx", "css", "typescript" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
