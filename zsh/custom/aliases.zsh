@@ -28,3 +28,6 @@ alias s="sail"
 
 # Docs
 alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
+
+# Needed for Lazygit in Nvim
+alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
