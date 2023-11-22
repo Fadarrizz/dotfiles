@@ -1,10 +1,3 @@
-local ih = require('inlay-hints')
-ih.setup({
-  inlay_hints = {
-    only_current_line = true,
-  }
-})
-
 local lsp = require('lsp-zero')
 
 lsp.on_attach(function(client, bufnr)
@@ -46,8 +39,29 @@ require('mason-lspconfig').setup({
   },
 })
 
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+}
+
+-- Intelephense
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/intelephense.lua
 lsp.configure('intelephense', {})
+
+-- Phpactor
+require('lspconfig').phpactor.setup {
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+  init_options = {
+    ["language_server.diagnostics_on_update"] = false,
+    ["language_server.diagnostics_on_open"] = false,
+    ["language_server.diagnostics_on_save"] = false,
+    ["language_server_phpstan.enabled"] = true,
+    ["language_server_psalm.enabled"] = false,
+  }
+}
 
 local rust_tools = require('rust-tools')
 
@@ -57,11 +71,6 @@ rust_tools.setup({
       vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, {buffer = bufnr, desc = "code actions"})
     end
   },
-  tools = {
-    inlay_hints = {
-      auto = false
-    }
-  }
 })
 
 lsp.configure('html', {
