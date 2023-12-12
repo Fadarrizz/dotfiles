@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use 'tpope/vim-commentary'
+    use 'numToStr/Comment.nvim'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'tpope/vim-abolish'               -- working with word variants
@@ -33,7 +33,11 @@ return require('packer').startup(function(use)
         'folke/todo-comments.nvim',
         required = { "nvim-lua/plenary.nvim" },
     }
-    use 'ThePrimeagen/harpoon'            -- quick navigate to files in project
+    use {
+        "ThePrimeagen/harpoon",           -- quick navigate to files in project
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use 'NvChad/nvim-colorizer.lua'       -- colorize css/hex values
     use 'stevearc/oil.nvim'               -- edit file system like vim buffer
     use 'smjonas/live-command.nvim'       -- preview for commands (e.g. substitute)
