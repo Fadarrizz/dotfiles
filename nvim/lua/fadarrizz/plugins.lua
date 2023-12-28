@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
-    use 'NvChad/nvim-colorizer.lua'       -- colorize css/hex values
+    use 'norcalli/nvim-colorizer.lua'     -- colorize css/hex values
     use 'stevearc/oil.nvim'               -- edit file system like vim buffer
     use 'smjonas/live-command.nvim'       -- preview for commands (e.g. substitute)
 
