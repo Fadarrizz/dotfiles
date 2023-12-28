@@ -12,6 +12,7 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH=$PATH:$DOTFILES/bin
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export PATH=~/projects/tree-sitter-blade/node_modules/.bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 
 export EDITOR='nvim'
 export DOTFILES=$HOME/.dotfiles

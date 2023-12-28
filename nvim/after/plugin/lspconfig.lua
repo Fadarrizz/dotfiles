@@ -40,9 +40,9 @@ require('mason-lspconfig').setup({
 })
 
 vim.diagnostic.config {
-  virtual_text = false,
   signs = true,
   underline = true,
+  virtual_text = false,
 }
 
 -- Intelephense
