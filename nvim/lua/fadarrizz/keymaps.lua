@@ -14,7 +14,7 @@ map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'move hl block up' })
 map('x', '<leader>dp', '"_dP', { desc = 'paste without registering' })
 
 -- Rename word under cursor in current buffer
-map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = 'rename under cursor' })
+map("n", "<leader>rw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = 'rename under cursor' })
 
 -- Select all text in current buffer
 map('n', '<Leader>a', ':keepjumps normal! ggVG<CR>', { desc = 'hl all' })
