@@ -1,7 +1,9 @@
 return {
     "stevearc/oil.nvim",
-    config = function()
-        require("oil").setup()
-    end,
-    keys = { "-", "<CMD>Oil<CR>", "Open parent directory" },
+    lazy = false,
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+        { "-", "<CMD>Oil<CR>", desc = "Open parent directory" }
+    },
 }
