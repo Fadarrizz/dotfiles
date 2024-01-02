@@ -53,7 +53,7 @@ return {
 
         require('mason').setup({})
         require('mason-lspconfig').setup({
-          ensure_installed = { 'html', 'eslint', 'rust_analyzer', 'rust-tools', 'tailwindcss', 'intelephense' },
+          ensure_installed = { 'html', 'eslint', 'rust_analyzer', 'tailwindcss', 'intelephense' },
           handlers = {
             lsp.default_setup,
             lua_ls = function()

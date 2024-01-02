@@ -1,10 +1,14 @@
+-- [[ Leader ]]
+vim.g.mapleader = [[ ]]
+vim.g.localleader = [[,]]
+
 -- [[ Context ]]
 vim.opt.colorcolumn = '120'                              -- str:  Show col for max line length
 vim.opt.number = true                                    -- bool: Show line numbers
 vim.opt.relativenumber = true                            -- bool: Show relative line numbers
 vim.opt.scrolloff = 8                                    -- int:  Min num lines of context
 vim.opt.sidescrolloff = 8		                         -- int:  Min num lines of side context
-vim.opt.signcolumn = "yes:2"                             -- str:  Show the sign column
+vim.opt.signcolumn = "yes"                               -- str:  Show the sign column
 vim.opt.cmdheight = 0                                    -- num:  Hide cmd bar when not used
 
 -- [[ Filetypes ]]
@@ -61,3 +65,18 @@ vim.opt.updatetime = 50                                 -- num: Make updating fa
 -- updatetime: set updatetime for CursorHold
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
+
+-- make all keymaps silent by default
+local keymap_set = vim.keymap.set
+---@diagnostic disable-next-line: duplicate-set-field
+vim.keymap.set = function(mode, lhs, rhs, opts)
+  opts = opts or {}
+  opts.silent = opts.silent ~= false
+  return keymap_set(mode, lhs, rhs, opts)
+end
+
+-- [[ Remote Providers ]]
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
