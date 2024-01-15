@@ -5,13 +5,13 @@ return {
     keys = {
         { ']c', ':Gitsigns next_hunk<CR>' },
         { '[c', ':Gitsigns prev_hunk<CR>' },
-        { 'hs', ':Gitsigns stage_hunk<CR>' },
-        { 'hr', ':Gitsigns reset_hunk<CR>' },
-        { 'hs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, mode = 'v' },
-        { 'hr', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, mode = 'v' },
-        { 'hS', ':Gitsigns undo_stage_hunk<CR>' },
-        { 'hp', ':Gitsigns preview_hunk<CR>' },
-        { 'hb', ':Gitsigns blame_line<CR>' },
+        { '<leader>hs', ':Gitsigns stage_hunk<CR>' },
+        { '<leader>hr', ':Gitsigns reset_hunk<CR>' },
+        { '<leader>hs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, mode = 'v' },
+        { '<leader>hr', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, mode = 'v' },
+        { '<leader>hS', ':Gitsigns undo_stage_hunk<CR>' },
+        { '<leader>hp', ':Gitsigns preview_hunk<CR>' },
+        { '<leader>hb', ':Gitsigns blame_line<CR>' },
       },
     opts = {}
 }

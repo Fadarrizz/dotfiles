@@ -35,13 +35,10 @@ return {
 
           lsp.default_keymaps({ buffer = bufnr })
 
-          map('<space>e', vim.diagnostic.open_float, "open diagnostic")
-          map('<space>ca', vim.lsp.buf.code_action, "code actions")
           map('<space>f', function() vim.lsp.buf.format { async = true } end, "format")
+
+          map('<space>ca', vim.lsp.buf.code_action, "code actions")
           map('<space>rn', vim.lsp.buf.rename, "rename")
-          map('[d', vim.diagnostic.goto_prev, "prev diagnostic")
-          map(']d', vim.diagnostic.goto_next, "next diagnostic")
-          map('<space>q', vim.diagnostic.setloclist, "setloclist diagnostic")
           map('gD', vim.lsp.buf.declaration, "go to declaration")
           map('gd', vim.lsp.buf.definition, "go to definition")
           map('K', vim.lsp.buf.hover, "show definition")
@@ -49,6 +46,11 @@ return {
           map('<C-s>', vim.lsp.buf.signature_help, "signature help")
           map('<space>D', vim.lsp.buf.type_definition, "type definition")
           map('gr', vim.lsp.buf.references, "references")
+
+          map('<space>e', vim.diagnostic.open_float, "open diagnostic")
+          map('[d', vim.diagnostic.goto_prev, "prev diagnostic")
+          map(']d', vim.diagnostic.goto_next, "next diagnostic")
+          map('<space>q', vim.diagnostic.setloclist, "setloclist diagnostic")
         end)
 
         require('mason').setup({})
