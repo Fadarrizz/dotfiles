@@ -1,8 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    build = function()
+        require('nvim-treesitter.install').update({ with_sync = true })
+    end,
     event = "VeryLazy",
-    depedencies = {
+    dependencies = {
         { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" },
         'nvim-treesitter/nvim-treesitter-textobjects',
         {
@@ -57,9 +59,6 @@ return {
         indent = {
             enable = true,
             disable = { "yaml" }
-        },
-        context_commentstring = {
-            enable = true,
         },
         rainbow = {
             enable = true,

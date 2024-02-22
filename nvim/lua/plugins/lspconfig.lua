@@ -20,6 +20,12 @@ return {
         { 'rafamadriz/friendly-snippets' },
 
         { 'simrat39/inlay-hints.nvim' },
+
+        {
+          'mrcjkb/rustaceanvim',
+          version = '^3',
+          ft = { 'rust' },
+        }
     },
     config = function()
         local lsp = require('lsp-zero')
@@ -57,6 +63,7 @@ return {
         require('mason-lspconfig').setup({
           ensure_installed = { 'html', 'eslint', 'rust_analyzer', 'tailwindcss', 'intelephense' },
           handlers = {
+            rust_analyzer = lsp.noop,
             lsp.default_setup,
             lua_ls = function()
               local lua_opts = lsp.nvim_lua_ls()
@@ -89,15 +96,12 @@ return {
           }
         }
 
-        local rust_tools = require('rust-tools')
-
-        rust_tools.setup({
+        -- Rustaceanvim
+        vim.g.rustaceanvim = {
           server = {
-            on_attach = function(_, bufnr)
-              vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, {buffer = bufnr, desc = "code actions"})
-            end
+            capabilities = lsp.get_capabilities()
           },
-        })
+        }
 
         lsp.configure('html', {
           filetypes = { 'html', 'blade', 'handlebars' }
@@ -132,8 +136,8 @@ return {
             ['<C-e>'] = cmp_action.toggle_completion(),
 
             -- tab complete
-            ['<Tab>'] = cmp_action.tab_complete(),
-            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+            ['<Tab>'] = cmp_action.luasnip_supertab(),
+            ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
             -- navigate between snippet placeholder
             ['<C-d>'] = cmp_action.luasnip_jump_forward(),
