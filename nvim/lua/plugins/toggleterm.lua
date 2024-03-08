@@ -5,7 +5,19 @@ return {
         start_in_insert = true,
         insert_mappings = true,
         terminal_mappings = true,
-        direction = 'vertical',
+        direction = 'float',
+        float_opts = {
+            border = 'rounded',
+            width = function()
+                return math.ceil(vim.api.nvim_get_option("columns") * .8)
+            end,
+            height = function()
+                return math.ceil(vim.api.nvim_get_option("lines") * .8 - 4)
+            end
+        },
+        winbar = {
+            enabled = true,
+        },
     },
     config = function()
         local Terminal = require('toggleterm.terminal').Terminal

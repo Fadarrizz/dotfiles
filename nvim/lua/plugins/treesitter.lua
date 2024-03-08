@@ -3,66 +3,11 @@ return {
     build = function()
         require('nvim-treesitter.install').update({ with_sync = true })
     end,
-    event = "VeryLazy",
-    dependencies = {
-        { 'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" },
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        {
-            'JoosepAlviste/nvim-ts-context-commentstring',
-            opts = {
-                custom_calculation = function(node, language_tree)
-                    if vim.bo.filetype == 'blade' and language_tree._lang ~= 'javascript' then
-                        return '{{-- %s --}}'
-                    end
-                end,
-            },
-        },
-    },
     opts = {
-        ensure_installed = {
-            'bash',
-            'comment',
-            'css',
-            'diff',
-            'dockerfile',
-            'git_config',
-            'git_rebase',
-            'gitattributes',
-            'gitcommit',
-            'gitignore',
-            'go',
-            'html',
-            'http',
-            'javascript',
-            'json',
-            'jsonc',
-            'lua',
-            'make',
-            'markdown',
-            'passwd',
-            'php',
-            'phpdoc',
-            'python',
-            'regex',
-            'rust',
-            'sql',
-            'typescript',
-            'vim',
-            'vue',
-            'xml',
-            'yaml',
-        },
+        ensure_installed = 'all',
         auto_install = true,
-        highlight = {
-            enable = true,
-        },
-        indent = {
-            enable = true,
-            disable = { "yaml" }
-        },
-        rainbow = {
-            enable = true,
-        },
+        highlight = { enable = true },
+        indent = { enable = true },
         textobjects = {
             select = {
                 enable = true,
@@ -70,10 +15,24 @@ return {
                 keymaps = {
                     ['if'] = '@function.inner',
                     ['af'] = '@function.outer',
+                    ['ic'] = '@class.inner',
+                    ['ac'] = '@class.outer',
+                    ['il'] = '@loop.inner',
+                    ['al'] = '@loop.outer',
                     ['ia'] = '@parameter.inner',
                     ['aa'] = '@parameter.outer',
                 },
             },
+        },
+        autotag = { -- 'windwp/nvim-ts-autotag'
+            enable = true,
+        },
+        endwise = { -- 'RRethy/nvim-treesitter-endwise',
+            enable = true,
+        },
+        context_commentstring = {   -- JoosepAlviste/nvim-ts-context-commentstring
+            enable = true,
+            enable_autocmd = false, -- using Comment.nvim
         },
     },
     config = function(_, opts)
@@ -95,5 +54,12 @@ return {
                 ['.*%.blade%.php'] = 'blade',
             },
         })
-    end
+    end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-context',
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        'windwp/nvim-ts-autotag',
+        'RRethy/nvim-treesitter-endwise',
+    },
 }

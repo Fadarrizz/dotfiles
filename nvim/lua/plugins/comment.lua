@@ -3,5 +3,6 @@ return {
     config = function()
         require('Comment').setup()
         require('Comment.ft').set('blade', '{{-- %s --}}')
-    end
+    end,
+    lazy = false,
 }

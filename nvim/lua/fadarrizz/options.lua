@@ -41,7 +41,7 @@ vim.opt.splitbelow = true                                -- bool: Place new wind
 
 -- [[ Files ]]
 vim.opt.swapfile = false                                 -- bool: Allow use of swap file
-vim.opt.backup= false                                    -- bool: Allow use of backup
+vim.opt.backup = false                                   -- bool: Allow use of backup
 vim.opt.undofile = true                                  -- bool: Allow use of undofile
 
 -- [[ Folding ]]

@@ -50,8 +50,3 @@ map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'make file
 
 -- Remap terminal normal mode
 map('t', '<C-o>', '<C-\\><C-n>')
-
-map('n', "<Leader>ti", function()
-    local menu = require("pickers.timetracker")
-    require("ui.picker").make(menu)
-end)
