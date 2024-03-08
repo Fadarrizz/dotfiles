@@ -30,10 +30,6 @@ return {
         endwise = { -- 'RRethy/nvim-treesitter-endwise',
             enable = true,
         },
-        context_commentstring = {   -- JoosepAlviste/nvim-ts-context-commentstring
-            enable = true,
-            enable_autocmd = false, -- using Comment.nvim
-        },
     },
     config = function(_, opts)
         require('nvim-treesitter.configs').setup(opts)
