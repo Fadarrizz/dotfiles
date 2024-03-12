@@ -25,7 +25,7 @@
 	templatedir = ~/.dotfiles/git/.git_template
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
 [remote "origin"]
 	prune = true
 [push]
