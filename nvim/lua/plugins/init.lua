@@ -1,7 +1,7 @@
 return {
-    { 'windwp/nvim-autopairs', config = true },
+    { 'windwp/nvim-autopairs',          config = true },
 
-   { 'sindrets/diffview.nvim'},
+    { 'sindrets/diffview.nvim' },
 
     -- ui improvements
     { 'stevearc/dressing.nvim' },
@@ -24,4 +24,12 @@ return {
 
     -- mappings for next/previous, option toggling, en-/decoding
     { 'tpope/vim-unimpaired' },
+
+    {
+        "echasnovski/mini.splitjoin",
+        enabled = true,
+        config = function()
+            require("mini.splitjoin").setup()
+        end,
+    },
 }

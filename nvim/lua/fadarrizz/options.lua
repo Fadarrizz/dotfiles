@@ -43,6 +43,7 @@ vim.opt.splitbelow = true                                -- bool: Place new wind
 vim.opt.swapfile = false                                 -- bool: Allow use of swap file
 vim.opt.backup = false                                   -- bool: Allow use of backup
 vim.opt.undofile = true                                  -- bool: Allow use of undofile
+vim.opt.autoread = true                                  -- bool: Automatically reread changed files
 
 -- [[ Folding ]]
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
