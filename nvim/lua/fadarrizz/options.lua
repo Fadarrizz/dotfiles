@@ -1,6 +1,6 @@
 -- [[ Leader ]]
 vim.g.mapleader = [[ ]]
-vim.g.localleader = [[,]]
+vim.g.localleader = [[ ]]
 
 -- [[ Context ]]
 vim.opt.colorcolumn = '120'                              -- str:  Show col for max line length
