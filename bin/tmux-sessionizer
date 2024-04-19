@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     SELECTED=$1
 else
-    items="$(find "$HOME/projects" "$HOME/work" -maxdepth 2 -type d -not -path '*/.ignore/*' -execdir test -d {}/.git \; -print )"
+    items="$(find "$HOME/projects" "$HOME/work" "$HOME/GitProjects" -maxdepth 2 -type d -not -path '*/.ignore/*' -execdir test -d {}/.git \; -print )"
 
     if [ -z "$TMUX" ]; then
         SELECTED=$(echo "$items" | fzf)

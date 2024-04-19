@@ -5,37 +5,31 @@
 MSG="Running"
 CMD=""
 
+function run() {
+    echo "Running $1"
+    $1 $2
+    exit 0
+}
+
 if [ -f vendor/bin/sail ]; then
     echo 'sail detected'
     CMD="sail" 
 fi
 
 if [ -f vite.config.js ]; then
-    CMD="${CMD} npm run dev"
-    echo "$MSG $CMD"
-    $CMD
-    exit 0
+    run "${CMD} npm run dev" $1
 fi
 
 if [ -f yarn.lock ]; then
-    CMD="${CMD} yarn start"
-    echo "$MSG $CMD"
-    $CMD
-    exit 0
+    run "${CMD} yarn start" $1
 fi
 
 if [ -f package-lock.json ]; then
-    CMD="${CMD} npm run watch"
-    echo "$MSG $CMD"
-    $CMD
-    exit 0
+    run "${CMD} npm run watch" $1
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-    CMD="${CMD} pnpm run watch"
-    echo "$MSG $CMD"
-    $CMD
-    exit 0
+    run "${CMD} pnpm run watch" $1
 fi
 
 echo ' Node package not detected'

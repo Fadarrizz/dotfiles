@@ -25,9 +25,15 @@ alias ts='tmux new-session -A -D -s'
 alias start="./start.sh"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias s="sail"
+alias a="artisan"
 
 # Docs
 alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
 
 # Needed for Lazygit in Nvim
 alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
+
+alias e="edit"
+alias t="tmux-sessionizer"
+alias d="dot"
+alias n="run-watcher"

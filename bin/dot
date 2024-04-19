@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Attach to existing dotfiles tmux session, or create a new one.
+#
+SESSION_NAME="dotfiles"
+
+# check if a session with the same name already exists
+SESSION=$(tmux list-sessions -F '#S' | grep "^$SESSION_NAME$")
+
+if [[ -z $TMUX ]]; then
+    # not in tmux session
+    if [[ -z $SESSION ]]; then
+        # session does not exist
+        tmux new-session -s $SESSION_NAME -c $DOTFILES
+    else
+        # session exists... attach to it
+        tmux attach -t $SESSION_NAME
+    fi
+else
+    # inside tmux session
+    if [[ -z $SESSION ]]; then
+        # session does not exist... create it
+        tmux new-session -d -s $SESSION_NAME -c $DOTFILES
+    fi
+        # switch to the session
+        tmux switch-client -t $SESSION_NAME
+fi
