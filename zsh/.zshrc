@@ -65,3 +65,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Completion for 1password
 eval "$(op completion zsh)"; compdef _op op
+
+source "$HOME/myenv/bin/activate"

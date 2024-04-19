@@ -112,13 +112,6 @@ return {
         local cmp = require('cmp')
         local cmp_action = lsp.cmp_action()
         local cmp_format = lsp.cmp_format()
-        local luasnip = require("luasnip")
-
-        local has_words_before = function()
-            unpack = unpack or table.unpack
-            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-        end
 
         cmp.setup({
             formatting = cmp_format,
@@ -150,27 +143,17 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
 
                 -- scroll the documentation window back / forward
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
                 -- Manually trigger a completion from nvim-cmp.
                 --  Generally you don't need this, because nvim-cmp will display
                 --  completions whenever it has completion options available.
                 ['<C-Space>'] = cmp.mapping.complete {},
 
-                -- move to the right of snippet expansion
-                ['<C-l>'] = cmp.mapping(function()
-                    if luasnip.expand_or_locally_jumpable() then
-                        luasnip.expand_or_jump()
-                    end
-                end, { 'i', 's' }),
-
-                -- move to the left of snippet expansion
-                ['<C-h>'] = cmp.mapping(function()
-                    if luasnip.locally_jumpable(-1) then
-                        luasnip.jump(-1)
-                    end
-                end, { 'i', 's' }),
+                -- Navigate between snippet placeholder
+                ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+                ['<C-b>'] = cmp_action.luasnip_jump_backward(),
             }),
         })
 
