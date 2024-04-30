@@ -12,7 +12,7 @@ else
     fi
 fi
 
-if [[ -z $SELECTED ]]; then
+if [[ -z "$SELECTED" ]]; then
     exit 0
 fi
 
@@ -23,19 +23,19 @@ SESSION=$(tmux list-sessions -F '#S' | grep "^$SELECTED_NAME$")
 
 if [[ -z $TMUX ]]; then
     # not in tmux session
-    if [[ -z $SESSION ]]; then
+    if [[ -z "$SESSION" ]]; then
         # session does not exist
-        tmux new-session -s $SELECTED_NAME -c $SELECTED
+        tmux new-session -s "$SELECTED_NAME" -c "$SELECTED"
     else
         # session exists... attach to it
-        tmux attach -t $SELECTED_NAME
+        tmux attach -t "$SELECTED_NAME"
     fi
 else
     # inside tmux session
-    if [[ -z $SESSION ]]; then
+    if [[ -z "$SESSION" ]]; then
         # session does not exist... create it
-        tmux new-session -d -s $SELECTED_NAME -c $SELECTED
+        tmux new-session -d -s "$SELECTED_NAME" -c "$SELECTED"
     fi
         # switch to the session
-        tmux switch-client -t $SELECTED_NAME
+        tmux switch-client -t "$SELECTED_NAME"
 fi
