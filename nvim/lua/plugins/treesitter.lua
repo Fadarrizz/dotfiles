@@ -1,11 +1,11 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        build = function()
-            require('nvim-treesitter.install').update({ with_sync = true })
-        end,
+        build = ":TSUpdate",
         opts = {
-            ensure_installed = 'all',
+            ensurensure_installed = {
+                "vimdoc", "php", "javascript", "c", "go", "lua", "rust", "jsdoc", "bash",
+            },
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
@@ -25,9 +25,6 @@ return {
                     },
                 },
             },
-            autotag = { -- 'windwp/nvim-ts-autotag'
-                enable = true,
-            },
             endwise = { -- 'RRethy/nvim-treesitter-endwise',
                 enable = true,
             },
@@ -45,25 +42,15 @@ return {
                 },
                 filetype = "blade"
             }
-
-            vim.filetype.add({
-                pattern = {
-                    ['.*%.blade%.php'] = 'blade',
-                },
-            })
         end,
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/nvim-treesitter-context',
             'JoosepAlviste/nvim-ts-context-commentstring',
             'windwp/nvim-ts-autotag',
             'RRethy/nvim-treesitter-endwise',
         },
     },
     {
-        "nvim-treesitter/nvim-treesitter-context",
-        config = {
-            max_lines = 1,
-        },
+        "windwp/nvim-ts-autotag",
     }
 }

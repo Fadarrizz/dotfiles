@@ -6,14 +6,15 @@ return {
   keys = {
     { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'Find files' },
     { '<leader>fa', function() require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'Find All Files' }) end, desc = 'Find all files' },
-    { '<leader>fg', function() require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Find in live grep' },
-    { '<leader>fG', function() require('telescope.utils').buffer_dir() end, desc = 'Find in all live grep' },
-    { '<leader>fo', function() require('telescope.builtin').buffers() end, desc = 'Find buffer' },
+    { '<leader>fg', function() require('telescope.builtin').live_grep() end, desc = 'Find in live grep' },
+    { '<leader>fG', function() require('telescope.builtin').live_grep({ no_ignore = true, prompt_title = 'Find All Live Grep' }) end, desc = 'Find in all live grep' },
+    { '<leader>fb', function() require('telescope.builtin').buffers() end, desc = 'Find buffer' },
     { '<leader>fo', function() require('telescope.builtin').oldfiles() end, desc = 'Find old files' },
-    { '<leader>fd', function() require('telescope.builtin').lsp_document_symbols() end, desc = 'lsp document symbols' },
-    { '<leader>fs', function() require('telescope.builtin').lsp_workspace_symbols() end, desc = 'lsp workspace symbols' },
     { '<leader>fr', function() require('telescope.builtin').resume() end, desc = 'Resume previous picker' },
     { '<leader>fq', function() require('telescope.builtin').quickfix() end, desc = 'Find quickfix' },
+    { '<leader>fh', function() require('telescope.builtin').help_tags() end, desc = 'Find help tags' },
+    { '<leader>fk', function() require('telescope.builtin').keymaps() end, desc = 'Find keymaps' },
+    { '<leader>fs', function() require('telescope.builtin').builtin() end, desc = 'Find in Telescope' },
   },
   opts = {
     defaults = {

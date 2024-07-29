@@ -14,6 +14,12 @@ vim.opt.cmdheight = 0                                    -- num:  Hide cmd bar w
 -- [[ Filetypes ]]
 vim.opt.encoding = 'UTF8'                                -- str:  String encoding to use
 vim.opt.fileencoding = 'UTF8'                            -- str:  File encoding to use
+vim.filetype.add({
+    pattern = {
+        ['.*%.blade%.php'] = 'blade',
+        ['.*%.antlers%.html'] = 'antlers.html',
+    },
+})
 
 -- [[ Theme ]]
 vim.opt.syntax = "ON"                                    -- str:  Allow syntax highlighting
@@ -50,12 +56,13 @@ vim.opt.autoread = true                                  -- bool: Automatically 
 vim.opt.foldmethod = "expr"                              -- str: Use expression as folding method
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"          -- str: Use Treesitter for folding
 vim.opt.foldenable = false                               -- bool: Disable folding at startup
-vim.opt.foldnestmax = 3                                 -- num: Fold up to n nestings
-vim.opt.foldminlines = 1                                -- num: Fold minimum of n line
-vim.opt.foldlevelstart = 1                              -- num: Start folding level at n
+vim.opt.foldnestmax = 3                                  -- num: Fold up to n nestings
+vim.opt.foldminlines = 1                                 -- num: Fold minimum of n line
+vim.opt.foldlevelstart = 1                               -- num: Start folding level at n
 
-vim.opt.clipboard = 'unnamedplus'                       -- str: Use system clipboard
-vim.opt.updatetime = 50                                 -- num: Make updating fast
+vim.opt.clipboard = 'unnamedplus'                        -- str: Use system clipboard
+vim.opt.updatetime = 250                                 -- num: Make updating fast
+vim.opt.timeoutlen = 300                                 -- num: Decrease mapped sequence wait time 
 
 -- [[ Completion ]]
 -- :help completeopt
@@ -67,14 +74,17 @@ vim.opt.updatetime = 50                                 -- num: Make updating fa
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
--- make all keymaps silent by default
-local keymap_set = vim.keymap.set
----@diagnostic disable-next-line: duplicate-set-field
-vim.keymap.set = function(mode, lhs, rhs, opts)
-  opts = opts or {}
-  opts.silent = opts.silent ~= false
-  return keymap_set(mode, lhs, rhs, opts)
-end
+-- [[ Diagnostics ]]
+vim.diagnostic.config({
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+    },
+})
 
 -- [[ Remote Providers ]]
 vim.g.loaded_python3_provider = 0

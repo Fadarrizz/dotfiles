@@ -11,7 +11,7 @@ return {
     -- LSP injector (for non-LSP sources)
     { 'jose-elias-alvarez/null-ls.nvim' },
 
-    { 'simrat39/rust-tools.nvim' },
+    { 'mrcjkb/rustaceanvim', version = '^4', lazy = false },
 
     -- working with word variants
     { 'tpope/vim-abolish' },

@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            flavour = "macchiato", -- latte, frappe, macchiato, mocha
+            flavour = "frappe", -- latte, frappe, macchiato, mocha
             dim_inactive = {
                 enabled = false,
                 shade = "dark",
@@ -12,10 +12,14 @@ return {
             },
             integrations = {
                 cmp = true,
+                dap = true,
+                dap_ui = true,
                 gitsigns = true,
                 harpoon = true,
+                mason = true,
                 telescope = true,
                 treesitter = true,
+                treesitter_context = true,
             },
         })
     end,

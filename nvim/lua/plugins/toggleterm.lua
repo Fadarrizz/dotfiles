@@ -2,6 +2,7 @@ return {
     "akinsho/toggleterm.nvim",
     version = '*',
     opts = {
+        open_mapping = '<leader>tt',
         start_in_insert = true,
         insert_mappings = true,
         terminal_mappings = true,
@@ -20,22 +21,25 @@ return {
         },
     },
     config = function()
-        local Terminal = require('toggleterm.terminal').Terminal
+        -- necessary for keeping terminals alive upon closing
+        vim.opt.hidden = true
+
+        -- local Terminal = require('toggleterm.terminal').Terminal
 
         -- Default
-        local floating = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
-        local floating2 = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
+        -- local floating = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
+        -- local floating2 = Terminal:new({ cmd = "zsh", hidden = true, direction = 'float' })
 
-        vim.keymap.set({ "n", "t" }, "<leader>tt", function() floating:toggle() end, {
-            noremap = true,
-            silent = true,
-            desc = "Toggle main term",
-        })
+        -- vim.keymap.set({ "n", "t" }, "<leader>tt", function() floating:toggle() end, {
+        --     noremap = true,
+        --     silent = true,
+        --     desc = "Toggle main term",
+        -- })
 
-        vim.keymap.set({ "n", "t" }, "<leader>t2", function() floating2:toggle() end, {
-            noremap = true,
-            silent = true,
-            desc = "Toggle 2nd term",
-        })
+        -- vim.keymap.set({ "n", "t" }, "<leader>t2", function() floating2:toggle() end, {
+        --     noremap = true,
+        --     silent = true,
+        --     desc = "Toggle 2nd term",
+        -- })
     end
 }

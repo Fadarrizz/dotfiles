@@ -16,12 +16,12 @@ if [ -f vendor/bin/sail ]; then
     CMD="sail" 
 fi
 
-if [ -f vite.config.js ]; then
-    run "${CMD} npm run dev" $1
-fi
-
 if [ -f yarn.lock ]; then
     run "${CMD} yarn start" $1
+fi
+
+if [ -f vite.config.js ]; then
+    run "${CMD} npm run dev" $1
 fi
 
 if [ -f package-lock.json ]; then
