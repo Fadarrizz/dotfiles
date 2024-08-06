@@ -1,0 +1,10 @@
+Host git.ijsfontein.nl
+    IdentityFile ~/.ssh/ijsfontein_nl_rsa
+
+Host work.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/ijsfontein_nl_rsa
+
+Host *
+	IdentityAgent "~/.1password/agent.sock"
