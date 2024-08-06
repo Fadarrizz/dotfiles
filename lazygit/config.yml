@@ -1,7 +1,8 @@
 gui:
   promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
+  # skipRewordInEditorWarning: true
 git:
   autoFetch: false # stop making new ssh connections
 os:
-  edit: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('core.scripts.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
-  open: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('core.scripts.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
+  edit: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
+  open: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
