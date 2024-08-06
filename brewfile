@@ -2,7 +2,6 @@
 tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
-tap 'teamookla/speedtest'
 
 # Packages
 brew 'bat'
@@ -13,17 +12,15 @@ brew 'ffmpeg'
 brew 'gh'
 brew 'git'
 brew 'grep'
+brew 'jq'
 brew 'lazygit'
 brew 'mas'
-brew 'mycli'
 brew 'neovim', args: ['HEAD']
 brew 'pkg-config'
 brew 'ripgrep'
-brew 'speedtest'
-brew 'stow'
 brew 'tmux'
+brew 'timewarrior'
 brew 'zsh'
-brew 'httpie'
 
 # Development
 brew 'php'
@@ -33,23 +30,29 @@ brew 'nginx'
 brew 'node'
 
 # Apps
+cask '1password'
+cask '1password-cli'
 cask 'alfred'
 cask 'docker'
 cask 'dropbox'
-cask 'firefox'
+cask 'firefox@developer-edition'
+cask 'font-iosevka'
+cask 'font-jetbrains-mono'
+cask 'font-symbols-only-nerd-font'
+cask 'font-victor-mono'
 cask 'karabiner-elements'
+cask 'keepassxc'
+cask 'logi-options-plus' 
 cask 'microsoft-teams'
+cask 'obsidian'
 cask 'openvpn-connect'
+cask 'proton-drive'
+cask 'proton-mail'
 cask 'protonvpn'
 cask 'spotify'
-cask 'toggl'
 cask 'vlc'
 cask 'whatsapp'
-cask '1password'
-cask 'slack'
-cask 'skype'
 
 # Mac App Store
-mas 'Amphetamine', id: 937984704
 mas 'Magnet', id: 441258766
 #mas 'Xcode', id: 497799835

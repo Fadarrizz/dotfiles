@@ -3,29 +3,28 @@
         create: true
         relink: true
         force: true
+    shell:
+        quiet: true
 
 - clean: ['~']
 
 - link:
     ~/.gitconfig: git/.gitconfig
+    ~/.ijsfontein.gitconfig: git/.ijsfontein.gitconfig
     ~/.git_template: git/.git_template
     ~/.gitignore_global: git/.gitignore_global
     ~/.zshrc: zsh/.zshrc
     ~/.zprofile: zsh/.zprofile
-    ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/nvim/autoload: nvim/autoload
-    ~/.config/nvim/after: nvim/after
-    ~/.config/nvim/plugins: nvim/plugins
-    ~/.config/nvim/lua: nvim/lua
-    ~/.config/nvim/coc-settings.json: vim/nvim/coc-settings.json
-    ~/.ideavimrc: vim/.ideavimrc
+    ~/.config/nvim: nvim
     ~/.tmux.conf: tmux/.tmux.conf
-    ~/.myclirc: mycli/.myclirc    
     ~/.config/karabiner: karabiner
+    ~/.config/kitty: kitty
+    ~/.config/timewarrior: timewarrior
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     
 - create:
     - ~/projects
+    - ~/work
     - ~/.config/nvim/undo
 
 - shell:
