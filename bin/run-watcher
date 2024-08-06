@@ -17,7 +17,7 @@ if [ -f vendor/bin/sail ]; then
 fi
 
 if [ -f yarn.lock ]; then
-    run "${CMD} yarn start" $1
+    run "${CMD} yarn dev" $1
 fi
 
 if [ -f vite.config.js ]; then
