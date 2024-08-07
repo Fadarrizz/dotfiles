@@ -6,8 +6,8 @@ alias nah="git reset --hard && git clean -df"
 alias gdlb="git branch --merged | egrep -v '(^\*|master|main)' | xargs git branch -d"
 
 # Dir & listing
-alias l="ls -la"				    # List in long format, include dotfiles
-alias ld="ls -ld */"				    # List in long format, only directories
+#alias l="ls -la"				    # List in long format, include dotfiles
+#alias ld="ls -ld */"				    # List in long format, only directories
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -16,10 +16,25 @@ alias ....="cd ../../.."
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Tools
-alias lzd="lazydocker"
 alias cat="bat"
-#alias db='() { open mysql://127.0.0.1/$1; }'
 alias ts='tmux new-session -A -D -s'
+
+# cd with zsh-z capabilities
+# https://github.com/ajeetdsouza/zoxide
+if _exists zoxide; then
+  alias cd='z'
+fi
+
+# Better ls with icons, tree view and more
+# https://github.com/eza-community/eza
+if _exists eza; then
+  unalias ls
+  alias ls='eza --icons --header --git'
+  alias lt='eza --icons --tree'
+  unalias l
+  alias l='ls -l'
+  alias la='ls -lAh'
+fi
 
 # Work
 alias start="./start.sh"

@@ -55,6 +55,16 @@ source $DOTFILES/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 source $HOME/.zprofile
 
+# Like cd but with z-zsh capabilities
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+# Fuzzy finder bindings
+if [ -f "$HOME/.fzf.zsh" ]; then
+  source "$HOME/.fzf.zsh"
+fi
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
