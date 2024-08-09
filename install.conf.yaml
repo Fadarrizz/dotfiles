@@ -21,8 +21,10 @@
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.config/karabiner: karabiner
     ~/.config/kitty: kitty
-    ~/.config/timewarrior: timewarrior
+    ~/.config/timewarrior/timewarrior.cfg: timewarrior/timewarrior.cfg
+    ~/.config/timewarrior/extensions: timewarrior/extensions
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
+    ~/.local/share/timewarrior/data: timewarrior/data
     
 - create:
     - ~/projects
