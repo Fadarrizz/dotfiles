@@ -1,3 +1,7 @@
+_exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
 alias zshconfig="nvim ~/.zshrc"
 alias zshalias="nvim ~/.dotfiles/zsh/custom/aliases.zsh"
 
@@ -28,10 +32,8 @@ fi
 # Better ls with icons, tree view and more
 # https://github.com/eza-community/eza
 if _exists eza; then
-  unalias ls
   alias ls='eza --icons --header --git'
   alias lt='eza --icons --tree'
-  unalias l
   alias l='ls -l'
   alias la='ls -lAh'
 fi

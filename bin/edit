@@ -10,4 +10,5 @@
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
+# exec "$EDITOR" "${1:-.}"
 exec nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe "${1:-.}"
