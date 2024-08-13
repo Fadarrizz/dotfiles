@@ -3703,3 +3703,115 @@ txn:
   type: interval
   before: 
   after: {"id":1,"start":"20240807T110000Z","end":"20240807T152226Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240808T070000Z","end":"20240808T103000Z","tags":["hdi"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240808T110000Z","end":"20240808T153000Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240809T070000Z","end":"20240809T073000Z","tags":["opstart"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240809T073000Z","end":"20240809T080000Z","tags":["intern"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240809T073000Z","end":"20240809T080000Z","tags":["intern"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240809T073000Z","end":"20240809T080000Z","tags":["intern"],"annotation":"andere laptop voorbereiding"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240809T080000Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240809T080000Z","tags":["hdi"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240809T080000Z","end":"20240809T103000Z","tags":["hdi"]}
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240809T110000Z","end":"20240809T113000Z","tags":["hdi"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240809T113000Z","tags":["support"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240809T113000Z","tags":["support"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240809T113000Z","end":"20240809T115741Z","tags":["support"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240809T115741Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240809T115741Z","tags":["hdi"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240809T115741Z","end":"20240809T150537Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T070000Z","end":"20240812T073000Z","tags":["opstart"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T073000Z","end":"20240812T080000Z","tags":["ijssite"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T080000Z","end":"20240812T081500Z","tags":["intern"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240812T080000Z","end":"20240812T081500Z","tags":["intern"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240812T080000Z","end":"20240812T081500Z","tags":["intern"],"annotation":"andere laptop mailvekeer Tinus"}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T081500Z","end":"20240812T090000Z","tags":["support"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T090000Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240812T090000Z","tags":["hdi"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240812T090000Z","end":"20240812T103000Z","tags":["hdi"]}
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240812T110000Z","end":"20240812T122226Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20240812T110000Z","end":"20240812T122226Z","tags":["hdi"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20240812T110000Z","end":"20240812T120000Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T120000Z","end":"20240812T123000Z","tags":["intern"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240812T123000Z","end":"20240812T160000Z","tags":["hdi"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20240813T064500Z","tags":["hdi"]}
