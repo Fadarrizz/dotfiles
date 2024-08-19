@@ -1,16 +1,16 @@
 [submodule "zsh/themes/powerlevel10k"]
 	path = zsh/themes/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
 	ignore = dirty
 [submodule "zsh/custom/plugins/zsh-autosuggestions"]
 	path = zsh/custom/plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
 	ignore = dirty
 [submodule "git/dotbot"]
 	path = git/dotbot
-	url = git@github.com:anishathalye/dotbot
+	url = https://github.com/anishathalye/dotbot.git
 	ignore = dirty
 [submodule "tmux/plugins"]
 	path = tmux/plugins
-	url = git@github.com:tmux-plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
 	ignore = dirty
