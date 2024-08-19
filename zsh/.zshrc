@@ -5,6 +5,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
+# Source config
+source $DOTFILES/zsh/custom/aliases.zsh
+source $DOTFILES/zsh/custom/functions.zsh
+
+# Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
 # If you come from bash you might have to change your $PATH.
 # export PATH="/usr/local/sbin:$PATH"
 
@@ -13,10 +25,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Enable completions
 autoload -Uz compinit && compinit
-
-# Source config
-source $DOTFILES/zsh/custom/aliases.zsh
-source $DOTFILES/zsh/custom/functions.zsh
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -53,8 +61,6 @@ source $DOTFILES/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $DOTFILES/zsh/custom/.p10k.zsh ]] || source $DOTFILES/zsh/custom/.p10k.zsh
 
-source $HOME/.zprofile
-
 # Like cd but with z-zsh capabilities
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
@@ -75,5 +81,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Completion for 1password
 eval "$(op completion zsh)"; compdef _op op
-
-source "$HOME/myenv/bin/activate"
