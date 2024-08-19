@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Dotfiles bootstrapper:
 # - installs Homebrew
