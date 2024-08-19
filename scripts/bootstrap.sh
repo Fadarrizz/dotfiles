@@ -49,5 +49,8 @@ echo "Configuring fzf..."
 $(brew --prefix)/opt/fzf/install
 echo
 
+# Create symlink for 1password agent
+mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+
 echo
 echo "🦆 All done! Open a new terminal for the changes to take effect."
