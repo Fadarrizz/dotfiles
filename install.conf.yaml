@@ -36,7 +36,7 @@
       command: git submodule update --init --recursive
 
     - description: Bootstrapping dotfiles
-      command: scripts/bootstrap.sh
+      command: ./scripts/bootstrap.sh
 
     - description: Sourcing macos defaults
       command: "source ~/.dotfiles/macos/.defaults"
