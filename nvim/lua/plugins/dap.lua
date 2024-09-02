@@ -27,6 +27,24 @@ return {
                 dap.listeners.before.event_exited["dapui_config"] = function()
                     dapui.close({})
                 end
+
+                dap.adapters.php = {
+                  type = 'executable',
+                  command = 'node',
+                  args = { vim.fn.stdpath("data") .. '/mason/packages/php-debug-adapter/extension/out/phpDebug.js' }
+                }
+
+                dap.configurations.php = {
+                  {
+                    type = 'php',
+                    request = 'launch',
+                    name = 'Listen for xdebug',
+                    port = '9003',
+                    pathMappings = {
+                        ["/var/www/html"] = "${workspaceFolder}"
+                    }
+                  },
+                }
             end,
         },
 
