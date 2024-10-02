@@ -25,6 +25,7 @@
     ~/.config/timewarrior/extensions: timewarrior/extensions
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     ~/.local/share/timewarrior/data: timewarrior/data
+    ~/.klog: klog
     
 - create:
     - ~/projects

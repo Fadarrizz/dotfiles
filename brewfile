@@ -16,6 +16,7 @@ brew 'gh'
 brew 'git'
 brew 'grep'
 brew 'jq'
+brew 'ovyerus/klog/klog'
 brew 'lazygit'
 brew 'mas'
 brew 'neovim', args: ['HEAD']

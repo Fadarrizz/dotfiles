@@ -81,3 +81,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Completion for 1password
 eval "$(op completion zsh)"; compdef _op op
+
+# Completion for Klog
+source <(klog completion -c zsh)
