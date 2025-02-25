@@ -3,9 +3,10 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         opts = {
-            ensurensure_installed = {
+            ensure_installed = {
                 "vimdoc", "php", "javascript", "c", "go", "lua", "rust", "jsdoc", "bash",
             },
+            ignore_install = { "help", "sh", "text" },
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },

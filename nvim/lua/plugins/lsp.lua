@@ -25,7 +25,8 @@ return {
         require("fidget").setup({})
         require('mason').setup()
         require('mason-lspconfig').setup({
-            ensure_installed = { 'html', 'eslint', 'rust_analyzer', 'tailwindcss', 'intelephense' },
+            automatic_installation = true,
+            ensure_installed = { 'html', 'eslint', 'intelephense', 'rust_analyzer', 'tailwindcss', 'dockerls', 'gopls', 'jsonls', 'bashls' },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {
