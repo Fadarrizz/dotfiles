@@ -21,7 +21,6 @@ alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Tools
 alias cat="bat"
-alias ts='tmux new-session -A -D -s'
 
 # cd with zsh-z capabilities
 # https://github.com/ajeetdsouza/zoxide
@@ -32,8 +31,8 @@ fi
 # Better ls with icons, tree view and more
 # https://github.com/eza-community/eza
 if _exists eza; then
-  alias ls='eza --icons --header --git'
-  alias lt='eza --icons --tree'
+  alias ls='eza --header --git'
+  alias lt='eza --tree'
   alias l='ls -l'
   alias la='ls -lAh'
 fi
@@ -50,7 +49,11 @@ alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 # Needed for Lazygit in Nvim
 alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
 
+if _exists tmux; then
+    # alias ts='tmux new-session -A -D -s'
+    alias t="tmux-sessionizer"
+fi
+
 alias e="edit"
-alias t="tmux-sessionizer"
 alias d="dot"
 alias n="run-watcher"

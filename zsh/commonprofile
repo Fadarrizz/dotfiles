@@ -1,3 +1,6 @@
+export EDITOR='nvim'
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
 export PATH=$PATH:/bin
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/usr/local/bin
@@ -13,9 +16,7 @@ export PATH=$PATH:$DOTFILES/bin
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export PATH=~/projects/tree-sitter-blade/node_modules/.bin:$PATH
 export PATH=$PATH:$GOPATH/bin
-
-export EDITOR='nvim'
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 
 # Set keymap Tmux Sessionizer
-bindkey -s ^f "t\n"
+#bindkey -s ^f "t\n"

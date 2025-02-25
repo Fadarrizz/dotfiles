@@ -5,13 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
-
-# Source config
-source $DOTFILES/zsh/custom/aliases.zsh
-source $DOTFILES/zsh/custom/functions.zsh
-
 # Locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -52,11 +45,15 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LC_ALL=en_US.UTF-8
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
 source $DOTFILES/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+
+# Source config
+# source $DOTFILES/zsh/custom/aliases.zsh
+# source $DOTFILES/zsh/custom/functions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $DOTFILES/zsh/custom/.p10k.zsh ]] || source $DOTFILES/zsh/custom/.p10k.zsh
@@ -71,11 +68,11 @@ if [ -f "$HOME/.fzf.zsh" ]; then
   source "$HOME/.fzf.zsh"
 fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+if [ -d "$HOME/myenv" ]; then
+    source "$HOME/myenv/bin/activate"
 fi
 
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
