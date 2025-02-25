@@ -1,6 +1,6 @@
 require('fadarrizz.autocmd')
 require('fadarrizz.options')
 require('fadarrizz.keymaps')
-require('fadarrizz.plugins')
+require('fadarrizz.lazy')
 
 vim.cmd([[colorscheme catppuccin]])
