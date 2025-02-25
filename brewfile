@@ -15,6 +15,7 @@ brew 'fzf'
 brew 'gh'
 brew 'git'
 brew 'grep'
+brew 'gnu-tar'          # Make tar compatibile with tar in Linux 
 brew 'jq'
 brew 'ovyerus/klog/klog'
 brew 'lazygit'
