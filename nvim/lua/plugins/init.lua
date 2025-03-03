@@ -1,8 +1,6 @@
 return {
     { 'windwp/nvim-autopairs',          config = true },
 
-    { 'sindrets/diffview.nvim' },
-
     -- ui improvements
     { 'stevearc/dressing.nvim' },
 
