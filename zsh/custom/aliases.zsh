@@ -46,9 +46,6 @@ alias a="artisan"
 # Docs
 alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
 
-# Needed for Lazygit in Nvim
-alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
-
 if _exists tmux; then
     # alias ts='tmux new-session -A -D -s'
     alias t="tmux-sessionizer"

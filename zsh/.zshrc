@@ -55,9 +55,6 @@ source $DOTFILES/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # source $DOTFILES/zsh/custom/aliases.zsh
 # source $DOTFILES/zsh/custom/functions.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f $DOTFILES/zsh/custom/.p10k.zsh ]] || source $DOTFILES/zsh/custom/.p10k.zsh
-
 # Like cd but with z-zsh capabilities
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
@@ -81,3 +78,6 @@ eval "$(op completion zsh)"; compdef _op op
 
 # Completion for Klog
 source <(klog completion -c zsh)
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/custom/.p10k.zsh.
+[[ ! -f ~/.dotfiles/zsh/custom/.p10k.zsh ]] || source ~/.dotfiles/zsh/custom/.p10k.zsh
