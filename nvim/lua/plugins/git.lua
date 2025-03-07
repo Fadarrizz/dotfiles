@@ -1,6 +1,4 @@
 return {
-    { 'sindrets/diffview.nvim' },
-
     {
         "lewis6991/gitsigns.nvim",
         lazy = false,
@@ -20,19 +18,15 @@ return {
     },
 
     {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
         },
-        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true,
         keys = {
-            { "<leader>lg", ":LazyGit<CR>", desc = 'Toggle LazyGit' },
-            { "<leader>lc", ":LazyGitCurrentFile<CR>", desc = 'Toggle LazyGit Current File' },
-            { "<leader>lf", ":LazyGitFilterCurrentFile<CR>", desc = 'Filter LazyGit Current File' },
+            { '<leader>gg', ':Neogit<cr>' },
         },
     }
 }
