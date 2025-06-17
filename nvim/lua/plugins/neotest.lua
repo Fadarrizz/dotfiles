@@ -22,13 +22,13 @@ return {
                 },
                 adapters = {
                     require('neotest-phpunit')({
-                        root_files = { "composer.json", "phpunit.xml", "phpunit.xml.dist", ".github" },
+                        -- root_files = { "composer.json", "phpunit.xml", "phpunit.xml.dist", ".github" },
                         filter_dirs = { "vendor" },
                         phpunit_cmd = function()
-                            return "/Users/auke/.dotfiles/bin/dphpunit"
+                            return { "vendor/bin/sail", "artisan", "test" }
                         end,
                     }),
-                    -- require('neotest-pest'),
+                    require('neotest-pest'),
                     require('neotest-go'),
                     require('rustaceanvim.neotest'),
                     require('neotest-vim-test')({
@@ -46,7 +46,7 @@ return {
             -- Adapters
             'vim-test/vim-test',
             'nvim-neotest/neotest-vim-test',
-            'olimorris/neotest-phpunit',
+            'fadarrizz/neotest-phpunit',
             'V13Axel/neotest-pest',
             'nvim-neotest/neotest-go',
         },

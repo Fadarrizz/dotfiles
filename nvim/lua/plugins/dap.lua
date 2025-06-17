@@ -29,21 +29,54 @@ return {
                 end
 
                 dap.adapters.php = {
-                  type = 'executable',
-                  command = 'node',
-                  args = { vim.fn.stdpath("data") .. '/mason/packages/php-debug-adapter/extension/out/phpDebug.js' }
+                    type = 'executable',
+                    command = 'node',
+                    args = { vim.fn.stdpath("data") .. '/mason/packages/php-debug-adapter/extension/out/phpDebug.js' }
                 }
 
                 dap.configurations.php = {
-                  {
-                    type = 'php',
-                    request = 'launch',
-                    name = 'Listen for xdebug',
-                    port = '9003',
-                    pathMappings = {
-                        ["/var/www/html"] = "${workspaceFolder}"
+                    {
+                        type = 'php',
+                        request = 'launch',
+                        name = 'Listen for xdebug',
+                        port = 9003,
+                        pathMappings = {
+                            ["/var/www/html"] = "${workspaceFolder}"
+                        }
+                    },
+                }
+
+                dap.adapters.delve = {
+                    type = 'server';
+                    port = '${port}';
+                    executable = {
+                        command = 'dlv',
+                        args = {'dap', '-l', '127.0.0.1:${port}'},
                     }
-                  },
+                }
+
+                dap.configurations.go = {
+                    {
+                        type = "delve",
+                        name = "Debug",
+                        request = "launch",
+                        program = "${file}"
+                    },
+                    {
+                        type = "delve",
+                        name = "Debug test", -- configuration for debugging test files
+                        request = "launch",
+                        mode = "test",
+                        program = "${file}"
+                    },
+                    -- works with go.mod packages and sub packages 
+                    {
+                        type = "delve",
+                        name = "Debug test (go.mod)",
+                        request = "launch",
+                        mode = "test",
+                        program = "./${relativeFileDirname}"
+                    }
                 }
             end,
         },
@@ -100,8 +133,8 @@ return {
         { "<leader>dj", function() require("dap").down() end,                                                 desc = "Down" },
         { "<leader>dk", function() require("dap").up() end,                                                   desc = "Up" },
         { "<leader>dl", function() require("dap").run_last() end,                                             desc = "Run Last" },
-        { "<leader>do", function() require("dap").step_out() end,                                             desc = "Step Out" },
-        { "<leader>dO", function() require("dap").step_over() end,                                            desc = "Step Over" },
+        { "<leader>dO", function() require("dap").step_out() end,                                             desc = "Step Out" },
+        { "<leader>do", function() require("dap").step_over() end,                                            desc = "Step Over" },
         { "<leader>dp", function() require("dap").pause() end,                                                desc = "Pause" },
         { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "Toggle REPL" },
         -- { "<leader>ds", function() require("dap").session() end,                                              desc = "Session" },

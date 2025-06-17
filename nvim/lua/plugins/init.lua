@@ -4,9 +4,6 @@ return {
 
     { 'nmac427/guess-indent.nvim' },
 
-    -- LSP injector (for non-LSP sources)
-    { 'jose-elias-alvarez/null-ls.nvim' },
-
     { 'mrcjkb/rustaceanvim', version = '^4', lazy = false },
 
     -- working with word variants

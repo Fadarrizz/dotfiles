@@ -1,5 +1,6 @@
 return {
     'vim-test/vim-test',
+    enabled = true,
     keys = {
         { "<leader>tn", vim.cmd.TestNearest, 'Test Nearest' },
         { "<leader>tf", vim.cmd.TestFile, 'Test Nearest' },

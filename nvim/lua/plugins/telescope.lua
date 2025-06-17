@@ -9,7 +9,7 @@ return {
     { '<leader>fg', function() require('telescope.builtin').live_grep() end, desc = 'Find in live grep' },
     { '<leader>fG', function() require('telescope.builtin').live_grep({ no_ignore = true, prompt_title = 'Find All Live Grep' }) end, desc = 'Find in all live grep' },
     { '<leader>fb', function() require('telescope.builtin').buffers() end, desc = 'Find buffer' },
-    { '<leader>fo', function() require('telescope.builtin').oldfiles() end, desc = 'Find old files' },
+    { '<leader>fo', function() require('telescope.builtin').oldfiles({ cwd_only = true }) end, desc = 'Find old files' },
     { '<leader>fr', function() require('telescope.builtin').resume() end, desc = 'Resume previous picker' },
     { '<leader>fq', function() require('telescope.builtin').quickfix() end, desc = 'Find quickfix' },
     { '<leader>fh', function() require('telescope.builtin').help_tags() end, desc = 'Find help tags' },
