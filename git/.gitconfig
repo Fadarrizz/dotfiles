@@ -18,6 +18,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.dotfiles/git/.gitignore_global
+    ignorecase = false
 [alias]
 	ctags = !.git/hooks/ctags
 	wtf = !$DOTFILES/bin/git-wtf

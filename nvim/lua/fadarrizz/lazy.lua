@@ -3,12 +3,17 @@ local lazy = {}
 lazy.path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 lazy.opts = {
+    rocks = { enabled = false },
     spec = {
-        { import = "plugins" },
+        { import = "fadarrizz.plugins" },
     },
     install = {
         colorscheme = { "catppuccin" },
     },
+    performance = {
+        rtp = { disabled_plugins = { 'netrwPlugin' } },
+    },
+    ui = { border = 'rounded', },
     checker = {
         enabled = true,
         notify = false,

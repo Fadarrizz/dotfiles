@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            flavour = "frappe", -- latte, frappe, macchiato, mocha
+            flavour = "mocha", -- latte, frappe, macchiato, mocha
             dim_inactive = {
                 enabled = false,
                 shade = "dark",

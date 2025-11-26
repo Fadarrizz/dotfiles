@@ -1,0 +1,19 @@
+theme = "catppuccin_mocha"
+
+[keys.normal]
+x = "select_line_below"
+X = "select_line_above"
+
+# Lazygit
+C-g = [
+    ":write-all", 
+    ":new", 
+    ":insert-output lazygit", 
+    ":buffer-close!", 
+    ":redraw", 
+    ":reload-all"
+]
+
+[editor]
+line-number = "relative"
+mouse = false

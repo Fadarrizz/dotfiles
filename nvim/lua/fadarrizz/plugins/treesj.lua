@@ -1,5 +1,6 @@
 return {
     "Wansmer/treesj",
+    enable = false,
     keys = { "<Leader>s"  },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = { use_default_keymaps = false },

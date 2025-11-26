@@ -3,6 +3,7 @@ gui:
   # skipRewordInEditorWarning: true
 git:
   autoFetch: false # stop making new ssh connections
+  overrideGpg: true
 os:
   edit: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
   open: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"

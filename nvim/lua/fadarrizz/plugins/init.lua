@@ -18,11 +18,10 @@ return {
     -- mappings for next/previous, option toggling, en-/decoding
     { 'tpope/vim-unimpaired' },
 
-    {
-        "echasnovski/mini.splitjoin",
-        enabled = true,
-        config = function()
-            require("mini.splitjoin").setup()
+    { 'andrewradev/splitjoin.vim', init = function()
+          vim.g.splitjoin_html_attributes_brackets_on_new_line = 1
+          vim.g.splitjoin_trailing_comma = 1
+          vim.g.splitjoin_php_method_chain_full = 1
         end,
     },
 }

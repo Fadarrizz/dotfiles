@@ -16,7 +16,7 @@ vim.opt.encoding = 'UTF8'                                -- str:  String encodin
 vim.opt.fileencoding = 'UTF8'                            -- str:  File encoding to use
 vim.filetype.add({
     pattern = {
-        ['.*%.blade%.php'] = 'blade',
+        -- ['.*%.blade%.php'] = 'blade',
         ['.*%.antlers%.html'] = 'antlers.html',
     },
 })
