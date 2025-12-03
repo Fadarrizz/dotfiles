@@ -1,7 +1,9 @@
+[includeIf "gitdir:~/work/"]
+    path = ~/.dotfiles/git/.ijsfontein.gitconfig
 [user]
 	name = Fadarrizz
 	email = aukegeerts@duck.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAoFt2omPyqupWH4m8uFurvqjpY21NF+4jKEmvvyfZ9P
+	signingkey = ~/.ssh/personal.pub
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -9,8 +11,6 @@
 	smudge = git-lfs smudge -- %f
 [gpg]
 	format = ssh
-[gpg "ssh"]
-    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
 	gpgsign = true
 [tag]
@@ -31,8 +31,6 @@
 	prune = true
 [push]
 	default = current
-[includeIf "gitdir:~/work/"]
-    path = ~/.dotfiles/git/.ijsfontein.gitconfig
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [merge]

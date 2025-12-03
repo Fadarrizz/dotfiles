@@ -5,5 +5,9 @@ git:
   autoFetch: false # stop making new ssh connections
   overrideGpg: true
 os:
-  edit: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
-  open: nvim --server /tmp/nvim-server-$(tmux display-message -p '#S').pipe --remote-send "<cmd>lua require('fadarrizz.lazygit-open-file')('{{filename}}', '{{line}}')<CR>"
+  # From: https://github.com/jesseduffield/lazygit/blob/4d0eaea6fca7dd74f759a3a398694a4a221f0f03/pkg/config/editor_presets.go#L72-L82
+  # Changed `--remote-tab` to `--remote` to open in same tab, instead of a new one
+  edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})'
+  editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")'
+  openDirInEditor: '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})'
+  openInTerminal: '[ -z "$NVIM" ]'

@@ -1,38 +1,4 @@
 [user]
 	name = Fadarrizz
 	email = auke@ijsfontein.nl
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsHe8rxZhNPrkOnXrZ8ZlMBniDZlkQjUt2Za8zYgLnW
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[gpg]
-	format = ssh
-[gpg "ssh"]
-    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-[commit]
-	gpgsign = true
-[tag]
-	forceSignAnnotated = false
-[core]
-	editor = nvim
-	excludesfile = ~/.dotfiles/git/.gitignore_global
-    ignorecase = false
-[alias]
-	ctags = !.git/hooks/ctags
-[init]
-	templatedir = ~/.dotfiles/git/.git_template
-	defaultBranch = main
-[pull]
-	rebase = true
-[remote "origin"]
-	prune = true
-[push]
-	default = current
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-[merge]
-    tool = nvim
-[mergetool]
-    prompt = false
+    signingkey = ~/.ssh/work.pub

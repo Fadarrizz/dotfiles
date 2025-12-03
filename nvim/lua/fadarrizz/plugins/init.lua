@@ -9,8 +9,6 @@ return {
     -- working with word variants
     { 'tpope/vim-abolish' },
 
-    { 'jwalton512/vim-blade' },
-
     { 'tpope/vim-repeat', keys = '.' },
 
     { 'tpope/vim-surround' },
