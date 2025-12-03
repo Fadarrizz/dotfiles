@@ -15,6 +15,7 @@
 	gpgsign = true
 [tag]
 	forceSignAnnotated = false
+    gpgsign = true
 [core]
 	editor = nvim
 	excludesfile = ~/.dotfiles/git/.gitignore_global
