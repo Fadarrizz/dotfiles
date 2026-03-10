@@ -31,6 +31,7 @@
     - ~/projects
     - ~/work
     - ~/.config/nvim/undo
+    - ~/.ssh/sockets
 
 - shell:
     - description: Installing submodules

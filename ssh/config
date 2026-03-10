@@ -1,10 +1,16 @@
-Host git.ijsfontein.nl
-    IdentityFile ~/.ssh/ijsfontein_nl_rsa
-
-Host work.github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/ijsfontein_nl_rsa
-
 Host *
-	IdentityAgent "~/.1password/agent.sock"
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentitiesOnly yes # prevent trying all keys
+
+    # Avoid frozen terminals
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
+
+    # Connection multiplexing - reuse existing connections
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 600
+
+Include ~/.ssh/config.personal
+Include ~/.ssh/config.work

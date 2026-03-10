@@ -27,12 +27,19 @@ return {
         require('mason').setup()
         require('mason-lspconfig').setup({
             automatic_installation = true,
-            ensure_installed = { 'html', 'eslint', 'intelephense', 'rust_analyzer', 'tailwindcss', 'dockerls', 'gopls', 'jsonls', 'bashls' },
+            ensure_installed = { 'html', 'eslint', 'intelephense', 'rust_analyzer', 'tailwindcss', 'dockerls', 'gopls', 'jsonls', 'bashls', 'pyright' },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
+                end,
+
+                ["pyright"] = function ()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup({
+                        capabilities = capabilities,
+                    })
                 end,
 
                 ["lua_ls"] = function()

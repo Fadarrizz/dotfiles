@@ -79,5 +79,9 @@ fi
 # Completion for Klog
 source <(klog completion -c zsh)
 
+# SDKMAN
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/custom/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/custom/.p10k.zsh ]] || source ~/.dotfiles/zsh/custom/.p10k.zsh

@@ -16,6 +16,9 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH=$PATH:$DOTFILES/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
 
 # Set keymap Tmux Sessionizer
 #bindkey -s ^f "t\n"
