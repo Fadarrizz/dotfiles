@@ -1,7 +1,0 @@
-new_os_window
-os_window_state fullscreen
-layout tall
-cd /Users/aukegeerts/work/slsp_backend
-launch --title "uptrek" zsh
-focus
-focus_os_window

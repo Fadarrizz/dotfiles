@@ -16,8 +16,8 @@ setopt SHARE_HISTORY
 autoload -Uz compinit && compinit
 
 # Custom aliases/functions
-source $DOTFILES/zsh/custom/aliases.zsh
-source $DOTFILES/zsh/custom/functions.zsh
+source "$DOTFILES/zsh/custom/aliases.zsh"
+source "$DOTFILES/zsh/custom/functions.zsh"
 
 # Plugins (managed through Homebrew)
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -46,6 +46,9 @@ eval "$(rbenv init - --no-rehash zsh)"
 
 # Klog completions
 source <(klog completion -c zsh)
+
+# Set keymap Sessionizer
+bindkey -s ^f "t\n"
 
 # Prompt (must be last)
 eval "$(starship init zsh)"

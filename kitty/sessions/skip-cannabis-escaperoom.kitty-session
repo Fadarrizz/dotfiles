@@ -1,8 +1,0 @@
-
-new_os_window
-os_window_state fullscreen
-layout tall
-cd /Users/aukegeerts/work/skip-cannabis-escaperoom
-launch --title "skip-cannabis-escaperoom" zsh 
-focus
-focus_os_window

@@ -31,12 +31,11 @@ SESSION_FILE="$SESSIONS_DIR/${SELECTED_NAME}.kitty-session"
 # Create session file if it doesn't exist yet
 if [[ ! -f "$SESSION_FILE" ]]; then
     cat > "$SESSION_FILE" <<EOF
-
 new_os_window
 os_window_state fullscreen
 layout tall
 cd $SELECTED
-launch --title "$SELECTED_NAME" zsh 
+launch --title "$SELECTED_NAME" zsh --login
 focus
 focus_os_window
 EOF
