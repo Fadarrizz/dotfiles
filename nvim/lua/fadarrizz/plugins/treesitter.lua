@@ -36,6 +36,7 @@ return {
 
             local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
 
+            -- Blade
             parser_config.blade = {
                 install_info = {
                     url = "https://github.com/EmranMR/tree-sitter-blade",
@@ -43,6 +44,18 @@ return {
                     branch = "main",
                 },
                 filetype = "blade"
+            }
+
+            -- Klog
+            parser_config.klog = {
+                install_info = {
+                    url = "https://github.com/Ansimorph/tree-sitter-klog",
+                    files = { "src/parser.c", "src/scanner.c" },
+                    branch = "main",
+                    -- generate_requires_npm = false,
+                    -- requires_generate_from_grammar = false,
+                },
+                filetype = "klog",
             }
         end,
         dependencies = {

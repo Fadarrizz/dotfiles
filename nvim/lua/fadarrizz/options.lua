@@ -20,6 +20,10 @@ vim.filetype.add({
     pattern = {
         -- ['.*%.blade%.php'] = 'blade',
         ['.*%.antlers%.html'] = 'antlers.html',
+        ['.klog'] = 'klog',
+    },
+    extension = {
+        klog = "klog",
     },
 })
 
