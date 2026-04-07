@@ -2,6 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
         opts = {
             ensure_installed = {
                 "vimdoc", "php", "javascript", "c", "go", "lua", "rust", "jsdoc", "bash",

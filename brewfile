@@ -1,69 +1,125 @@
-# Homebrew Bundle
-# https://github.com/Homebrew/homebrew-bundle
-
-# Taps
-tap 'homebrew/cask-fonts'
-
-# CLI Tools
-brew 'bat'
-brew 'composer'
-brew 'coreutils'	    # Those that come with macOS are outdated
-brew 'ctags'
-brew 'eza'
-brew 'ffmpeg'
-brew 'fzf'
-brew 'gh'
-brew 'git'
-brew 'grep'
-brew 'gnu-tar'          # Make tar compatibile with tar in Linux 
-brew 'jq'
-brew 'ovyerus/klog/klog'
-brew 'lazygit'
-brew 'mas'
-brew 'neovim', args: ['HEAD']
-brew 'ripgrep'
-brew 'tldr'
-brew 'tmux'
-brew 'timewarrior'
-brew 'tree'
-brew 'zoxide'
-brew 'zsh'
-brew 'zsh-completions'
-
-# Development
-brew 'php'
-brew 'composer'
-brew 'mysql'
-brew 'nginx'
-brew 'node'
-
-# Apps
-cask '1password'
-cask '1password-cli'
-cask 'alfred'
-cask 'docker'
-cask 'dropbox'
-cask 'firefox@developer-edition'
-cask 'karabiner-elements'
-cask 'keepassxc'
-cask 'kitty'
-cask 'logi-options-plus' 
-cask 'microsoft-teams'
-cask 'obsidian'
-cask 'openvpn-connect'
-cask 'proton-drive'
-cask 'proton-mail'
-cask 'protonvpn'
-cask 'spotify'
-cask 'vlc'
-cask 'whatsapp'
-
-# Fonts
-cask 'font-iosevka'
-cask 'font-jetbrains-mono'
-cask 'font-symbols-only-nerd-font'
-cask 'font-victor-mono'
-
-# Mac App Store
-mas 'Magnet', id: 441258766
-#mas 'Xcode', id: 497799835
+tap "codecrafters-io/tap"
+tap "felixkratz/formulae"
+tap "nikitabobko/tap"
+tap "ovyerus/klog"
+tap "protonpass/tap"
+tap "sdkman/tap"
+brew "bat"
+brew "bitwarden-cli"
+brew "cocoapods"
+brew "libpq", link: true
+brew "php"
+brew "composer"
+brew "coreutils"
+brew "ctags"
+brew "dotnet"
+brew "exercism"
+brew "eza"
+brew "ffmpeg"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "git-crypt"
+brew "git-lfs"
+brew "glab"
+brew "gnu-tar"
+brew "gnupg"
+brew "go"
+brew "grep"
+brew "helix"
+brew "helm"
+brew "httpie"
+brew "jq"
+brew "kubelogin"
+brew "kubernetes-cli"
+brew "lazygit"
+brew "llvm"
+brew "mas"
+brew "mysql"
+brew "tree-sitter"
+brew "neovim"
+brew "nginx"
+brew "nmap"
+brew "ollama"
+brew "openconnect"
+brew "openshift-cli"
+brew "openvpn"
+brew "php@8.3"
+brew "pytest"
+brew "python@3.10"
+brew "rbenv"
+brew "ripgrep"
+brew "sshuttle"
+brew "starship"
+brew "task"
+brew "tesseract-lang"
+brew "timewarrior"
+brew "tlrc"
+brew "tmux"
+brew "tree"
+brew "wireguard-tools"
+brew "yt-dlp"
+brew "zoxide"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "codecrafters-io/tap/codecrafters"
+brew "felixkratz/formulae/borders"
+brew "ovyerus/klog/klog"
+brew "protonpass/tap/pass-cli"
+brew "sdkman/tap/sdkman-cli"
+cask "1password"
+cask "1password-cli"
+cask "nikitabobko/tap/aerospace"
+cask "alfred"
+cask "android-platform-tools"
+cask "brave-browser"
+cask "calibre"
+cask "codex"
+cask "colemak-dh"
+cask "cyberduck"
+cask "docker-desktop"
+cask "dotnet-sdk"
+cask "dropbox"
+cask "figma"
+cask "firefox"
+cask "font-aporetic"
+cask "font-iosevka"
+cask "font-jetbrains-mono"
+cask "font-symbols-only-nerd-font"
+cask "font-victor-mono"
+cask "ghostty"
+cask "google-chrome"
+cask "insomnia"
+cask "karabiner-elements"
+cask "keepassxc"
+cask "kitty"
+cask "localsend"
+cask "logi-options+"
+cask "microsoft-auto-update"
+cask "microsoft-teams"
+cask "mullvad-browser"
+cask "obsidian"
+cask "onedrive"
+cask "openvpn-connect"
+cask "proton-drive"
+cask "proton-mail"
+cask "protonvpn"
+cask "signal"
+cask "spotify"
+cask "stremio"
+cask "supercollider"
+cask "tableplus"
+cask "tor-browser"
+cask "vlc"
+cask "whatsapp"
+mas "Bitwarden", id: 1352778147
+mas "MacDroid", id: 1476545828
+mas "Magnet", id: 441258766
+mas "Messenger", id: 1480068668
+mas "Time Out", id: 402592703
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
+go "github.com/bootdotdev/bootdev"
+cargo "tree-sitter-cli"

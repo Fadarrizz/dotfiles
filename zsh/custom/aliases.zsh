@@ -46,11 +46,16 @@ alias a="artisan"
 # Docs
 alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
 
-if _exists tmux; then
-    # alias ts='tmux new-session -A -D -s'
-    alias t="tmux-sessionizer"
-fi
+# if _exists tmux; then
+#     # alias ts='tmux new-session -A -D -s'
+#     alias t="tmux-sessionizer"
+# fi
+
+alias t="kitty-sessionizer"
 
 alias e="edit"
 alias d="dot"
 alias n="run-watcher"
+
+# SSH config hosts
+alias servers="cat ~/.ssh/config* | grep \"Host \" | cut -d \" \" -f 2 | sort"

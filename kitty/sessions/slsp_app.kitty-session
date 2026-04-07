@@ -1,0 +1,8 @@
+
+new_os_window
+os_window_state fullscreen
+layout tall
+cd /Users/aukegeerts/work/slsp_app
+launch --title "slsp_app" zsh 
+focus
+focus_os_window

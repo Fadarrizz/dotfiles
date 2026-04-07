@@ -1,0 +1,46 @@
+# Font
+font-family = Victor Mono Medium
+font-family-bold = Victor Mono Bold
+font-family-italic = Victor Mono Medium Oblique
+font-family-bold-italic = Victor Mono Bold Oblique
+font-thicken = true
+font-synthetic-style = true
+font-size = 14
+adjust-cell-height = 68%
+adjust-cell-width = -5%
+
+# Window
+#window-decoration = false
+window-padding-balance = true
+window-padding-x = 10
+# window-padding-y = 2
+window-padding-color = background
+#macos-titlebar-style = hidden
+
+# Misc
+cursor-style = block
+cursor-style-blink = false
+shell-integration = zsh
+shell-integration-features = no-cursor
+scrollback-limit = 100000
+mouse-hide-while-typing = true
+copy-on-select = true
+macos-option-as-alt = left
+
+# Theme
+theme = Catppuccin Mocha
+
+# Splits
+# keybind = cmd+shift+enter=new_split:right
+# keybind = cmd+shift+\=new_split:right
+# keybind = cmd+shift+minus=new_split:down
+
+# Split navigation
+# keybind = cmd+shift+left=goto_split:left
+# keybind = cmd+shift+right=goto_split:right
+# keybind = cmd+shift+up=goto_split:up
+# keybind = cmd+shift+down=goto_split:down
+
+# Tab navigation
+# keybind = cmd+shift+l=next_tab
+# keybind = cmd+shift+h=previous_tab

@@ -1,0 +1,5 @@
+layout tall
+cd /Users/aukegeerts/projects/codecrafters-shell-go
+launch --title "codecrafters-shell-go" /bin/zsh -i -c 'v'
+focus
+focus_os_window

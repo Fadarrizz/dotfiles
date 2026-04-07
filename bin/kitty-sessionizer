@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Requirements
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "fzf is not installed or not in PATH."
+  echo "Install (brew): brew install fzf"
+  exit 1
+fi
+
+SESSIONS_DIR="$HOME/.config/kitty/sessions"
+mkdir -p "$SESSIONS_DIR"
+
+if [[ $# -eq 1 ]]; then
+    SELECTED=$1
+else
+    items="$(find "$HOME/projects" "$HOME/work" -maxdepth 2 -type d \
+        -not -path '*/.ignore/*' \
+        -execdir test -d {}/.git \; -print)"
+    SELECTED=$(echo "$items" | fzf)
+fi
+
+if [[ -z "$SELECTED" ]]; then
+    exit 0
+fi
+
+SELECTED_NAME=$(basename "$SELECTED" | tr . _)
+SESSION_FILE="$SESSIONS_DIR/${SELECTED_NAME}.kitty-session"
+
+# Create session file if it doesn't exist yet
+if [[ ! -f "$SESSION_FILE" ]]; then
+    cat > "$SESSION_FILE" <<EOF
+
+new_os_window
+os_window_state fullscreen
+layout tall
+cd $SELECTED
+launch --title "$SELECTED_NAME" zsh 
+focus
+focus_os_window
+EOF
+fi
+
+# Switch to (or load) the session
+SOCKET=$(ls /tmp/kitty-* 2>/dev/null | head -1)
+if [[ -n "$SOCKET" ]]; then
+    kitten @ --to "unix:$SOCKET" action goto_session "$SESSION_FILE"
+else
+    kitty --session "$SESSION_FILE" &
+fi

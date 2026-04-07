@@ -1,19 +1,21 @@
 -- [[ Leader ]]
-vim.g.mapleader = [[ ]]
-vim.g.localleader = [[ ]]
+vim.g.mapleader = ' '
+vim.g.localleader = ' '
+
+vim.g.have_nerd_font = true
 
 -- [[ Context ]]
-vim.opt.colorcolumn = '120'                              -- str:  Show col for max line length
-vim.opt.number = true                                    -- bool: Show line numbers
-vim.opt.relativenumber = true                            -- bool: Show relative line numbers
-vim.opt.scrolloff = 8                                    -- int:  Min num lines of context
-vim.opt.sidescrolloff = 8		                         -- int:  Min num lines of side context
-vim.opt.signcolumn = "yes"                               -- str:  Show the sign column
-vim.opt.cmdheight = 0                                    -- num:  Hide cmd bar when not used
+vim.o.colorcolumn = '120'                                       -- str:  Show col for max line length
+vim.o.number = true                                             -- bool: Show line numbers
+vim.o.relativenumber = true                                     -- bool: Show relative line numbers
+vim.o.scrolloff = 8                                             -- int:  Min num lines of context
+vim.o.sidescrolloff = 8		                                    -- int:  Min num lines of side context
+vim.o.signcolumn = "yes"                                        -- str:  Show the sign column
+vim.o.cmdheight = 0                                             -- num:  Hide cmd bar when not used
 
 -- [[ Filetypes ]]
-vim.opt.encoding = 'UTF8'                                -- str:  String encoding to use
-vim.opt.fileencoding = 'UTF8'                            -- str:  File encoding to use
+vim.o.encoding = 'UTF8'                                         -- str:  String encoding to use
+vim.o.fileencoding = 'UTF8'                                     -- str:  File encoding to use
 vim.filetype.add({
     pattern = {
         -- ['.*%.blade%.php'] = 'blade',
@@ -22,47 +24,47 @@ vim.filetype.add({
 })
 
 -- [[ Theme ]]
-vim.opt.syntax = "ON"                                    -- str:  Allow syntax highlighting
-vim.opt.termguicolors = true                             -- bool: If term supports ui color then enable
+vim.o.syntax = "ON"                                             -- str:  Allow syntax highlighting
+vim.o.termguicolors = true                                      -- bool: If term supports ui color then enable
 
 -- [[ Search ]]
-vim.opt.ignorecase = true                                -- bool: Ignore case in search patterns
-vim.opt.smartcase = true                                 -- bool: Override ignorecase if search contains capitals
-vim.opt.incsearch = true                                 -- bool: Use incremental search
-vim.opt.hlsearch = false                                 -- bool: Highlight search matches
+vim.o.ignorecase = true                                         -- bool: Ignore case in search patterns
+vim.o.smartcase = true                                          -- bool: Override ignorecase if search contains capitals
+vim.o.incsearch = true                                          -- bool: Use incremental search
+vim.o.hlsearch = false                                          -- bool: Highlight search matches
 
 -- [[ Whitespace ]]
-vim.opt.expandtab = true                                 -- bool: Use spaces instead of tabs
-vim.opt.shiftwidth = 4                                   -- num:  Size of an indent
-vim.opt.softtabstop = 4                                  -- num:  Number of spaces tabs count for in insert mode
-vim.opt.tabstop = 4                                      -- num:  Number of spaces tabs count for
-vim.opt.smartindent = true		                         -- bool: Indent based on file type
-vim.opt.breakindent = true		                         -- bool: Maintain indentation when wrapping indented lines
-vim.opt.autoindent = true                                -- bool: Auto indent
-vim.opt.wrap = false
+vim.o.expandtab = true                                          -- bool: Use spaces instead of tabs
+vim.o.shiftwidth = 4                                            -- num:  Size of an indent
+vim.o.softtabstop = 4                                           -- num:  Number of spaces tabs count for in insert mode
+vim.o.tabstop = 4                                               -- num:  Number of spaces tabs count for
+vim.o.smartindent = true		                                -- bool: Indent based on file type
+vim.o.breakindent = true		                                -- bool: Maintain indentation when wrapping indented lines
+vim.o.autoindent = true                                         -- bool: Auto indent
+vim.o.wrap = false
 
 -- [[ Splits ]]
-vim.opt.splitright = true                                -- bool: Place new window to right of current one
-vim.opt.splitbelow = true                                -- bool: Place new window below the current one
+vim.o.splitright = true                                         -- bool: Place new window to right of current one
+vim.o.splitbelow = true                                         -- bool: Place new window below the current one
 
 -- [[ Files ]]
-vim.opt.swapfile = false                                 -- bool: Allow use of swap file
-vim.opt.backup = false                                   -- bool: Allow use of backup
-vim.opt.undofile = true                                  -- bool: Allow use of undofile
-vim.opt.autoread = true                                  -- bool: Automatically reread changed files
+vim.o.swapfile = false                                          -- bool: Allow use of swap file
+vim.o.backup = false                                            -- bool: Allow use of backup
+vim.o.undofile = true                                           -- bool: Allow use of undofile
+vim.o.autoread = true                                           -- bool: Automatically reread changed files
 
 -- [[ Folding ]]
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
-vim.opt.foldmethod = "expr"                              -- str: Use expression as folding method
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"          -- str: Use Treesitter for folding
-vim.opt.foldenable = false                               -- bool: Disable folding at startup
-vim.opt.foldnestmax = 3                                  -- num: Fold up to n nestings
-vim.opt.foldminlines = 1                                 -- num: Fold minimum of n line
-vim.opt.foldlevelstart = 1                               -- num: Start folding level at n
+vim.o.foldmethod = "expr"                                       -- str: Use expression as folding method
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"                   -- str: Use Treesitter for folding
+vim.o.foldenable = false                                        -- bool: Disable folding at startup
+vim.o.foldnestmax = 3                                           -- num: Fold up to n nestings
+vim.o.foldminlines = 1                                          -- num: Fold minimum of n line
+vim.o.foldlevelstart = 1                                        -- num: Start folding level at n
 
-vim.opt.clipboard = 'unnamedplus'                        -- str: Use system clipboard
-vim.opt.updatetime = 250                                 -- num: Make updating fast
-vim.opt.timeoutlen = 300                                 -- num: Decrease mapped sequence wait time 
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)    -- str: Use system clipboard
+vim.o.updatetime = 250                                          -- num: Make updating fast
+vim.o.timeoutlen = 300                                          -- num: Decrease mapped sequence wait time 
 
 -- [[ Completion ]]
 -- :help completeopt
