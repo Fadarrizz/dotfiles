@@ -59,3 +59,6 @@ alias n="run-watcher"
 
 # SSH config hosts
 alias servers="cat ~/.ssh/config* | grep \"Host \" | cut -d \" \" -f 2 | sort"
+
+# Override Brew using custom bundle dumper
+alias brew="brew-bundle-dumper"

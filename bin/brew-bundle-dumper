@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+BREWFILE="${DOTFILES}/Brewfile"
+
+brew "$@"
+
+case "$1" in
+    install|uninstall|remove|tap|untap)
+      brew bundle dump --force --file="$BREWFILE"
+      ;;
+esac
