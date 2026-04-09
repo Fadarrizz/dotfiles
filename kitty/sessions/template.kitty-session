@@ -1,0 +1,6 @@
+new_os_window
+layout stack
+cd {{PATH}}
+launch --title "{{NAME}}" zsh --login
+focus
+focus_os_window

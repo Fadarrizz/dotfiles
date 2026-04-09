@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
 # Requirements
@@ -9,15 +8,18 @@ if ! command -v fzf >/dev/null 2>&1; then
   exit 1
 fi
 
-SESSIONS_DIR="$HOME/.config/kitty/sessions"
-mkdir -p "$SESSIONS_DIR"
+TEMPLATE="$HOME/.config/kitty/sessions/template.kitty-session"
+
+if [[ ! -f "$TEMPLATE" ]]; then
+  echo "Session template not found: $TEMPLATE"
+  exit 1
+fi
 
 if [[ $# -eq 1 ]]; then
     SELECTED=$1
 else
-    items="$(find "$HOME/projects" "$HOME/work" -maxdepth 2 -type d \
-        -not -path '*/.ignore/*' \
-        -execdir test -d {}/.git \; -print)"
+    # Depth = n + 1 since .git is one level deeper than project root
+    items="$(find "$HOME/projects" "$HOME/work" -maxdepth 3 -name ".git" -type d | sed 's|/.git$||')"
     SELECTED=$(echo "$items" | fzf)
 fi
 
@@ -26,20 +28,15 @@ if [[ -z "$SELECTED" ]]; then
 fi
 
 SELECTED_NAME=$(basename "$SELECTED" | tr . _)
-SESSION_FILE="$SESSIONS_DIR/${SELECTED_NAME}.kitty-session"
+SESSION_FILE="/tmp/${SELECTED_NAME}.kitty-session"
 
-# Create session file if it doesn't exist yet
-if [[ ! -f "$SESSION_FILE" ]]; then
-    cat > "$SESSION_FILE" <<EOF
-new_os_window
-os_window_state fullscreen
-layout tall
-cd $SELECTED
-launch --title "$SELECTED_NAME" zsh --login
-focus
-focus_os_window
-EOF
-fi
+# Store temporary session file.
+# This is needed because `goto_session` needs a unique file 
+# path per project to identify with OS window to switch to.
+sed \
+  -e "s|{{PATH}}|$SELECTED|g" \
+  -e "s|{{NAME}}|$SELECTED_NAME|g" \
+  "$TEMPLATE" > "$SESSION_FILE"
 
 # Switch to (or load) the session
 SOCKET=$(ls /tmp/kitty-* 2>/dev/null | head -1)
