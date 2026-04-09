@@ -2,34 +2,27 @@
 #
 # Detect JS package manager and run watcher
 #
-MSG="Running"
-CMD=""
 
-function run() {
-    echo "Running $1"
-    $1 $2
-    exit 0
-}
+PREFIX=""
 
 if [ -f vendor/bin/sail ]; then
     echo 'sail detected'
-    CMD="sail" 
+    PREFIX="vendor/bin/sail"
 fi
+
+run() {
+    echo "Running $*"
+    exec "$@"
+}
 
 if [ -f yarn.lock ]; then
-    run "${CMD} yarn dev" $1
+    run $PREFIX yarn dev "$@"
+elif [ -f vite.config.js ]; then
+    run $PREFIX npm run dev "$@"
+elif [ -f package-lock.json ]; then
+    run $PREFIX npm run watch "$@"
+elif [ -f pnpm-lock.yaml ]; then
+    run $PREFIX pnpm run watch "$@"
+else
+    echo 'Node package not detected'
 fi
-
-if [ -f vite.config.js ]; then
-    run "${CMD} npm run dev" $1
-fi
-
-if [ -f package-lock.json ]; then
-    run "${CMD} npm run watch" $1
-fi
-
-if [ -f pnpm-lock.yaml ]; then
-    run "${CMD} pnpm run watch" $1
-fi
-
-echo ' Node package not detected'
