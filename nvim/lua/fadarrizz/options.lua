@@ -59,8 +59,10 @@ vim.o.autoread = true                                           -- bool: Automat
 
 -- [[ Folding ]]
 -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
+
+-- Folding 
 vim.o.foldmethod = "expr"                                       -- str: Use expression as folding method
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"                   -- str: Use Treesitter for folding
+vim.o.foldexpr = "v:lua.vim.treesitter#foldexpr()"              -- str: Use Treesitter for folding
 vim.o.foldenable = false                                        -- bool: Disable folding at startup
 vim.o.foldnestmax = 3                                           -- num: Fold up to n nestings
 vim.o.foldminlines = 1                                          -- num: Fold minimum of n line

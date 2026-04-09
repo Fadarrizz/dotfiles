@@ -120,6 +120,6 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "M", 
 
 [workspace-to-monitor-force-assignment]
     N = 'built-in'
-    M = 'built-in'
+    M = 'main' # for Mail
     S = 'built-in'
     T = 'built-in'
