@@ -1,5 +1,5 @@
 new_os_window
-layout stack
+layout tall
 cd {{PATH}}
 launch --title "{{NAME}}" zsh --login
 focus

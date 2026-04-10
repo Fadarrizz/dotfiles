@@ -1,5 +1,5 @@
 new_os_window
-layout stack
+layout tall
 cd /Users/aukegeerts/.dotfiles
 launch --title "dotfiles" zsh --login
 focus
