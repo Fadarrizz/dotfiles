@@ -30,12 +30,19 @@
 	prune = true
 [push]
 	default = current
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[diff]
+    tool = nvimdiff
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
 [merge]
-    tool = nvim
+    tool = nvimdiff
 [mergetool]
     prompt = false
+    keepBackup = false
+[mergetool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 [rerere]
 	enabled = true
 

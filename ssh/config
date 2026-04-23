@@ -1,3 +1,6 @@
+Include ~/.ssh/config.personal
+Include ~/.ssh/config.work
+
 Host *
     UseKeychain yes
     AddKeysToAgent yes
@@ -10,6 +13,3 @@ Host *
     ControlMaster auto
     ControlPath ~/.ssh/sockets/%r@%h-%p
     ControlPersist 600
-
-Include ~/.ssh/config.personal
-Include ~/.ssh/config.work

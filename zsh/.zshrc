@@ -50,5 +50,11 @@ source <(klog completion -c zsh)
 # Set keymap Sessionizer
 bindkey -s ^f "t\n"
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/aukegeerts/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
 # Prompt (must be last)
 eval "$(starship init zsh)"

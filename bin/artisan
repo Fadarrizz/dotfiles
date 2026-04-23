@@ -5,7 +5,7 @@
 CMD=""
 
 if [ -f vendor/bin/sail ]; then
-    CMD="sail"
+    CMD="vendor/bin/sail"
 else
     CMD="php"
 fi

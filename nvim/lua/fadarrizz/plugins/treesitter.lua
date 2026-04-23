@@ -54,7 +54,7 @@ return {
       })
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "php", "javascript", "c", "go", "lua", "rust", "bash", "blade", "klog" },
+        pattern = { "php", "javascript", "c", "go", "lua", "rust", "bash", "blade" },
         callback = function(args)
           vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,

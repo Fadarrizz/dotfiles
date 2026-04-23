@@ -33,6 +33,7 @@ return {
 
             local adapter = require('neotest-phpunit')({
                 root_files = { "composer.json", "phpunit.xml", "phpunit.xml.dist" },
+                filter_dirs = { ".git", "node_modules", "vendor" },
             })
 
             if vim.fn.executable("vendor/bin/sail") ~= 1 then
@@ -58,6 +59,16 @@ return {
                 for i, v in ipairs(spec.command) do
                     if type(v) == "string" and v:sub(1, #project_root) == project_root then
                         spec.command[i] = CONTAINER_ROOT .. v:sub(#project_root + 1)
+                    end
+                end
+
+                -- If phpunit received the project root as its directory argument (suite
+                -- run), remove it so phpunit falls back to phpunit.xml. Without this,
+                -- phpunit scans the entire container root including vendor/.
+                for i, v in ipairs(spec.command) do
+                    if v == CONTAINER_ROOT then
+                        table.remove(spec.command, i)
+                        break
                     end
                 end
 
@@ -105,7 +116,7 @@ return {
         end
 
         require("neotest").setup({
-            discovery = { enabled = true },
+            discovery = { enabled = true, filter_dirs = { ".git", "node_modules", "vendor" } },
             output = { enabled = true, open_on_run = "short" },
             status = { enabled = true, signs = true },
             adapters = {
