@@ -38,6 +38,17 @@ autocmd("RecordingLeave", {
     end
 })
 
+vim.api.nvim_create_user_command("LazygitEdit", function(o)
+    if vim.bo.filetype == "oil" then vim.cmd("bwipeout") end
+    vim.cmd("edit " .. vim.fn.fnameescape(o.args))
+end, { nargs = 1 })
+
+vim.api.nvim_create_user_command("LazygitEditAtLine", function(o)
+    local line, file = o.args:match("^(%d+)%s+(.+)$")
+    if vim.bo.filetype == "oil" then vim.cmd("bwipeout") end
+    vim.cmd(("edit +%s %s"):format(line, vim.fn.fnameescape(file)))
+end, { nargs = 1 })
+
 autocmd("LspAttach", {
     group = fadarrizz_group,
     callback = function(e)
