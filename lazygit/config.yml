@@ -7,7 +7,7 @@ git:
 os:
   # From: https://github.com/jesseduffield/lazygit/blob/4d0eaea6fca7dd74f759a3a398694a4a221f0f03/pkg/config/editor_presets.go#L72-L82
   # Changed `--remote-tab` to `--remote` to open in same tab, instead of a new one
-  edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEdit {{filename}}<CR>")'
-  editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEditAtLine {{line}} {{filename}}<CR>")'
-  openDirInEditor: '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEdit {{dir}}<CR>")'
+  # edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEdit {{filename}}<CR>")'
+  # editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEditAtLine {{line}} {{filename}}<CR>")'
+  # openDirInEditor: '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-send "<Cmd>LazygitEdit {{dir}}<CR>")'
   openInTerminal: '[ -z "$NVIM" ]'

@@ -43,15 +43,14 @@ alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias s="sail"
 alias a="artisan"
 
-# Docs
-alias gitalias="curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/README.md"
-
 # if _exists tmux; then
 #     # alias ts='tmux new-session -A -D -s'
 #     alias t="tmux-sessionizer"
 # fi
 
+# Kitty
 alias t="kitty-sessionizer"
+alias ks="kitten ssh"
 
 alias e="edit"
 alias d="dot"

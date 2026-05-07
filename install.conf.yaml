@@ -12,24 +12,18 @@
 - link:
     ~/.hushlogin: .hushlogin
     ~/.gitconfig: git/.gitconfig
-    ~/.ijsfontein.gitconfig: git/.ijsfontein.gitconfig
     ~/.git_template: git/.git_template
     ~/.gitignore_global: git/.gitignore_global
     ~/.zshrc: zsh/.zshrc
     ~/.zprofile: zsh/.zprofile
     ~/.config/nvim: nvim
-    ~/.tmux.conf: tmux/.tmux.conf
     ~/.config/karabiner: karabiner
     ~/.config/kitty: kitty
-    ~/.config/timewarrior/timewarrior.cfg: timewarrior/timewarrior.cfg
-    ~/.config/timewarrior/extensions: timewarrior/extensions
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     ~/.local/share/timewarrior/data: timewarrior/data
-    ~/.klog: klog
     
 - create:
     - ~/projects
-    - ~/work
     - ~/.config/nvim/undo
     - ~/.ssh/sockets
 

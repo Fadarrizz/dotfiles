@@ -38,16 +38,40 @@ autocmd("RecordingLeave", {
     end
 })
 
-vim.api.nvim_create_user_command("LazygitEdit", function(o)
-    if vim.bo.filetype == "oil" then vim.cmd("bwipeout") end
-    vim.cmd("edit " .. vim.fn.fnameescape(o.args))
-end, { nargs = 1 })
+-- local function lazygit_edit(file, line)
+--     -- Close any leftover floating windows (e.g. Snacks lazygit float)
+--     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+--         local ok, cfg = pcall(vim.api.nvim_win_get_config, win)
+--         if ok and cfg.relative and cfg.relative ~= "" then
+--             pcall(vim.api.nvim_win_close, win, true)
+--         end
+--     end
+--     -- Switch to the first non-terminal window in the tab
+--     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+--         local buf = vim.api.nvim_win_get_buf(win)
+--         if vim.bo[buf].buftype ~= "terminal" then
+--             vim.api.nvim_set_current_win(win)
+--             break
+--         end
+--     end
+--     -- Wipe oil so :edit replaces the window instead of falling through to a new tab
+--     if vim.bo.filetype == "oil" then
+--         pcall(vim.cmd, "silent! bwipeout!")
+--     end
+--     local cmd = line
+--         and ("edit +%s %s"):format(line, vim.fn.fnameescape(file))
+--         or ("edit " .. vim.fn.fnameescape(file))
+--     vim.cmd(cmd)
+-- end
 
-vim.api.nvim_create_user_command("LazygitEditAtLine", function(o)
-    local line, file = o.args:match("^(%d+)%s+(.+)$")
-    if vim.bo.filetype == "oil" then vim.cmd("bwipeout") end
-    vim.cmd(("edit +%s %s"):format(line, vim.fn.fnameescape(file)))
-end, { nargs = 1 })
+-- vim.api.nvim_create_user_command("LazygitEdit", function(o)
+--     vim.schedule(function() lazygit_edit(o.args) end)
+-- end, { nargs = 1 })
+
+-- vim.api.nvim_create_user_command("LazygitEditAtLine", function(o)
+--     local line, file = o.args:match("^(%d+)%s+(.+)$")
+--     vim.schedule(function() lazygit_edit(file, line) end)
+-- end, { nargs = 1 })
 
 autocmd("LspAttach", {
     group = fadarrizz_group,

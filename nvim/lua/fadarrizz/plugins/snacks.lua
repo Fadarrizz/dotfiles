@@ -21,7 +21,11 @@ return {
         lazygit = {
             config = {
                 os = {
-                    edit = '[ -z "\"$NVIM\"" ] && (nvim -- {{filename}}) || (nvim --server "\"$NVIM\"" --remote-send "\"q\"" && nvim --server "\"$NVIM\"" --remote {{filename}})'
+                    edit = '[ -z "\"$NVIM\"" ] && (nvim -- {{filename}}) || (nvim --server "\"$NVIM\"" --remote-send "\"q\"" && nvim --server "\"$NVIM\"" --remote {{filename}})',
+                    -- edit = '[ -z "\"$NVIM\"" ] && (nvim -- {{filename}}) || (nvim --server "\"$NVIM\"" --remote-send "\"q\"" && nvim --server "\"$NVIM\"" --remote-send "\"<Cmd>LazygitEdit {{filename}}<CR>\"")',
+                    -- editAtLine = '[ -z "\"$NVIM\"" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "\"$NVIM\"" --remote-send "\"q\"" && nvim --server "\"$NVIM\"" --remote-send "\"<Cmd>LazygitEditAtLine {{line}} {{filename}}<CR>\"")',
+                    -- openDirInEditor = '[ -z "\"$NVIM\"" ] && (nvim -- {{dir}}) || (nvim --server "\"$NVIM\"" --remote-send "\"q\"" && nvim --server "\"$NVIM\"" --remote-send "\"<Cmd>LazygitEdit {{dir}}<CR>\"")',
+
                 }
             }
         }

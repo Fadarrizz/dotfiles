@@ -7,6 +7,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "nvim-neotest/neotest-go",
         "olimorris/neotest-phpunit",
+        "V13Axel/neotest-pest",
     },
     keys = {
         { '<leader>tn', function() require('neotest').run.run() end,                          desc = 'Run nearest test' },
@@ -125,6 +126,7 @@ return {
                     experimental = { test_table = true },
                     args = { "-count=1", "-timeout=60s" },
                 }),
+                require("neotest-pest")
             },
         })
     end,
