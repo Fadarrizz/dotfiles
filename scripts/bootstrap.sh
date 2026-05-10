@@ -11,6 +11,15 @@ set -e
 # Ask for sudo upfront
 sudo -v
 
+# Keep sudo alive for the duration of the script
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Use Touch ID to authorize sudo
+if [ ! -f /etc/pam.d/sudo_local ]; then
+	echo "Enabling Touch ID to authorize sudo commands..."
+	echo "auth       sufficient     pam_tid.so" | sudo tee /etc/pam.d/sudo_local
+fi
+
 # Install Homebrew
 if ! command -v brew > /dev/null 2>&1; then
     echo "Installing Homebrew..."
@@ -22,26 +31,16 @@ if ! command -v brew > /dev/null 2>&1; then
     brew cleanup
 fi
 
-# Install Oh My Zsh
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Use Touch ID to authorize sudo
-if [ ! -f /etc/pam.d/sudo_local ]; then
-	echo "Enabling Touch ID to authorize sudo commands..."
-	echo "auth       sufficient     pam_tid.so" | sudo tee /etc/pam.d/sudo_local
-fi
-
 # Allow unidentified developers
 echo "Allowing unidentified developers..."
 sudo spctl --master-disable
 
 # Install XCode command line tools, and accept its license
 echo "Installing XCode command line tools..."
-xcode-select --install
+sudo xcode-select --install
 echo
 echo "Accepting XCode license..."
-xcodebuild -license
+sudo xcodebuild -license
 echo
 
 # fzf

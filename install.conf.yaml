@@ -11,21 +11,25 @@
 
 - link:
     ~/.hushlogin: .hushlogin
+    ~/.ssh/config: ssh/config
     ~/.gitconfig: git/.gitconfig
     ~/.git_template: git/.git_template
     ~/.gitignore_global: git/.gitignore_global
-    ~/.zshrc: zsh/.zshrc
+    ~/.zshenv: zsh/.zshenv
     ~/.zprofile: zsh/.zprofile
+    ~/.zshrc: zsh/.zshrc
     ~/.config/nvim: nvim
     ~/.config/karabiner: karabiner
     ~/.config/kitty: kitty
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
-    ~/.local/share/timewarrior/data: timewarrior/data
+    ~/.Brewfile: Brewfile
     
 - create:
     - ~/projects
     - ~/.config/nvim/undo
     - ~/.ssh/sockets
+    - ~/.ssh/config.personal
+    - ~/.ssh/config.work
 
 - shell:
     - description: Installing submodules

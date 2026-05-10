@@ -1,14 +1,12 @@
 [user]
-	name = Fadarrizz
-	email = aukegeerts@duck.com
-	signingkey = ~/.ssh/personal.pub
+    name = "Auke Geerts"
+    email = auke@aukegeerts.nl
+    signignkey = B592618A5B388FA1
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[gpg]
-	format = ssh
 [commit]
 	gpgsign = true
 [tag]
@@ -47,4 +45,4 @@
 	enabled = true
 
 [includeIf "gitdir:~/work/"]
-    path = ~/.dotfiles/git/.ijsfontein.gitconfig
+    path = ~/.dotfiles/git/.work.gitconfig
