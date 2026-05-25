@@ -1,7 +1,7 @@
 [user]
     name = "Auke Geerts"
-    email = auke@aukegeerts.nl
-    signignkey = B592618A5B388FA1
+    email = "22003779+ageerts@users.noreply.github.com"
+    signingkey = 46BDF0EED1DD7F38
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
