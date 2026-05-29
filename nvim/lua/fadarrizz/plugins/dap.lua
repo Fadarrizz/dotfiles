@@ -78,6 +78,27 @@ return {
                         program = "./${relativeFileDirname}"
                     }
                 }
+
+                dap.adapters.kotlin = {
+                    type = "executable",
+                    command = vim.fn.stdpath("data") .. "/mason/bin/kotlin-debug-adapter",
+                    options = { auto_continue_if_many_stopped = false },
+                }
+
+                dap.configurations.kotlin = {
+                    {
+                        type = "kotlin",
+                        request = "attach",
+                        name = "Attach to test JVM",
+                        -- Start the JVM first with JDWP listening on this port, e.g.
+                        --   ./gradlew test --tests 'kmake.dsl.TaskBuilderTest' --debug-jvm
+                        -- then run :lua require('dap').continue() and pick this config.
+                        port = 5005,
+                        hostName = "localhost",
+                        timeout = 2000,
+                        projectRoot = "${workspaceFolder}",
+                    },
+                }
             end,
         },
 
