@@ -1,3 +1,99 @@
+-- Custom neotest strategy for debugging Kotlin/Gradle tests.
+--
+-- The fwcd kotlin-debug-adapter can only *attach* to a running JVM (its launch
+-- mode runs a main class, not a Gradle test task). So we take the gradle command
+-- neotest already built (with the --tests filter), append --debug-jvm so the test
+-- worker suspends and opens a JDWP port, wait for the actual "Listening..." line,
+-- then attach nvim-dap to that port. Waiting for the line avoids the timeout race
+-- you'd hit by attaching on a fixed delay before Gradle finishes compiling.
+local function kotlin_dap_strategy(spec, context)
+    local nio = require("nio")
+    nio.scheduler()
+    local dap = require("dap")
+
+    local cmd = spec.command
+    if type(cmd) == "table" then cmd = table.concat(cmd, " ") end
+    cmd = cmd .. " --debug-jvm"
+
+    local project_root = vim.fn.getcwd()
+    if spec.context and spec.context.test_resuls_directory then
+        project_root = spec.context.test_resuls_directory:gsub("/build/test%-results/test$", "")
+    end
+
+    local output_path = vim.fn.tempname()
+    local out = assert(io.open(output_path, "w"))
+    local closed = false
+
+    local listening = nio.control.future()
+    local finished = nio.control.future()
+    local listening_set = false
+    local result_code
+
+    local function on_data(_, data)
+        for _, line in ipairs(data) do
+            if not closed and line ~= "" then
+                out:write(line .. "\n")
+            end
+            local port = line:match("Listening for transport dt_socket at address:%s*(%d+)")
+            if port and not listening_set then
+                listening_set = true
+                listening.set(tonumber(port))
+            end
+        end
+    end
+
+    local job = vim.fn.jobstart({ "sh", "-c", cmd }, {
+        cwd = spec.cwd,
+        on_stdout = on_data,
+        on_stderr = on_data,
+        on_exit = function(_, code)
+            result_code = code
+            closed = true
+            out:close()
+            if not listening_set then
+                listening_set = true
+                listening.set(nil)
+            end
+            finished.set()
+        end,
+    })
+
+    if job <= 0 then
+        closed = true
+        out:close()
+        return nil
+    end
+
+    local port = listening.wait()
+
+    if port ~= nil and result_code == nil then
+        nio.scheduler()
+        dap.run({
+            type = "kotlin",
+            request = "attach",
+            name = "neotest: attach to test JVM",
+            hostName = "localhost",
+            port = port,
+            timeout = 5000,
+            projectRoot = project_root,
+        })
+    end
+
+    return {
+        is_complete = function() return result_code ~= nil end,
+        output = function() return output_path end,
+        attach = function() dap.repl.open() end,
+        stop = function()
+            if job > 0 then vim.fn.jobstop(job) end
+            pcall(function() dap.terminate() end)
+        end,
+        result = function()
+            finished.wait()
+            return result_code
+        end,
+    }
+end
+
 return {
     "nvim-neotest/neotest",
     dependencies = {
@@ -8,6 +104,7 @@ return {
         "nvim-neotest/neotest-go",
         "olimorris/neotest-phpunit",
         "V13Axel/neotest-pest",
+        "weilbith/neotest-gradle",
     },
     keys = {
         { '<leader>tn', function() require('neotest').run.run() end,                          desc = 'Run nearest test' },
@@ -17,7 +114,10 @@ return {
         { '<leader>ts', function() require('neotest').run.stop() end,                         desc = 'Stop test' },
         { '<leader>to', function() require('neotest').output.open({ enter = true }) end,      desc = 'Open test output' },
         { '<leader>tt', function() require('neotest').summary.toggle() end,                   desc = 'Toggle test summary' },
-        { '<leader>td', function() require('neotest').run.run({ strategy = 'dap' }) end,      desc = 'Debug nearest test' },
+        { '<leader>td', function()
+            local strategy = vim.bo.filetype == 'kotlin' and kotlin_dap_strategy or 'dap'
+            require('neotest').run.run({ strategy = strategy })
+        end, desc = 'Debug nearest test' },
     },
     config = function()
         -- Wraps neotest-phpunit's build_spec to route tests through Laravel Sail.
@@ -116,6 +216,56 @@ return {
             return adapter
         end
 
+        -- neotest-gradle's build_spec runs a *second* Gradle invocation
+        -- (`gradle properties`) just to read the `testResultsDir` property — which
+        -- Gradle 9 removed, so it resolves to "null" and result collection dies on
+        -- `null/test`. Replace build_spec with one that builds the test command
+        -- directly and points at the standard default `build/test-results/test`:
+        -- one Gradle run per test, and no dependency on the removed property.
+        local function gradle_adapter()
+            local adapter = require("neotest-gradle")
+            local lib = require("neotest.lib")
+            local find_project_directory =
+                require("neotest-gradle.hooks.find_project_directory")
+
+            adapter.build_spec = function(args)
+                local position = args.tree:data()
+                local project_directory = find_project_directory(position.path)
+
+                local wrapper_dir =
+                    lib.files.match_root_pattern("gradlew")(project_directory)
+                local gradle = wrapper_dir
+                    and (wrapper_dir .. lib.files.sep .. "gradlew")
+                    or "gradle"
+
+                local command = { gradle, "--project-dir", project_directory, "test" }
+
+                -- Filter to the selected test/class. A file run expands to one
+                -- --tests per namespace (test class) in the file; a dir run keeps
+                -- no filter and executes everything.
+                if position.type == "test" or position.type == "namespace" then
+                    vim.list_extend(command, { "--tests", "'" .. position.id .. "'" })
+                elseif position.type == "file" then
+                    for _, pos in args.tree:iter() do
+                        if pos.type == "namespace" then
+                            vim.list_extend(command, { "--tests", "'" .. pos.id .. "'" })
+                        end
+                    end
+                end
+
+                return {
+                    command = table.concat(command, " "),
+                    context = {
+                        -- NOTE: misspelled key matches neotest-gradle's own context field.
+                        test_resuls_directory = project_directory
+                            .. "/build/test-results/test",
+                    },
+                }
+            end
+
+            return adapter
+        end
+
         require("neotest").setup({
             discovery = { enabled = true, filter_dirs = { ".git", "node_modules", "vendor" } },
             output = { enabled = true, open_on_run = "short" },
@@ -126,7 +276,8 @@ return {
                     experimental = { test_table = true },
                     args = { "-count=1", "-timeout=60s" },
                 }),
-                require("neotest-pest")
+                require("neotest-pest"),
+                gradle_adapter(),
             },
         })
     end,
