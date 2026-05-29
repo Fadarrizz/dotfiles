@@ -46,10 +46,11 @@ return {
         "bash",
         "blade",
         "html",
+        "kotlin",
       })
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "php", "javascript", "c", "go", "lua", "rust", "bash", "vimdoc", "blade", "html", "klog" },
+        pattern = { "php", "javascript", "c", "go", "lua", "rust", "bash", "vimdoc", "blade", "html", "klog", "kotlin" },
         callback = function(args)
           pcall(vim.treesitter.start, args.buf)
         end,
