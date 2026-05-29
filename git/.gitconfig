@@ -1,7 +1,7 @@
 [user]
     name = "Auke Geerts"
-    email = "22003779+ageerts@users.noreply.github.com"
-    signingkey = 46BDF0EED1DD7F38
+    email = "22003779+fadarrizz@users.noreply.github.com"
+    signingkey = 68C13F84AA041C85
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -46,3 +46,5 @@
 
 [includeIf "gitdir:~/work/"]
     path = ~/.dotfiles/git/.work.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/

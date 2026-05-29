@@ -15,11 +15,15 @@ if [[ ! -f "$TEMPLATE" ]]; then
   exit 1
 fi
 
+dirs=()
+[[ -d "$HOME/projects" ]] && dirs+=("$HOME/projects")
+[[ -d "$HOME/work" ]] && dirs+=("$HOME/work")
+
 if [[ $# -eq 1 ]]; then
     SELECTED=$1
 else
     # Depth = n + 1 since .git is one level deeper than project root
-    items="$(find "$HOME/projects" "$HOME/work" -maxdepth 3 -name ".git" -type d | sed 's|/.git$||')"
+    items="$(find "${dirs[@]}" -maxdepth 3 -name ".git" -type d | sed 's|/.git$||')"
     SELECTED=$(echo "$items" | fzf)
 fi
 
