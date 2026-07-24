@@ -6,7 +6,7 @@
 # based on: https://github.com/sapegin/dotfiles/blob/master/setup/setup.sh
 
 # Exit on any failed command
-set -e
+# set -e
 
 # Ask for sudo upfront
 sudo -v
@@ -32,8 +32,8 @@ if ! command -v brew > /dev/null 2>&1; then
 fi
 
 # Allow unidentified developers
-echo "Allowing unidentified developers..."
-sudo spctl --master-disable
+#echo "Allowing unidentified developers..."
+# sudo spctl --master-disable
 
 # Install XCode command line tools, and accept its license
 echo "Installing XCode command line tools..."
@@ -47,9 +47,6 @@ echo
 echo "Configuring fzf..."
 $(brew --prefix)/opt/fzf/install
 echo
-
-# Create symlink for 1password agent
-mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 
 # Change the repo remote url to ssh
 git remote set-url origin git@github.com:Fadarrizz/dotfiles.git

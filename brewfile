@@ -1,72 +1,109 @@
 tap "codecrafters-io/tap"
-tap "domt4/autoupdate"
+tap "domt4/autoupdate", trusted: true
 tap "felixkratz/formulae"
-tap "nikitabobko/tap"
+tap "nikitabobko/tap", trusted: true
 tap "ovyerus/klog"
-tap "protonpass/tap"
+tap "protonpass/tap", trusted: true
 tap "sdkman/tap"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-brew "libpq", link: true
-brew "php"
-brew "composer"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
+# Reimplementation of ctags(1)
 brew "ctags"
-brew "docker"
+# .NET Core
 brew "dotnet"
+# Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
 brew "git"
+# Enable transparent encryption/decryption of files in a git repo
 brew "git-crypt"
+# Git extension for versioning large files
 brew "git-lfs"
+# GNU version of the tar archiving utility
 brew "gnu-tar"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-brew "go"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# GNU grep, egrep and fgrep
 brew "grep"
+# Kubernetes package manager
 brew "helm"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
-brew "klog"
+# Statically typed programming language for the JVM
 brew "kotlin"
+# OpenID Connect authentication plugin for kubectl
 brew "kubelogin"
+# Kubernetes command-line interface
 brew "kubernetes-cli"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Postgres C API library
+brew "libpq", link: true
+# Next-gen compiler infrastructure
 brew "llvm"
+# Mac App Store command-line interface
 brew "mas"
-brew "mysql"
+# Incremental parsing library
 brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Port scanning utility for large networks
 brew "nmap"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
+# Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Simple powerful testing with Python
 brew "pytest"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Ruby version manager
 brew "rbenv"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Official tldr client written in Rust
 brew "tlrc"
+# Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool
 brew "tree-sitter-cli"
+# Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Additional completion definitions for zsh
 brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-brew "felixkratz/formulae/sketchybar"
-brew "protonpass/tap/pass-cli"
-cask "nikitabobko/tap/aerospace"
-cask "alfred"
-cask "calibre"
-cask "claude-code"
-cask "colemak-dh"
-cask "docker-desktop"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
+# Developer platform
 cask "dotnet-sdk"
-cask "dropbox"
+# Screen colour temperature controller
 cask "flux-app"
 cask "font-aporetic"
 cask "font-hack-nerd-font"
@@ -74,31 +111,15 @@ cask "font-iosevka"
 cask "font-jetbrains-mono"
 cask "font-symbols-only-nerd-font"
 cask "font-victor-mono"
+# Web browser
 cask "google-chrome"
+# Keyboard customiser
 cask "karabiner-elements"
+# GPU-based terminal emulator
 cask "kitty"
-cask "libreoffice"
-cask "localsend"
-cask "mullvad-browser"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-cask "proton-drive"
-cask "proton-mail"
-cask "proton-pass"
-cask "protonvpn"
-cask "signal"
-cask "spotify"
-cask "stremio"
-cask "syncthing-app"
-cask "tableplus"
+# JDK from the Eclipse Foundation (Adoptium)
 cask "temurin@21"
-cask "tor-browser"
-cask "vlc"
+# Web browser
 cask "waterfox"
-cask "whatsapp"
-mas "Bitwarden", id: 1352778147
-mas "MacDroid", id: 1476545828
-mas "Magnet", id: 441258766
-mas "Time Out", id: 402592703
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
-go "github.com/bootdotdev/bootdev"

@@ -1,7 +1,7 @@
 [user]
     name = "Auke Geerts"
-    email = "22003779+fadarrizz@users.noreply.github.com"
-    signingkey = 68C13F84AA041C85
+    email = "auke.geerts@glovoapp.com"
+	signingkey = /Users/auke.geerts/.ssh/work.pub
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -9,6 +9,8 @@
 	smudge = git-lfs smudge -- %f
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
 [tag]
 	forceSignAnnotated = false
     gpgsign = true
@@ -44,7 +46,8 @@
 [rerere]
 	enabled = true
 
-[includeIf "gitdir:~/work/"]
-    path = ~/.dotfiles/git/.work.gitconfig
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[trace2]
+	eventTarget = af_unix:stream:/Users/auke.geerts/.git-ai/internal/daemon/trace2.sock
+	eventNesting = 0

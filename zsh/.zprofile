@@ -12,3 +12,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$DOTFILES/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin"
+
+# git-ai PATH (added by MDM post-install)
+export PATH="/Users/auke.geerts/.git-ai/bin/:$PATH"
