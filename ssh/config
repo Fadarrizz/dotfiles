@@ -1,9 +1,6 @@
 Include ~/.ssh/config.personal
 Include ~/.ssh/config.work
 
-Host github.com
-    ControlMaster no
-
 Host *
     UseKeychain yes
     AddKeysToAgent yes
