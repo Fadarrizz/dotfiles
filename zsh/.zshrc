@@ -24,10 +24,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  # must be last among plugins
 
 # Tools
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
@@ -44,22 +40,8 @@ fi
 # Ruby env
 eval "$(rbenv init - --no-rehash zsh)"
 
-# Klog completions
-source <(klog completion -c zsh)
-
 # Set keymap Sessionizer
 bindkey -s ^f "t\n"
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/aukegeerts/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-
 # Prompt (must be last)
 eval "$(starship init zsh)"
-
-# Added by git-ai installer on Mon Jul 20 15:38:24 CEST 2026
-export NODE_USE_SYSTEM_CA=1\nexport PATH="/Users/auke.geerts/.git-ai/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
