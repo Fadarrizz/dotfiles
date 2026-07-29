@@ -11,7 +11,6 @@
 
 - link:
     ~/.hushlogin: .hushlogin
-    ~/.ssh/config: ssh/config
     ~/.gitconfig: git/.gitconfig
     ~/.git_template: git/.git_template
     ~/.gitignore_global: git/.gitignore_global
@@ -22,16 +21,23 @@
     ~/.config/karabiner: karabiner
     ~/.config/kitty: kitty
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
-    ~/.Brewfile: Brewfile
-    
+    ~/.Brewfile: brewfile
+    ~/.npmrc: npm/.npmrc
+    ~/.aerospace.toml: aerospace/.aerospace.toml
+    ~/.config/starship.toml: starship/starship.toml
+
 - create:
-    - ~/projects
-    - ~/.config/nvim/undo
-    - ~/.ssh/sockets
-    - ~/.ssh/config.personal
-    - ~/.ssh/config.work
+    ~/projects:
+    ~/.config/nvim/undo:
+    ~/.ssh:
+        mode: 0700
+    ~/.ssh/sockets:
+        mode: 0700
 
 - shell:
+    - description: Copying ssh config
+      command: cp -n ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
+
     - description: Installing submodules
       command: git submodule update --init --recursive
 

@@ -17,7 +17,7 @@ accordion-padding = 0
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "M", "S", "T"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "S", "T"]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -58,10 +58,9 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "M", 
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
+    alt-c = 'workspace C' # Chat (Slack)
     alt-n = 'workspace N' # Notes
-    alt-m = 'workspace M' # Mail
     alt-s = 'workspace S' # Spotify
-    alt-t = 'workspace T' # Teams
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -73,10 +72,9 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "M", 
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-c = 'move-node-to-workspace C'
     alt-shift-n = 'move-node-to-workspace N'
-    alt-shift-m = 'move-node-to-workspace M'
     alt-shift-s = 'move-node-to-workspace S'
-    alt-shift-t = 'move-node-to-workspace T'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -108,23 +106,18 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "M", 
     alt-shift-p = ['mode main'] # Switch to main mode
 
 [[on-window-detected]]
-    if.app-id = 'md.obsidian'
-    run = "move-node-to-workspace N"
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = "move-node-to-workspace C"
 
 [[on-window-detected]]
-    if.app-id = 'com.microsoft.Outlook'
-    run = "move-node-to-workspace M"
+    if.app-id = 'md.obsidian'
+    run = "move-node-to-workspace N"
 
 [[on-window-detected]]
     if.app-id = 'com.spotify.client'
     run = "move-node-to-workspace S"
 
-[[on-window-detected]]
-    if.app-id = 'com.microsoft.teams2'
-    run = "move-node-to-workspace T"
-
 [workspace-to-monitor-force-assignment]
+    C = 'built-in'
     N = 'built-in'
-    M = 'main' # for Mail
     S = 'built-in'
-    T = 'built-in'

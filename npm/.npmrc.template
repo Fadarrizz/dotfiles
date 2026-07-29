@@ -1,0 +1,3 @@
+//npm.pkg.github.com/:_authToken={{ pass://Glovo/GitHub npm registry token/password }}
+@glovo:registry=https://npm.pkg.github.com
+always-auth=true

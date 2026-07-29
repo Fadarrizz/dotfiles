@@ -1,0 +1,14 @@
+Include ~/.colima/ssh_config
+
+Host *
+    UseKeychain yes
+    AddKeysToAgent yes
+
+    # Avoid frozen terminals
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
+
+    # Connection multiplexing - reuse existing connections
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 600

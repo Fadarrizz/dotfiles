@@ -1,15 +1,1 @@
-Include ~/.ssh/config.personal
-Include ~/.ssh/config.work
-
-Host *
-    UseKeychain yes
-    AddKeysToAgent yes
-
-    # Avoid frozen terminals
-    ServerAliveInterval 30
-    ServerAliveCountMax 3
-
-    # Connection multiplexing - reuse existing connections
-    ControlMaster auto
-    ControlPath ~/.ssh/sockets/%r@%h-%p
-    ControlPersist 600
+Include ~/.dotfiles/ssh/defaults
