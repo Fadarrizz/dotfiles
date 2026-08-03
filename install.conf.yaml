@@ -35,14 +35,17 @@
         mode: 0700
 
 - shell:
-    - description: Copying ssh config
-      command: cp -n ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
-
     - description: Installing submodules
       command: git submodule update --init --recursive
 
     - description: Bootstrapping dotfiles
       command: ./scripts/bootstrap.sh
+
+    - description: Copying ssh config
+      command: cp -n ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
+
+    - description: Generating npm/.npmrc from template
+      command: ./scripts/generate-npmrc.sh
 
     - description: Sourcing macos defaults
       command: "source ~/.dotfiles/macos/.defaults"
