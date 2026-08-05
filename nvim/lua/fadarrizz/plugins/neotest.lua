@@ -17,7 +17,7 @@ local function kotlin_dap_strategy(spec, context)
 
     local project_root = vim.fn.getcwd()
     if spec.context and spec.context.test_resuls_directory then
-        project_root = spec.context.test_resuls_directory:gsub("/build/test%-results/test$", "")
+        project_root = spec.context.test_resuls_directory:gsub("/build/test%-results/[^/]+$", "")
     end
 
     local output_path = vim.fn.tempname()
@@ -231,39 +231,82 @@ return {
             local get_package_name =
                 require("neotest-gradle.hooks.shared_utilities").get_package_name
             local xml = require("neotest.lib.xml")
+            local uv = vim.uv or vim.loop
 
-            -- Neotest represents nested classes with dots, while Gradle's
-            -- JUnit filter uses the JVM binary name (Outer$Inner.method).
+            -- Recursively delete a directory. build_spec runs in a fast event
+            -- context (nio coroutine) where vim.fn.delete is forbidden, so use
+            -- libuv's synchronous fs calls, which are allowed there.
+            local function rm_rf(path)
+                local handle = uv.fs_scandir(path)
+                if not handle then
+                    return
+                end
+                while true do
+                    local name, kind = uv.fs_scandir_next(handle)
+                    if not name then
+                        break
+                    end
+                    local entry = path .. "/" .. name
+                    if kind == "directory" then
+                        rm_rf(entry)
+                    else
+                        uv.fs_unlink(entry)
+                    end
+                end
+                uv.fs_rmdir(path)
+            end
+
+            -- Map a test file to its Gradle task via the source set it lives in.
+            -- This project (and Gradle convention) splits sources as
+            -- src/<sourceSet>/... where the source set name is also the task name:
+            -- src/test -> `test`, src/intTest -> `intTest`. Without this we'd only
+            -- ever run `test`, so integration tests would either not run or the
+            -- unfiltered `intTest` task would run its entire suite.
+            local function gradle_task_for(path)
+                local source_set = path:match("/src/([^/]+)/")
+                if source_set == "intTest" then
+                    return "intTest"
+                end
+                return "test"
+            end
+
+            -- Build a Gradle `--tests` locator for a node. Gradle expects the JVM
+            -- binary class name: package is dot-separated, but a NESTED class is
+            -- joined to its outer class with `$` (e.g. Outer$Inner), then the
+            -- method (backticks stripped) with a dot. neotest-gradle's position.id
+            -- uses dots throughout, so a nested-class filter like Outer.Inner
+            -- matches nothing ("No tests found"). Rebuild it from the tree, where
+            -- each namespace/test node carries its raw handle_name.
             local function gradle_test_pattern(node)
                 local position = node:data()
                 local class_names = {}
 
                 for parent in node:iter_parents() do
-                    if parent:data().type == "namespace" then
-                        table.insert(class_names, 1, parent:data().handle_name)
+                    local parent_data = parent:data()
+                    if parent_data.type == "namespace" and parent_data.handle_name then
+                        table.insert(class_names, 1, parent_data.handle_name)
                     end
                 end
-
-                if position.type == "namespace" then
+                if position.type == "namespace" and position.handle_name then
                     table.insert(class_names, position.handle_name)
                 end
 
+                -- Fall back to the plain id if the tree lacks handle_name (e.g. a
+                -- position discovered by a different adapter).
                 if #class_names == 0 then
                     return position.id
                 end
 
                 local package_name = get_package_name(position.path)
-                if package_name == "" then
-                    return position.id
-                end
-
+                local prefix = package_name ~= "" and (package_name .. ".") or ""
                 local class_name = table.concat(class_names, "$")
+
                 if position.type == "namespace" then
-                    return package_name .. "." .. class_name
+                    return prefix .. class_name
                 end
 
-                local method_name = position.id:match("%.[^.]+$"):sub(2)
-                return package_name .. "." .. class_name .. "." .. method_name
+                local method_name = (position.handle_name or ""):gsub("`", "")
+                return prefix .. class_name .. "." .. method_name
             end
 
             adapter.build_spec = function(args)
@@ -276,17 +319,26 @@ return {
                     and (wrapper_dir .. lib.files.sep .. "gradlew")
                     or "gradle"
 
-                local command = { gradle, "--project-dir", project_directory, "test" }
+                local task = gradle_task_for(position.path)
+                local command = { gradle, "--project-dir", project_directory, task }
+
+                -- This project's conventions chain the tasks together:
+                --   test --finalizedBy--> jacocoTestReport --dependsOn--> intTest
+                -- (see buildSrc kotlin-base-conventions / kotlin-it-conventions).
+                -- So running a single `test` drags in the entire, UNFILTERED
+                -- `intTest` suite via the report. Exclude the report and the
+                -- sibling test task so only the targeted task runs. -x on a task
+                -- that isn't in the graph is a harmless no-op.
+                local sibling = task == "test" and "intTest" or "test"
+                vim.list_extend(command, {
+                    "-x", "jacocoTestReport",
+                    "-x", sibling,
+                })
 
                 -- Filter to the selected test/class. A file run expands to one
                 -- --tests per namespace (test class) in the file; a dir run keeps
                 -- no filter and executes everything.
-                if position.type == "test" then
-                    vim.list_extend(command, {
-                        "--tests",
-                        "'" .. gradle_test_pattern(args.tree) .. "'",
-                    })
-                elseif position.type == "namespace" then
+                if position.type == "test" or position.type == "namespace" then
                     vim.list_extend(command, {
                         "--tests",
                         "'" .. gradle_test_pattern(args.tree) .. "'",
@@ -302,12 +354,22 @@ return {
                     end
                 end
 
+                local results_directory =
+                    project_directory .. "/build/test-results/" .. task
+
+                -- Remove reports from the previous run before executing. When
+                -- compilation (or test discovery) fails, Gradle aborts before the
+                -- `test` task and leaves the old XML in place. collect_results would
+                -- then re-read those stale passing reports and report a broken build
+                -- as green. Clearing the dir first means a failed compile leaves it
+                -- empty, so `results` falls back to surfacing the process output.
+                rm_rf(results_directory)
+
                 return {
                     command = table.concat(command, " "),
                     context = {
                         -- NOTE: misspelled key matches neotest-gradle's own context field.
-                        test_resuls_directory = project_directory
-                            .. "/build/test-results/test",
+                        test_resuls_directory = results_directory,
                     },
                 }
             end
