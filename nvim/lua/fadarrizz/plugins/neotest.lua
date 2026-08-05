@@ -105,6 +105,7 @@ return {
         "olimorris/neotest-phpunit",
         "V13Axel/neotest-pest",
         "weilbith/neotest-gradle",
+        "codymikol/neotest-kotlin",
     },
     keys = {
         { '<leader>tn', function() require('neotest').run.run() end,                          desc = 'Run nearest test' },
@@ -227,6 +228,43 @@ return {
             local lib = require("neotest.lib")
             local find_project_directory =
                 require("neotest-gradle.hooks.find_project_directory")
+            local get_package_name =
+                require("neotest-gradle.hooks.shared_utilities").get_package_name
+            local xml = require("neotest.lib.xml")
+
+            -- Neotest represents nested classes with dots, while Gradle's
+            -- JUnit filter uses the JVM binary name (Outer$Inner.method).
+            local function gradle_test_pattern(node)
+                local position = node:data()
+                local class_names = {}
+
+                for parent in node:iter_parents() do
+                    if parent:data().type == "namespace" then
+                        table.insert(class_names, 1, parent:data().handle_name)
+                    end
+                end
+
+                if position.type == "namespace" then
+                    table.insert(class_names, position.handle_name)
+                end
+
+                if #class_names == 0 then
+                    return position.id
+                end
+
+                local package_name = get_package_name(position.path)
+                if package_name == "" then
+                    return position.id
+                end
+
+                local class_name = table.concat(class_names, "$")
+                if position.type == "namespace" then
+                    return package_name .. "." .. class_name
+                end
+
+                local method_name = position.id:match("%.[^.]+$"):sub(2)
+                return package_name .. "." .. class_name .. "." .. method_name
+            end
 
             adapter.build_spec = function(args)
                 local position = args.tree:data()
@@ -243,12 +281,23 @@ return {
                 -- Filter to the selected test/class. A file run expands to one
                 -- --tests per namespace (test class) in the file; a dir run keeps
                 -- no filter and executes everything.
-                if position.type == "test" or position.type == "namespace" then
-                    vim.list_extend(command, { "--tests", "'" .. position.id .. "'" })
+                if position.type == "test" then
+                    vim.list_extend(command, {
+                        "--tests",
+                        "'" .. gradle_test_pattern(args.tree) .. "'",
+                    })
+                elseif position.type == "namespace" then
+                    vim.list_extend(command, {
+                        "--tests",
+                        "'" .. gradle_test_pattern(args.tree) .. "'",
+                    })
                 elseif position.type == "file" then
                     for _, pos in args.tree:iter() do
                         if pos.type == "namespace" then
-                            vim.list_extend(command, { "--tests", "'" .. pos.id .. "'" })
+                            vim.list_extend(command, {
+                                "--tests",
+                                "'" .. gradle_test_pattern(args.tree:get_key(pos.id)) .. "'",
+                            })
                         end
                     end
                 end
@@ -261,6 +310,77 @@ return {
                             .. "/build/test-results/test",
                     },
                 }
+            end
+
+            local original_results = adapter.results
+
+            -- neotest-gradle strips the first line of the failure message.
+            -- Gradle puts AssertJ's expected/actual values in that line, so
+            -- retain the complete XML message for both output and diagnostics.
+            adapter.results = function(spec, process_result, tree)
+                local results_directory = spec.context and spec.context.test_resuls_directory
+                if not results_directory or not lib.files.is_dir(results_directory) then
+                    -- Gradle does not create test reports when compilation or test
+                    -- discovery fails. Let Neotest surface the process output instead.
+                    return {}
+                end
+
+                local results = original_results(spec, process_result, tree)
+
+                local function as_list(value)
+                    return type(value) == "table" and #value > 0 and value or { value }
+                end
+
+                local function add_failure_message(test_case)
+                    local failure = test_case.failure
+                    if not failure or not failure._attr then
+                        return
+                    end
+
+                    local test_name = test_case._attr.name:gsub("%(.*%)$", "")
+                    local class_name = test_case._attr.classname
+                    local candidate_ids = {
+                        class_name .. "." .. test_name,
+                        class_name:gsub("%$", ".") .. "." .. test_name,
+                    }
+
+                    local result
+                    for _, id in ipairs(candidate_ids) do
+                        if results[id] then
+                            result = results[id]
+                            break
+                        end
+                    end
+                    if not result then
+                        return
+                    end
+
+                    local message = failure._attr.message or failure[1]
+                    if message then
+                        result.short = message
+                        result.errors = {
+                            {
+                                message = message,
+                                line = result.errors and result.errors[1] and result.errors[1].line,
+                            },
+                        }
+                    end
+                end
+
+                for _, file_path in ipairs(lib.files.find(results_directory, {
+                    filter_dir = function(file_name)
+                        return file_name:sub(-4) == ".xml"
+                    end,
+                })) do
+                    local report = xml.parse(lib.files.read(file_path))
+                    for _, suite in ipairs(as_list(report.testsuite)) do
+                        for _, test_case in ipairs(as_list(suite.testcase)) do
+                            add_failure_message(test_case)
+                        end
+                    end
+                end
+
+                return results
             end
 
             return adapter

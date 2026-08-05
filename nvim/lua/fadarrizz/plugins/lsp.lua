@@ -72,6 +72,78 @@ return {
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+        -- Kotlin LSP (JetBrains, IntelliJ-powered) completion items are
+        -- command-only: each item's `textEdit.newText` is empty, so accepting
+        -- one via cmp's normal insert pipeline would just dump the label next
+        -- to the text you already typed. The real insertion AND the import edit
+        -- are performed server-side by executing the item's `command`
+        -- (jetbrains.kotlin.completion.apply) via `workspace/executeCommand`.
+        --
+        -- That command's argument is a per-request SESSION key tied to the
+        -- buffer state when the server answered `textDocument/completion`. If
+        -- the buffer changed since (you kept typing), an older item's command
+        -- inserts at the stale position, leaving your later keystrokes behind
+        -- (e.g. "DataIn" -> "DataIntegrityViolationExceptiontaIn").
+        --
+        -- The fix is this confirm handler:
+        -- request one fresh completion at the current cursor and execute the
+        -- command of the item matching the label the user selected. The
+        -- standard `nvim_lsp` source handles everything else (display,
+        -- filtering, incomplete-list refresh), so no custom cmp source is
+        -- required. cmp.close() below never inserts, so there is no double
+        -- insertion.
+        local confirm_default = cmp.mapping.confirm({ select = true })
+
+        local function confirm_kotlin(fallback)
+            -- Non-Kotlin buffers use cmp's normal confirm/insert pipeline.
+            if vim.bo.filetype ~= 'kotlin' or not cmp.visible() then
+                return confirm_default(fallback)
+            end
+
+            local entry = cmp.get_selected_entry() or cmp.get_entries()[1]
+            local selected = entry and entry.completion_item
+            local client = vim.lsp.get_clients({ bufnr = 0, name = 'kotlin_lsp' })[1]
+            if not (selected and client) then
+                return confirm_default(fallback)
+            end
+
+            local want_label = selected.label
+            cmp.close()
+
+            local lsp_params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+            lsp_params.context = { triggerKind = 1 } -- Invoked
+            client:request('textDocument/completion', lsp_params, function(err, response)
+                if err or not response then
+                    if err then
+                        vim.notify(err.message, vim.log.levels.WARN)
+                    end
+                    return
+                end
+
+                local items = response.items or response
+                local match
+                for _, item in ipairs(items) do
+                    if item.label == want_label then
+                        match = item
+                        break
+                    end
+                end
+                match = match or items[1]
+                if not (match and match.command) then
+                    return
+                end
+
+                client:request('workspace/executeCommand', {
+                    command = match.command.command,
+                    arguments = match.command.arguments,
+                }, function(exec_err)
+                    if exec_err then
+                        vim.notify(exec_err.message, vim.log.levels.WARN)
+                    end
+                end, 0)
+            end, 0)
+        end
+
         cmp.setup({
             preselect = 'item',
             snippet = {
@@ -82,7 +154,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-y>'] = cmp.mapping(confirm_kotlin, { 'i', 's' }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
