@@ -14,8 +14,8 @@ if ! command -v pass-cli > /dev/null 2>&1; then
 fi
 
 if ! pass-cli info > /dev/null 2>&1; then
-	echo "Not logged in to Proton Pass CLI, skipping .npmrc generation. Run: pass-cli login"
-	exit 0
+	echo "Log in to Proton Pass to generate npm/.npmrc..."
+	pass-cli login
 fi
 
 pass-cli inject \

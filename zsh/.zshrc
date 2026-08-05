@@ -41,5 +41,8 @@ eval "$(rbenv init - --no-rehash zsh)"
 # Set keymap Sessionizer
 bindkey -s ^f "t\n"
 
+# Mise
+eval "$(mise activate zsh)"
+
 # Prompt (must be last)
 eval "$(starship init zsh)"

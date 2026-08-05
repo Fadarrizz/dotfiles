@@ -1,6 +1,6 @@
 [user]
     name = "Auke Geerts"
-    email = "auke.geerts@glovoapp.com"
+    email = "22003779+fadarrizz@users.noreply.github.com"
 	signingkey = /Users/auke.geerts/.ssh/work.pub
 [filter "lfs"]
 	process = git-lfs filter-process
@@ -46,8 +46,8 @@
 [rerere]
 	enabled = true
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+# [url "git@github.com:"]
+    # insteadOf = https://github.com/
 [trace2]
 	eventTarget = af_unix:stream:/Users/auke.geerts/.git-ai/internal/daemon/trace2.sock
 	eventNesting = 0

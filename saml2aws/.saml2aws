@@ -1,0 +1,14 @@
+[default]
+app_id               = 370644
+url                  = https://api.eu.onelogin.com
+username             = auke.geerts@glovoapp.com
+provider             = OneLogin
+mfa                  = TOTP 
+skip_verify          = false
+timeout              = 0
+aws_urn              = urn:amazon:webservices
+aws_session_duration = 28800
+aws_profile          = saml2aws
+resource_id          = 
+subdomain            = glovoapp
+role_arn             = 
