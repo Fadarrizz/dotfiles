@@ -25,58 +25,47 @@ return {
 
         require("fidget").setup({})
         require('mason').setup()
+
+        -- NOTE: mason-lspconfig.nvim v2+ removed the `handlers`/
+        -- `automatic_installation` options used previously. Installed
+        -- servers are now auto-enabled via the native `vim.lsp.enable()`
+        -- mechanism, so per-server overrides must go through
+        -- `vim.lsp.config()` instead of a `handlers` table.
+
+        -- Apply default capabilities (nvim-cmp completion support) to every server.
+        vim.lsp.config('*', {
+            capabilities = capabilities,
+        })
+
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }
+                    }
+                }
+            }
+        })
+
+        vim.lsp.config('html', {
+            filetypes = {
+                'antlers.html', 'antlers', 'blade.html.php', 'blade', 'html',
+            }
+        })
+
+        vim.lsp.config('phpactor', {
+            filetypes = { "php", "blade" },
+            init_options = {
+                ["language_server.diagnostics_on_update"] = false,
+                ["language_server.diagnostics_on_open"] = false,
+                ["language_server.diagnostics_on_save"] = false,
+                ["language_server_phpstan.enabled"] = false,
+                ["language_server_psalm.enabled"] = false,
+            }
+        })
+
         require('mason-lspconfig').setup({
-            automatic_installation = true,
-            ensure_installed = { 'html', 'eslint', 'intelephense', 'rust_analyzer', 'tailwindcss', 'dockerls', 'gopls', 'jsonls', 'bashls', 'pyright' },
-            handlers = {
-                function(server_name)
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
-                    }
-                end,
-
-                ["pyright"] = function ()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.pyright.setup({
-                        capabilities = capabilities,
-                    })
-                end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim" }
-                                }
-                            }
-                        }
-                    }
-                end,
-
-                ["html"] = function()
-                    require("lspconfig").html.setup {
-                        capabilities = capabilities,
-                        filetypes = {
-                            'antlers.html', 'antlers', 'blade.html.php', 'blade', 'html',
-                        }
-                    }
-                end,
-
-                ["phpactor"] = function()
-                    require("lspconfig").phpactor.setup {
-                        filetypes = { "php", "blade" },
-                        init_options = {
-                            ["language_server.diagnostics_on_update"] = false,
-                            ["language_server.diagnostics_on_open"] = false,
-                            ["language_server.diagnostics_on_save"] = false,
-                            ["language_server_phpstan.enabled"] = false,
-                            ["language_server_psalm.enabled"] = false,
-                        }
-                    }
-                end
-            },
+            ensure_installed = { 'html', 'eslint', 'intelephense', 'rust_analyzer', 'tailwindcss', 'dockerls', 'gopls', 'jsonls', 'bashls', 'pyright', 'kotlin_lsp' },
         })
 
         require("luasnip.loaders.from_vscode").lazy_load()
