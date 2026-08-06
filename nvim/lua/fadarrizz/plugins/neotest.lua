@@ -327,13 +327,17 @@ return {
                 -- (see buildSrc kotlin-base-conventions / kotlin-it-conventions).
                 -- So running a single `test` drags in the entire, UNFILTERED
                 -- `intTest` suite via the report. Exclude the report and the
-                -- sibling test task so only the targeted task runs. -x on a task
-                -- that isn't in the graph is a harmless no-op.
+                -- sibling test task so only the targeted task runs.
+                vim.list_extend(command, { "-x", "jacocoTestReport" })
+
+                -- Only exclude the sibling test task if it actually exists in this
+                -- module. Gradle errors ("Task 'intTest' not found") when -x names
+                -- a task the project doesn't have, and not every module has an
+                -- intTest source set. Presence of src/<sibling> means the task exists.
                 local sibling = task == "test" and "intTest" or "test"
-                vim.list_extend(command, {
-                    "-x", "jacocoTestReport",
-                    "-x", sibling,
-                })
+                if lib.files.is_dir(project_directory .. "/src/" .. sibling) then
+                    vim.list_extend(command, { "-x", sibling })
+                end
 
                 -- Filter to the selected test/class. A file run expands to one
                 -- --tests per namespace (test class) in the file; a dir run keeps
