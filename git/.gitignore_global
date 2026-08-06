@@ -52,5 +52,6 @@ phptest
 ######################
 Session.vim
 .phpactor.json
+.neotest.json
 
 **/.claude/settings.local.json

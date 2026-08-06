@@ -257,17 +257,47 @@ return {
             end
 
             -- Map a test file to its Gradle task via the source set it lives in.
-            -- This project (and Gradle convention) splits sources as
-            -- src/<sourceSet>/... where the source set name is also the task name:
-            -- src/test -> `test`, src/intTest -> `intTest`. Without this we'd only
-            -- ever run `test`, so integration tests would either not run or the
-            -- unfiltered `intTest` task would run its entire suite.
+            -- Standard Gradle convention lays sources out as src/<sourceSet>/...
+            -- where the source set name is also the test task name (src/test ->
+            -- `test`, src/intTest -> `intTest`, etc.). The `main` source set has no
+            -- test task, so fall back to `test`.
             local function gradle_task_for(path)
                 local source_set = path:match("/src/([^/]+)/")
-                if source_set == "intTest" then
-                    return "intTest"
+                if source_set and source_set ~= "main" then
+                    return source_set
                 end
                 return "test"
+            end
+
+            -- Optional, per-machine project configuration. Some projects wire test
+            -- tasks together (e.g. `test` finalizedBy a coverage report that
+            -- dependsOn `intTest`), so running one filtered test drags in an entire
+            -- sibling suite. Rather than hardcode any project's conventions here,
+            -- read an OPTIONAL, git-ignored `.neotest.json` from the Gradle root:
+            --   {
+            --     "excludeTasks": ["jacocoTestReport"],
+            --     "excludeSourceSetTasks": ["intTest"]
+            --   }
+            -- - excludeTasks: always passed as `-x` (must exist in every module).
+            -- - excludeSourceSetTasks: passed as `-x` only when the module has the
+            --   matching src/<name> source set, since Gradle errors if `-x` names a
+            --   task the module lacks ("Task 'intTest' not found").
+            -- Absent file => generic behavior (no exclusions). Keep this file out of
+            -- the project's VCS via your global gitignore so it never affects others.
+            local function load_project_config(start_dir)
+                local root = lib.files.match_root_pattern(
+                    "settings.gradle", "settings.gradle.kts", "gradlew"
+                )(start_dir) or start_dir
+                local config_path = root .. "/.neotest.json"
+                local ok, content = pcall(lib.files.read, config_path)
+                if not ok then
+                    return {}
+                end
+                local decoded_ok, decoded = pcall(vim.json.decode, content)
+                if not decoded_ok or type(decoded) ~= "table" then
+                    return {}
+                end
+                return decoded
             end
 
             -- Build a Gradle `--tests` locator for a node. Gradle expects the JVM
@@ -322,21 +352,19 @@ return {
                 local task = gradle_task_for(position.path)
                 local command = { gradle, "--project-dir", project_directory, task }
 
-                -- This project's conventions chain the tasks together:
-                --   test --finalizedBy--> jacocoTestReport --dependsOn--> intTest
-                -- (see buildSrc kotlin-base-conventions / kotlin-it-conventions).
-                -- So running a single `test` drags in the entire, UNFILTERED
-                -- `intTest` suite via the report. Exclude the report and the
-                -- sibling test task so only the targeted task runs.
-                vim.list_extend(command, { "-x", "jacocoTestReport" })
+                local config = load_project_config(project_directory)
 
-                -- Only exclude the sibling test task if it actually exists in this
-                -- module. Gradle errors ("Task 'intTest' not found") when -x names
-                -- a task the project doesn't have, and not every module has an
-                -- intTest source set. Presence of src/<sibling> means the task exists.
-                local sibling = task == "test" and "intTest" or "test"
-                if lib.files.is_dir(project_directory .. "/src/" .. sibling) then
-                    vim.list_extend(command, { "-x", sibling })
+                -- Apply project-configured task exclusions (see load_project_config).
+                for _, excluded in ipairs(config.excludeTasks or {}) do
+                    if excluded ~= task then
+                        vim.list_extend(command, { "-x", excluded })
+                    end
+                end
+                for _, excluded in ipairs(config.excludeSourceSetTasks or {}) do
+                    if excluded ~= task
+                        and lib.files.is_dir(project_directory .. "/src/" .. excluded) then
+                        vim.list_extend(command, { "-x", excluded })
+                    end
                 end
 
                 -- Filter to the selected test/class. A file run expands to one
