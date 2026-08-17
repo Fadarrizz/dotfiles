@@ -20,7 +20,7 @@ fi
 
 pass-cli inject \
 	--in-file "${BASEDIR}/npm/.npmrc.template" \
-	--out-file "${BASEDIR}/npm/.npmrc" \
+	--out-file "${HOME}/.npmrc" \
 	--force \
 	--file-mode 0600
 
