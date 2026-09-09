@@ -1,4 +1,5 @@
 tap "anomalyco/tap"
+tap "deliveryhero/dp-tap", "git@github.com:deliveryhero/homebrew-dp-tap.git"
 tap "domt4/autoupdate", trusted: true
 tap "nikitabobko/tap", trusted: true
 tap "protonpass/tap", trusted: true
@@ -62,6 +63,8 @@ brew "libpq", link: true
 brew "llvm"
 # Mac App Store command-line interface
 brew "mas"
+# Java-based project management
+brew "maven"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Incremental parsing library
@@ -74,10 +77,14 @@ brew "nginx"
 brew "nmap"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Manage multiple Node.js versions
+brew "nvm"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Fast, disk space efficient package manager
+brew "pnpm"
 # Simple powerful testing with Python
 brew "pytest"
 # Interpreted, interactive, object-oriented programming language
@@ -112,6 +119,8 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
+# CLI for interacting with Delivery Hero Platform infrastructure
+brew "deliveryhero/dp-tap/dp-devinfra", trusted: true
 # Proton Pass CLI - Command-line interface for Proton Pass
 brew "protonpass/tap/pass-cli", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -130,16 +139,30 @@ cask "font-symbols-only-nerd-font"
 cask "font-victor-mono"
 # Web browser
 cask "google-chrome"
+# HTTP client from JetBrains IDEs available as a standalone CLI tool
+cask "ijhttp"
 # Keyboard customiser
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # AI coding agent desktop client
 cask "opencode-desktop"
+# Native GUI tool for relational databases
+cask "tableplus"
 # JDK from the Eclipse Foundation (Adoptium)
 cask "temurin@21"
+# Multimedia player
+cask "vlc"
 # Web browser
 cask "waterfox"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "Numbers", id: 409203825
 go "github.com/bootdotdev/bootdev"
+npm "@opencode-ai/cli"
+npm "corepack"
+npm "pnpm"
