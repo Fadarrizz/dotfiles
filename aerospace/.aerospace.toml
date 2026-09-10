@@ -58,9 +58,9 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "S", 
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
+    alt-a = 'workspace A' # AI
     alt-c = 'workspace C' # Chat (Slack)
     alt-n = 'workspace N' # Notes
-    alt-s = 'workspace S' # Spotify
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -72,9 +72,9 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "S", 
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-a = 'move-node-to-workspace A'
     alt-shift-c = 'move-node-to-workspace C'
     alt-shift-n = 'move-node-to-workspace N'
-    alt-shift-s = 'move-node-to-workspace S'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -113,11 +113,6 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "N", "S", 
     if.app-id = 'md.obsidian'
     run = "move-node-to-workspace N"
 
-[[on-window-detected]]
-    if.app-id = 'com.spotify.client'
-    run = "move-node-to-workspace S"
-
 [workspace-to-monitor-force-assignment]
-    C = 'built-in'
-    N = 'built-in'
-    S = 'built-in'
+    C = ['secondary', 'built-in']
+    N = ['secondary', 'built-in']
